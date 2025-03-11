@@ -1,0 +1,43 @@
+@import "./style.scss";
+@import "./common.scss";
+@import "./mixin.scss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+body {
+  background-image: url(../images/bg1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container {
+  width: $width-wide;
+  max-width: $break-large;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @include responsive(large-screens) {
+    width: $width-wide;
+    max-width: $break-large;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+}
+// ============
+
+// ++ header 
+header {
+  position: fixed;
+  height: 60px;
+}
+
+
+
+section {
+  @include responsive(large-screens) {
+    height: 900px;
+    width: 100%;
+  }
+}
+
+// ++ main

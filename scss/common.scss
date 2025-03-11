@@ -1,0 +1,49 @@
+@import "./style.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px "Noto Sans KR";
+  color: $color-white;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  display: block;
+  text-decoration: none;
+  color: $color-white;
+}
+img {
+  display: block;
+  width: $width-wide;
+}
+span,
+strong {
+  color: $color-white;
+}
+address {
+  font-style: normal;
+}
+h1 { // logo
+  font-size: 0;
+}
+h2 {
+  font-size: $mobile-h2;
+  text-align: center;
+  color: $color-white;
+  text-shadow: 1px 0 8px #252525;
+}
+h3 {
+  font-size: $mobile-h3;
+  font-family: $font-main;
+}
+p {
+  font-size: 14px;
+  line-height: 1.8;
+}
