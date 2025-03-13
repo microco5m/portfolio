@@ -1,7 +1,7 @@
 @import "./style.scss";
 @import "./common.scss";
 @import "./mixin.scss";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
 
 body {
   background-image: url(../images/bg1.jpg);
@@ -50,7 +50,7 @@ header {
       right: 0px;
       z-index: 120;
       width: 40px;
-      
+
       // height: 38px; 
       // background-color: aquamarine;
       span {
@@ -88,19 +88,25 @@ header {
         text-align: right;
         // border: 2px solid red;
         font-size: 24px;
-        
+
         li {
           margin: 10px;
+
           a {
             span {
 
               &:hover {
                 animation: letter-spacing-ani 0.5s ease-in forwards;
                 font-weight: 600;
-                
+
                 @keyframes letter-spacing-ani {
-                  0% { letter-spacing:0 }
-                  100% { letter-spacing:5px }
+                  0% {
+                    letter-spacing: 0
+                  }
+
+                  100% {
+                    letter-spacing: 5px
+                  }
                 }
               }
             }
@@ -118,6 +124,7 @@ header {
 
 //공통소스
 section {
+
   // height: 900px;
   @include responsive(large-screens) {
     width: 100%;
@@ -127,6 +134,8 @@ section {
 h2 {
   padding: 5px;
   margin-bottom: 30px;
+  text-align: center;
+
   .point-blue {
     color: $color-blue;
     font-weight: 600;
@@ -134,10 +143,12 @@ h2 {
 }
 
 main {
+  margin: 0 auto;
 
   .Intro {
     position: relative;
     height: 900px;
+
     .moon {
       // transform: scale(200%);
       // position: absolute;
@@ -155,16 +166,20 @@ main {
       top: -60vh;
       z-index: -1;
     }
+
     .rocket {
       position: absolute;
       top: 160px;
     }
   }
+
   .About-me {
     padding-top: 60px;
+
     .flex-box {
       position: relative;
       height: 900px;
+
       .profile-line {
         position: absolute;
         top: 0;
@@ -190,6 +205,7 @@ main {
           border-bottom-right-radius: 130px;
           border-bottom-left-radius: 130px;
         }
+
         // background-color: aquamarine;
         // display: grid;
         // grid-template-columns: repeat(2, 50%);
@@ -237,7 +253,7 @@ main {
         height: 535px;
       }
     }
-  } // About-me
+  }// About-me
 
   .Skill {
     padding-top: 60px;
@@ -247,6 +263,7 @@ main {
       grid-template-columns: repeat(2, 158px);
       grid-template-rows: minmax(158px, auto);
       gap: 12px;
+
       li {
         display: flex;
         align-items: center;
@@ -256,6 +273,7 @@ main {
 
         border: 15px solid #D9D9D9;
         border-radius: 90px;
+
         // background-color: rgba($color: hsl(0, 0%, 100%), $alpha: 0.9);
         a {
           img {
@@ -267,23 +285,26 @@ main {
         }
       }
     }
-  } //Skill
+  }//Skill
 
   .Prortfolio {
     padding-top: 60px;
     text-align: center;
 
     //공통
-    .site-sample{
+    .site-sample {
       margin-bottom: 60px;
+
       h3 {
         padding: 5px;
         border-bottom: 3px solid $color-white;
         margin-bottom: 10px;
       }
+
       strong {
         font-size: 18px;
       }
+
       p {
         font-size: 16px;
         margin: 30px 0;
@@ -291,6 +312,23 @@ main {
 
       .btns {
         margin-top: 50px;
+
+        .btn-plan,
+        .btn-page {
+          position: relative;
+          width: 208px;
+          margin: 0 auto;
+        }
+
+        span {
+          position: absolute;
+          top: 0;
+          right: 20px;
+          font: 35px $font-arrow;
+          color: $color-black;
+          font-weight: normal;
+        }
+
         input {
           width: 208px;
           height: 57px;
@@ -300,48 +338,129 @@ main {
           border-radius: 30px;
           background-color: $color-white;
 
-          margin-bottom: 10px;
-        }
-        
-        .btn-plan {
-          position: relative;
-          width: 208px;
-          margin: 0 auto;
+          background-repeat: no-repeat;
+          background-position: center left 10px;
+          background-size: 39px;
 
-          img {
-            position: absolute;
-            top: 18px;
-            right: 20px;
-            width: 39px;
-          }
+          margin-bottom: 10px;
+
+          &:hover {}
+        }
+
+        .btn-plan {
           input {
             background-image: url(../images/i-logo-btn.svg);
-            background-repeat: no-repeat;
-            background-position: center left 10px;
-            background-size: 39px;
-
           }
         }
 
         .btn-page {
-          position: relative;
-          width: 208px;
-          margin: 0 auto;
-
-          img {
-            position: absolute;
-            top: 18px;
-            right: 20px;
-            width: 39px;
-          }
           input {
             background-image: url(../images/i-github-mark.svg);
-            background-repeat: no-repeat;
-            background-position: center left 10px;
-            background-size: 39px;
           }
         }
       }
     }
-  } //Prortfolio
+    
+    .coding-sample {
+      padding-top: 60px;
+  
+      .coding-sample-list {
+        ul {
+          display: flex;
+          
+          width: 100%;
+          li {
+            &:nth-child(1) {
+              margin-right: 12px;
+            }
+            a {
+              
+              img {
+                margin-bottom: 20px;
+              }
+  
+              h4 {
+                position: relative;
+                width: 156px;
+                font-size: 16px;
+                padding: 3px;
+                border: 2px solid $color-white;
+                border-radius: 20px;
+                &::before {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  content: " ";
+                  width: 152px;
+                  height: 32px;
+                  border: 2px solid $color-white;
+                border-radius: 20px;
+  
+                }
+              }
+            }
+          }
+        }
+      }
+    } // coding-sample
+  }  //Prortfolio
+  
+  .Contact {
+    position: relative;
+    height: 840px;
+    margin-top: 60px;
+    text-align: center;
+    // background-color: pink;
+    overflow: hidden;
+    
+    h2 {
+      margin-bottom: 60px;
+    }
+    .email-txt {
+      strong {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      a {
+        font-size: 20px;
+      }
+    }
+
+    .img-1 {
+      display: inline-block;
+      width: 92px;
+      height: 67px;
+      border: 1px solid $color-white;
+      margin-top: 60px;
+      margin-bottom: 50px;
+    }
+
+    .message {
+      margin-bottom: 90px;
+      p {
+        font-size: 32px;
+        line-height: 1.2;
+      }
+    }
+
+    .person {
+      position: absolute;
+      bottom: 80px;
+      width: 134px;
+      left: 50%;
+      transform: translate(-50%);
+      z-index: 10;
+      img {
+        display: inline-block;
+        width: 134px;
+      }
+    }
+
+    .earth {
+      position: absolute;
+      bottom: -40vh;
+      z-index: 0;
+      transform: scale(200%);
+    }
+  }
 }

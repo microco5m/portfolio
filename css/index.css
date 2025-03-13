@@ -1,4 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ribeye&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ribeye&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -45,14 +50,20 @@ h1 {
 
 h2 {
   font-size: calc(32px + 0.2vw);
-  text-align: center;
+  font-family: "Ribeye";
   color: #fff;
-  text-shadow: 1px 0 8px #252525;
+  letter-spacing: 3px;
 }
 
 h3 {
   font-size: calc(24px + 0.2vw);
   font-family: "Noto Sans KR";
+}
+
+h4 {
+  font-size: 16px;
+  font-family: "Noto Sans KR";
+  font-weight: normal;
 }
 
 p {
@@ -158,12 +169,16 @@ header .logo-menu-flex .main-menu .gnb li a span:hover {
 h2 {
   padding: 5px;
   margin-bottom: 30px;
+  text-align: center;
 }
 h2 .point-blue {
   color: #3E81FF;
   font-weight: 600;
 }
 
+main {
+  margin: 0 auto;
+}
 main .Intro {
   position: relative;
   height: 900px;
@@ -267,6 +282,20 @@ main .Prortfolio .site-sample p {
 main .Prortfolio .site-sample .btns {
   margin-top: 50px;
 }
+main .Prortfolio .site-sample .btns .btn-plan,
+main .Prortfolio .site-sample .btns .btn-page {
+  position: relative;
+  width: 208px;
+  margin: 0 auto;
+}
+main .Prortfolio .site-sample .btns span {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font: 35px "Comfortaa";
+  color: #000;
+  font-weight: normal;
+}
 main .Prortfolio .site-sample .btns input {
   width: 208px;
   height: 57px;
@@ -274,39 +303,95 @@ main .Prortfolio .site-sample .btns input {
   border: 1px solid #000;
   border-radius: 30px;
   background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center left 10px;
+  background-size: 39px;
   margin-bottom: 10px;
-}
-main .Prortfolio .site-sample .btns .btn-plan {
-  position: relative;
-  width: 208px;
-  margin: 0 auto;
-}
-main .Prortfolio .site-sample .btns .btn-plan img {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  width: 39px;
 }
 main .Prortfolio .site-sample .btns .btn-plan input {
   background-image: url(../images/i-logo-btn.svg);
-  background-repeat: no-repeat;
-  background-position: center left 10px;
-  background-size: 39px;
-}
-main .Prortfolio .site-sample .btns .btn-page {
-  position: relative;
-  width: 208px;
-  margin: 0 auto;
-}
-main .Prortfolio .site-sample .btns .btn-page img {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  width: 39px;
 }
 main .Prortfolio .site-sample .btns .btn-page input {
   background-image: url(../images/i-github-mark.svg);
-  background-repeat: no-repeat;
-  background-position: center left 10px;
-  background-size: 39px;
+}
+main .Prortfolio .coding-sample {
+  padding-top: 60px;
+}
+main .Prortfolio .coding-sample .coding-sample-list ul {
+  display: flex;
+  width: 100%;
+}
+main .Prortfolio .coding-sample .coding-sample-list ul li:nth-child(1) {
+  margin-right: 12px;
+}
+main .Prortfolio .coding-sample .coding-sample-list ul li a img {
+  margin-bottom: 20px;
+}
+main .Prortfolio .coding-sample .coding-sample-list ul li a h4 {
+  position: relative;
+  width: 156px;
+  font-size: 16px;
+  padding: 3px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+}
+main .Prortfolio .coding-sample .coding-sample-list ul li a h4::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: " ";
+  width: 152px;
+  height: 32px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+}
+main .Contact {
+  position: relative;
+  height: 840px;
+  margin-top: 60px;
+  text-align: center;
+  overflow: hidden;
+}
+main .Contact h2 {
+  margin-bottom: 60px;
+}
+main .Contact .email-txt strong {
+  font-size: 24px;
+  font-weight: 600;
+}
+main .Contact .email-txt a {
+  font-size: 20px;
+}
+main .Contact .img-1 {
+  display: inline-block;
+  width: 92px;
+  height: 67px;
+  border: 1px solid #fff;
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+main .Contact .message {
+  margin-bottom: 90px;
+}
+main .Contact .message p {
+  font-size: 32px;
+  line-height: 1.2;
+}
+main .Contact .person {
+  position: absolute;
+  bottom: 80px;
+  width: 134px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 10;
+}
+main .Contact .person img {
+  display: inline-block;
+  width: 134px;
+}
+main .Contact .earth {
+  position: absolute;
+  bottom: -40vh;
+  z-index: 0;
+  transform: scale(200%);
 }/*# sourceMappingURL=index.css.map */

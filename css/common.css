@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ribeye&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -44,14 +47,20 @@ h1 {
 
 h2 {
   font-size: calc(32px + 0.2vw);
-  text-align: center;
+  font-family: "Ribeye";
   color: #fff;
-  text-shadow: 1px 0 8px #252525;
+  letter-spacing: 3px;
 }
 
 h3 {
   font-size: calc(24px + 0.2vw);
   font-family: "Noto Sans KR";
+}
+
+h4 {
+  font-size: 16px;
+  font-family: "Noto Sans KR";
+  font-weight: normal;
 }
 
 p {

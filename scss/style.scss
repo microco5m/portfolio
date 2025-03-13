@@ -1,9 +1,15 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ribeye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
 $color-blue: #3E81FF;
 $color-black: #000;
 $color-white: #fff;
 
-$font-main:"Noto Sans KR";
+$font-main: "Noto Sans KR";
+$font-point: "Ribeye";
+$font-arrow: "Comfortaa";
 
 $mobile-h2: calc(32px + 0.2vw);
 $mobile-h3: calc(24px + 0.2vw);

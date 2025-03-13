@@ -38,13 +38,18 @@ h1 { // logo
 }
 h2 {
   font-size: $mobile-h2;
-  text-align: center;
+  font-family: $font-point;
   color: $color-white;
-  text-shadow: 1px 0 8px #252525;
+  letter-spacing: 3px;
 }
 h3 {
   font-size: $mobile-h3;
   font-family: $font-main;
+}
+h4 {
+  font-size: 16px;
+  font-family: $font-main;
+  font-weight: normal;
 }
 p {
   font-size: 14px;
