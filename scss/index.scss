@@ -50,10 +50,11 @@ header {
       right: 0px;
       z-index: 120;
       width: 40px;
-
+      
       // height: 38px; 
       // background-color: aquamarine;
       span {
+        box-shadow: 1px 1px 5px #00000057;
         display: block;
         height: 6px;
         width: 100%;
@@ -117,23 +118,230 @@ header {
 
 //공통소스
 section {
-  height: 900px;
+  // height: 900px;
   @include responsive(large-screens) {
     width: 100%;
   }
 }
 
-.point-blue {
-  color: $color-blue;
-  font-weight: 600;
+h2 {
+  padding: 5px;
+  margin-bottom: 30px;
+  .point-blue {
+    color: $color-blue;
+    font-weight: 600;
+  }
 }
 
 main {
 
   .Intro {
+    position: relative;
+    height: 900px;
     .moon {
+      // transform: scale(200%);
+      // position: absolute;
+      // z-index: -1;
+
+      // background-color: aquamarine;
+
       background-image: url(../images/moon.png);
-      
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: -60vh;
+      z-index: -1;
+    }
+    .rocket {
+      position: absolute;
+      top: 160px;
     }
   }
+  .About-me {
+    padding-top: 60px;
+    .flex-box {
+      position: relative;
+      height: 900px;
+      .profile-line {
+        position: absolute;
+        top: 0;
+        left: 6px;
+        width: 306px;
+        height: 316px;
+        border: 3px solid $color-white;
+        border-top-left-radius: 160px;
+        border-top-right-radius: 160px;
+        border-bottom-right-radius: 130px;
+        border-bottom-left-radius: 130px;
+
+        &::before {
+          position: absolute;
+          top: 4px;
+          left: 6px;
+          content: '';
+          width: 300px;
+          height: 310px;
+          border: 3px solid $color-white;
+          border-top-left-radius: 160px;
+          border-top-right-radius: 160px;
+          border-bottom-right-radius: 130px;
+          border-bottom-left-radius: 130px;
+        }
+        // background-color: aquamarine;
+        // display: grid;
+        // grid-template-columns: repeat(2, 50%);
+        // grid-template-rows: minmax(153px,auto);
+        // span {
+        //   // display: inline-block;
+
+
+        //   &:nth-child(1) {
+        //     // background-color: red;
+        //     border-top: 3px solid $color-white;
+        //     border-left: 3px solid $color-white;
+        //     border-top-left-radius: 160px;
+        //     width: 153px;
+        //     height: 153px;
+        //   }
+        //   &:nth-child(2) {
+        //     border-top: 3px solid $color-white;
+        //     border-right: 3px solid $color-white;
+        //     border-top-right-radius: 160px;
+        //     width: 153px;
+        //     height: 153px;
+        //   }
+        //   &:nth-child(3) {
+        //     border-left: 3px solid $color-white;
+        //     border-bottom: 3px solid $color-white;
+        //     border-bottom-left-radius: 130px;
+        //     width: 153px;
+        //     height: 163px;
+        //   }
+        //   &:nth-child(4) {
+        //     border-right: 3px solid $color-white;
+        //     border-bottom: 3px solid $color-white;
+        //     border-bottom-right-radius: 130px;
+        //     width: 153px;
+        //     height: 163px;
+        //   }
+        // };
+      }
+
+      .profile-square {
+        position: absolute;
+        bottom: 0;
+        background-color: aquamarine;
+        height: 535px;
+      }
+    }
+  } // About-me
+
+  .Skill {
+    padding-top: 60px;
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(2, 158px);
+      grid-template-rows: minmax(158px, auto);
+      gap: 12px;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 158px;
+        height: 158px;
+
+        border: 15px solid #D9D9D9;
+        border-radius: 90px;
+        // background-color: rgba($color: hsl(0, 0%, 100%), $alpha: 0.9);
+        a {
+          img {
+            margin: 0 auto;
+            width: 98px;
+            height: 98px;
+            border-radius: 24px;
+          }
+        }
+      }
+    }
+  } //Skill
+
+  .Prortfolio {
+    padding-top: 60px;
+    text-align: center;
+
+    //공통
+    .site-sample{
+      margin-bottom: 60px;
+      h3 {
+        padding: 5px;
+        border-bottom: 3px solid $color-white;
+        margin-bottom: 10px;
+      }
+      strong {
+        font-size: 18px;
+      }
+      p {
+        font-size: 16px;
+        margin: 30px 0;
+      }
+
+      .btns {
+        margin-top: 50px;
+        input {
+          width: 208px;
+          height: 57px;
+          font: 24px $font-main;
+
+          border: 1px solid $color-black;
+          border-radius: 30px;
+          background-color: $color-white;
+
+          margin-bottom: 10px;
+        }
+        
+        .btn-plan {
+          position: relative;
+          width: 208px;
+          margin: 0 auto;
+
+          img {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            width: 39px;
+          }
+          input {
+            background-image: url(../images/i-logo-btn.svg);
+            background-repeat: no-repeat;
+            background-position: center left 10px;
+            background-size: 39px;
+
+          }
+        }
+
+        .btn-page {
+          position: relative;
+          width: 208px;
+          margin: 0 auto;
+
+          img {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            width: 39px;
+          }
+          input {
+            background-image: url(../images/i-github-mark.svg);
+            background-repeat: no-repeat;
+            background-position: center left 10px;
+            background-size: 39px;
+          }
+        }
+      }
+    }
+  } //Prortfolio
 }

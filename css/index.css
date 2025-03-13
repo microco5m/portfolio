@@ -106,6 +106,7 @@ header .logo-menu-flex #mobile-btn {
   width: 40px;
 }
 header .logo-menu-flex #mobile-btn span {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3411764706);
   display: block;
   height: 6px;
   width: 100%;
@@ -148,20 +149,164 @@ header .logo-menu-flex .main-menu .gnb li a span:hover {
   }
 }
 
-section {
-  height: 900px;
-}
 @media (min-width: 1440px) {
   section {
     width: 100%;
   }
 }
 
-.point-blue {
+h2 {
+  padding: 5px;
+  margin-bottom: 30px;
+}
+h2 .point-blue {
   color: #3E81FF;
   font-weight: 600;
 }
 
+main .Intro {
+  position: relative;
+  height: 900px;
+}
 main .Intro .moon {
   background-image: url(../images/moon.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: -60vh;
+  z-index: -1;
+}
+main .Intro .rocket {
+  position: absolute;
+  top: 160px;
+}
+main .About-me {
+  padding-top: 60px;
+}
+main .About-me .flex-box {
+  position: relative;
+  height: 900px;
+}
+main .About-me .flex-box .profile-line {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 306px;
+  height: 316px;
+  border: 3px solid #fff;
+  border-top-left-radius: 160px;
+  border-top-right-radius: 160px;
+  border-bottom-right-radius: 130px;
+  border-bottom-left-radius: 130px;
+}
+main .About-me .flex-box .profile-line::before {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  content: "";
+  width: 300px;
+  height: 310px;
+  border: 3px solid #fff;
+  border-top-left-radius: 160px;
+  border-top-right-radius: 160px;
+  border-bottom-right-radius: 130px;
+  border-bottom-left-radius: 130px;
+}
+main .About-me .flex-box .profile-square {
+  position: absolute;
+  bottom: 0;
+  background-color: aquamarine;
+  height: 535px;
+}
+main .Skill {
+  padding-top: 60px;
+}
+main .Skill .skill-list {
+  display: grid;
+  grid-template-columns: repeat(2, 158px);
+  grid-template-rows: minmax(158px, auto);
+  gap: 12px;
+}
+main .Skill .skill-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 158px;
+  height: 158px;
+  border: 15px solid #D9D9D9;
+  border-radius: 90px;
+}
+main .Skill .skill-list li a img {
+  margin: 0 auto;
+  width: 98px;
+  height: 98px;
+  border-radius: 24px;
+}
+main .Prortfolio {
+  padding-top: 60px;
+  text-align: center;
+}
+main .Prortfolio .site-sample {
+  margin-bottom: 60px;
+}
+main .Prortfolio .site-sample h3 {
+  padding: 5px;
+  border-bottom: 3px solid #fff;
+  margin-bottom: 10px;
+}
+main .Prortfolio .site-sample strong {
+  font-size: 18px;
+}
+main .Prortfolio .site-sample p {
+  font-size: 16px;
+  margin: 30px 0;
+}
+main .Prortfolio .site-sample .btns {
+  margin-top: 50px;
+}
+main .Prortfolio .site-sample .btns input {
+  width: 208px;
+  height: 57px;
+  font: 24px "Noto Sans KR";
+  border: 1px solid #000;
+  border-radius: 30px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+main .Prortfolio .site-sample .btns .btn-plan {
+  position: relative;
+  width: 208px;
+  margin: 0 auto;
+}
+main .Prortfolio .site-sample .btns .btn-plan img {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 39px;
+}
+main .Prortfolio .site-sample .btns .btn-plan input {
+  background-image: url(../images/i-logo-btn.svg);
+  background-repeat: no-repeat;
+  background-position: center left 10px;
+  background-size: 39px;
+}
+main .Prortfolio .site-sample .btns .btn-page {
+  position: relative;
+  width: 208px;
+  margin: 0 auto;
+}
+main .Prortfolio .site-sample .btns .btn-page img {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 39px;
+}
+main .Prortfolio .site-sample .btns .btn-page input {
+  background-image: url(../images/i-github-mark.svg);
+  background-repeat: no-repeat;
+  background-position: center left 10px;
+  background-size: 39px;
 }/*# sourceMappingURL=index.css.map */

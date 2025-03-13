@@ -37,13 +37,13 @@
     </div>
 
     <section class="Intro"> <!-- section : 높이 900px -->
-      <div class="container">
-        <h2 style="font-size: 0;">Intro</h2>
-        <div class="moon"></div>
-        <img src="./images/rocket.png" alt="rocket">
-        <div class="mouse">
-          <span></span>
-        </div>
+      <h2 style="font-size: 0;">Intro</h2>
+      <div class="moon">
+        <!-- <img src="./images/moon.png" alt=""> -->
+      </div>
+      <img src="./images/rocket.png" alt="rocket" class="rocket">
+      <div class="mouse">
+        <span></span>
       </div>
     </section>
 
@@ -51,13 +51,13 @@
       <div class="container">
         <h2>About m<span class="point-blue">e</span></h2>
         <div class="flex-box">
-          <div class="profile-pic">
-            <img src="" alt="">
+          <div class="profile-line"> <!--  도형 -->
+
           </div>
 
           <div class="profile-square">
             <div class="profile-txt">
-              <strong class="introduction-1">끝임없이 도전하고 성장하는</strong>
+              <strong class="introduction-1">끝임없이 도전하고 성장하는</strong> <br>
               <strong class="introduction-2">웹퍼블리셔 <b>조아현</b>입니다</strong>
 
               <p>
@@ -159,62 +159,84 @@
       <div class="container">
         <h2>Portfoli<span class="point-blue">o</span></h2>
 
-        <div class="portfolio-1">
+        <div class="site-sample site1">
           <img src="./images/portfolio_1.png" alt="포트폴리오 이미지">
           <div class="portfolio-txt">
             <h3>메디힐 리뉴얼</h3>
             <strong>메인페이지 리뉴얼</strong>
-            <p>JS CSS</p>
+            <p>JS &nbsp;CSS</p>
 
             <div class="btns">
-              <input type="button" value="Plan">
-              <input type="button" value="Page">
+              <a href="#none" class="btn-plan">
+                <img src="./images/i-arrow.png" alt="arrow">
+                <input type="button" value="Plan">
+              </a>
+
+              <a href="#none" class="btn-page">
+                <img src="./images/i-arrow.png" alt="arrow">
+                <input type="button" value="Page">
+              </a>
             </div>
           </div>
         </div> <!-- portfolio-1 -->
 
-        <div class="portfolio-2">
+        <div class="site-sample site2">
           <img src="./images/portfolio_1.png" alt="포트폴리오 이미지">
           <div class="portfolio-txt">
-            <h3>메디힐 리뉴얼</h3>
-            <strong>메인페이지 리뉴얼</strong>
-            <p>JS CSS</p>
+            <h3>고요화</h3>
+            <strong>팀 프로젝트 홈페이지 제작</strong>
+            <p>JS &nbsp;CSS &nbsp;SASS &nbsp;jQuery <br>
+              포토샵 &nbsp;일러스트레이터 &nbsp;피그마</p>
 
-            <div class="btns">
-              <input type="button" value="Plan">
-              <input type="button" value="Page">
-            </div>
+              <div class="btns">
+                <a href="#none" class="btn-plan">
+                  <img src="./images/i-arrow.png" alt="arrow">
+                  <input type="button" value="Plan">
+                </a>
+  
+                <a href="#none" class="btn-page">
+                  <img src="./images/i-arrow.png" alt="arrow">
+                  <input type="button" value="Page">
+                </a>
+              </div>
           </div>
         </div> <!-- portfolio-2 -->
 
-        <div class="portfolio-3">
+        <div class="site-sample site3">
           <img src="./images/portfolio_1.png" alt="포트폴리오 이미지">
           <div class="portfolio-txt">
             <h3>메디힐 리뉴얼</h3>
             <strong>메인페이지 리뉴얼</strong>
-            <p>JS CSS</p>
+            <p>JS &nbsp;CSS</p>
 
             <div class="btns">
-              <input type="button" value="Plan">
-              <input type="button" value="Page">
+              <a href="#none" class="btn-plan">
+                <img src="./images/i-arrow.png" alt="arrow">
+                <input type="button" value="Plan">
+              </a>
+
+              <a href="#none" class="btn-page">
+                <img src="./images/i-arrow.png" alt="arrow">
+                <input type="button" value="Page">
+              </a>
             </div>
           </div>
         </div> <!-- portfolio-3 -->
 
-        <div class="portfolio-4">
+        <div class="coding-sample">
           <div class="4-title">
             <h3>React</h3>
             <h3>Javascript</h3>
           </div>
 
-          <div class="">
+          <div class="coding-sample-list">
             <ul>
               <li>
-                <img src="./images/Artboard 1.png" alt="리액트 투두리스트">
+                <img src="./images/Artboard.png" alt="리액트 투두리스트">
                 <h4>Todo-List</h4>
               </li>
               <li>
-                <img src="./images/Artboard 1.png" alt="자바스크립트 키오스크">
+                <img src="./images/Artboard.png" alt="자바스크립트 키오스크">
                 <h4>Kiosk</h4>
               </li>
             </ul>
@@ -238,6 +260,7 @@
       </div>
     </section><!-- Contact -->
   </main>
+
 </body>
 
 </html>
