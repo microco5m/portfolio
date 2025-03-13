@@ -23,21 +23,117 @@ body {
     padding: 0 10px;
   }
 }
+
 // ============
 
 // ++ header 
 header {
   position: fixed;
   height: 60px;
+  width: 100%;
+
+  .logo-menu-flex {
+    position: relative;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      width: 50px;
+      height: 44px;
+    }
+
+    #mobile-btn {
+      position: absolute;
+      top: 14px;
+      right: 0px;
+      z-index: 120;
+      width: 40px;
+
+      // height: 38px; 
+      // background-color: aquamarine;
+      span {
+        display: block;
+        height: 6px;
+        width: 100%;
+        border-radius: 5px;
+        background-color: $color-white;
+
+        &:nth-child(2) {
+          margin: 7px 0;
+        }
+
+        // &.active { //메뉴가 열렸을 때 X 모양으로 변경하기
+
+        // }
+      }
+    }
+
+    .main-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 60vh;
+      border-bottom-left-radius: 100%;
+      background-color: $color-blue;
+      width: 100vw;
+
+      .gnb {
+        position: absolute;
+        top: 60px;
+        right: 50px;
+        text-align: right;
+        // border: 2px solid red;
+        font-size: 24px;
+        
+        li {
+          margin: 10px;
+          a {
+            span {
+
+              &:hover {
+                animation: letter-spacing-ani 0.5s ease-in forwards;
+                font-weight: 600;
+                
+                @keyframes letter-spacing-ani {
+                  0% { letter-spacing:0 }
+                  100% { letter-spacing:5px }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 
 
+
+// ++ main
+
+//공통소스
 section {
+  height: 900px;
   @include responsive(large-screens) {
-    height: 900px;
     width: 100%;
   }
 }
 
-// ++ main
+.point-blue {
+  color: $color-blue;
+  font-weight: 600;
+}
+
+main {
+
+  .Intro {
+    .moon {
+      background-image: url(../images/moon.png);
+      
+    }
+  }
+}

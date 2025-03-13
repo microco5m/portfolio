@@ -26,8 +26,12 @@ img {
   width: 100%;
 }
 
-span,
 strong {
+  color: #fff;
+  font-weight: normal;
+}
+
+span {
   color: #fff;
 }
 
@@ -81,11 +85,83 @@ body {
 header {
   position: fixed;
   height: 60px;
+  width: 100%;
+}
+header .logo-menu-flex {
+  position: relative;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo-menu-flex .logo {
+  width: 50px;
+  height: 44px;
+}
+header .logo-menu-flex #mobile-btn {
+  position: absolute;
+  top: 14px;
+  right: 0px;
+  z-index: 120;
+  width: 40px;
+}
+header .logo-menu-flex #mobile-btn span {
+  display: block;
+  height: 6px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+}
+header .logo-menu-flex #mobile-btn span:nth-child(2) {
+  margin: 7px 0;
+}
+header .logo-menu-flex .main-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60vh;
+  border-bottom-left-radius: 100%;
+  background-color: #3E81FF;
+  width: 100vw;
+}
+header .logo-menu-flex .main-menu .gnb {
+  position: absolute;
+  top: 60px;
+  right: 50px;
+  text-align: right;
+  font-size: 24px;
+}
+header .logo-menu-flex .main-menu .gnb li {
+  margin: 10px;
+}
+header .logo-menu-flex .main-menu .gnb li a span:hover {
+  animation: letter-spacing-ani 0.5s ease-in forwards;
+  font-weight: 600;
+}
+@keyframes letter-spacing-ani {
+  0% {
+    letter-spacing: 0;
+  }
+  100% {
+    letter-spacing: 5px;
+  }
 }
 
+section {
+  height: 900px;
+}
 @media (min-width: 1440px) {
   section {
-    height: 900px;
     width: 100%;
   }
+}
+
+.point-blue {
+  color: #3E81FF;
+  font-weight: 600;
+}
+
+main .Intro .moon {
+  background-image: url(../images/moon.png);
 }/*# sourceMappingURL=index.css.map */

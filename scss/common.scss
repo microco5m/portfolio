@@ -23,8 +23,11 @@ img {
   display: block;
   width: $width-wide;
 }
-span,
 strong {
+  color: $color-white;
+  font-weight: normal;
+}
+span{
   color: $color-white;
 }
 address {
