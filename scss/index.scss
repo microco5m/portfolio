@@ -358,17 +358,32 @@ main {
           
         }
       }
-
       .profile-square {
+        position: relative;
         background-color: green;
-          width: 100%;
-          height: 535px;
-          padding-top: 50px;
+        width: 100%;
+        height: 535px;
+        padding-top: 50px;
         @include responsive(large-screens) {
           width: 50%;
           height: 650px;
         }
-
+        
+        .box-line1 {
+          position: absolute;
+          top: 10px;
+          right: 0;
+          width: 200px;
+          border: 1px solid white;
+          &::after {
+            position: absolute;
+          top: 10px;
+          right: 10px;
+          content: "";
+          width: 200px;
+          border: 1px solid white;
+          }
+        }
         .profile-txt {
           width: 90%;
           margin: 0 auto;
@@ -476,7 +491,7 @@ main {
         }
       }
     }
-  }//Skill
+  }// Skill
 
   .Portfolio-site {
     text-align: center;
@@ -632,7 +647,8 @@ main {
         }
       }
     }
-  }  //Prortfolio
+  } // Prortfolio
+
   .Portfolio-other {
     @include responsive(large-screens) {
       height: 950px;
@@ -728,6 +744,7 @@ main {
     } // coding-sample
     
   }
+
   .Contact {
     position: relative;
     height: 840px;

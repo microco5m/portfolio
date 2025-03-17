@@ -306,25 +306,8 @@ main .Intro .mouse a span::before {
   margin-left: -3px;
   background-color: #fff;
   border-radius: 100%;
-  -webkit-animation: sdb 2s infinite;
   animation: sdb 2s infinite;
   box-sizing: border-box;
-}
-@-webkit-keyframes sdb {
-  0% {
-    -webkit-transform: translate(0, 0);
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    -webkit-transform: translate(0, 20px);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 @keyframes sdb {
   0% {
@@ -415,6 +398,7 @@ main .About-me .flex-box .profile-photobox .profile-line::before {
   }
 }
 main .About-me .flex-box .profile-square {
+  position: relative;
   background-color: green;
   width: 100%;
   height: 535px;
@@ -425,6 +409,21 @@ main .About-me .flex-box .profile-square {
     width: 50%;
     height: 650px;
   }
+}
+main .About-me .flex-box .profile-square .box-line1 {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 200px;
+  border: 1px solid white;
+}
+main .About-me .flex-box .profile-square .box-line1::after {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  content: "";
+  width: 200px;
+  border: 1px solid white;
 }
 main .About-me .flex-box .profile-square .profile-txt {
   width: 90%;
