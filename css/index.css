@@ -90,7 +90,6 @@ body {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 10px;
-    border: 1px dotted red;
   }
 }
 
@@ -249,10 +248,42 @@ main .Intro {
   overflow: hidden;
   height: 90vh;
 }
+main .Intro .scroll-right {
+  position: relative;
+}
+@media (min-width: 1440px) {
+  main .Intro .scroll-right .scroll-bar {
+    position: fixed;
+    top: 120px;
+    margin-left: 30px;
+    height: 300px;
+    width: 3px;
+    background-color: white;
+  }
+}
+@media (min-width: 1440px) {
+  main .Intro .scroll-right .scroll-bar .scroll-circle {
+    position: absolute;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    left: -6px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  main .Intro .scroll-right .scroll-bar .scroll-circle::before {
+    content: "";
+    position: absolute;
+    top: 285px;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 10px;
+  }
+}
 @media (min-width: 1440px) {
   main .Intro {
     height: 950px;
-    border-bottom: 1px solid #fff;
   }
 }
 main .Intro .moon {
@@ -328,7 +359,6 @@ main .Intro .mouse a span::before {
 @media (min-width: 1440px) {
   main .About-me {
     height: 950px;
-    border-bottom: 1px solid #fff;
   }
 }
 @media (min-width: 1440px) {
@@ -513,7 +543,6 @@ main .About-me .flex-box .profile-square .profile-txt .info li .bg-box {
 @media (min-width: 1440px) {
   main .Skill {
     height: 950px;
-    border-bottom: 1px solid #fff;
   }
 }
 main .Skill .wrapper .skill-list {
@@ -528,7 +557,6 @@ main .Skill .wrapper .skill-list {
     grid-template-columns: repeat(5, 180px);
     gap: 60px;
     grid-template-rows: minmax(180px, auto);
-    background-color: lightcoral;
   }
 }
 main .Skill .wrapper .skill-list li {
@@ -568,7 +596,6 @@ main .Portfolio-site {
 @media (min-width: 1440px) {
   main .Portfolio-site {
     height: 950px;
-    border-bottom: 1px solid #fff;
   }
 }
 @media (min-width: 1440px) {
@@ -668,11 +695,13 @@ main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a {
   margin-bottom: 10px;
 }
 main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a:hover {
-  color: white;
   background-color: #000;
   border: 1px solid #fff;
 }
 main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a span {
+  color: #000;
+}
+main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a .arrow {
   position: absolute;
   top: 0;
   right: 15px;
@@ -707,7 +736,6 @@ main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-pag
 @media (min-width: 1440px) {
   main .Portfolio-other {
     height: 950px;
-    border-bottom: 1px solid #fff;
   }
 }
 main .Portfolio-other .sample-flex {
@@ -798,7 +826,7 @@ main .Portfolio-other .sample-flex .tab-content ul li a h4::before {
 main .Portfolio-other .sample-flex #tab-2 {
   display: none;
 }
-main .Contact {
+main .Contact .position-box {
   position: relative;
   height: 840px;
   text-align: center;
@@ -806,21 +834,21 @@ main .Contact {
   margin-top: 100px;
 }
 @media (min-width: 1440px) {
-  main .Contact {
+  main .Contact .position-box {
     height: 900px;
     text-align: none;
   }
 }
-main .Contact h2 {
+main .Contact .position-box h2 {
   margin-bottom: 60px;
 }
 @media (min-width: 1440px) {
-  main .Contact h2 {
+  main .Contact .position-box h2 {
     margin-left: 120px;
   }
 }
 @media (min-width: 1440px) {
-  main .Contact .email-txt {
+  main .Contact .position-box .email-txt {
     position: absolute;
     top: 150px;
     left: 200px;
@@ -829,7 +857,7 @@ main .Contact h2 {
     border: 1px solid white;
     border-radius: 40px;
   }
-  main .Contact .email-txt::before {
+  main .Contact .position-box .email-txt::before {
     content: " ";
     position: absolute;
     top: 4px;
@@ -840,25 +868,25 @@ main .Contact h2 {
     border-radius: 40px;
   }
 }
-main .Contact .email-txt strong {
+main .Contact .position-box .email-txt strong {
   font-size: 24px;
   font-weight: 600;
 }
 @media (min-width: 1440px) {
-  main .Contact .email-txt strong {
+  main .Contact .position-box .email-txt strong {
     font-size: 36px;
   }
 }
-main .Contact .email-txt a {
+main .Contact .position-box .email-txt a {
   font-size: 20px;
 }
 @media (min-width: 1440px) {
-  main .Contact .email-txt a {
+  main .Contact .position-box .email-txt a {
     font-size: 32px;
   }
 }
 @media (min-width: 1440px) {
-  main .Contact .tale1 {
+  main .Contact .position-box .tale1 {
     position: absolute;
     top: 300px;
     left: 540px;
@@ -867,7 +895,7 @@ main .Contact .email-txt a {
     background-color: white;
     transform: rotate(30deg);
   }
-  main .Contact .tale1::before {
+  main .Contact .position-box .tale1::before {
     position: absolute;
     content: "";
     top: -3px;
@@ -878,7 +906,7 @@ main .Contact .email-txt a {
     transform: rotate(10deg);
   }
 }
-main .Contact .img-1 {
+main .Contact .position-box .img-1 {
   display: inline-block;
   width: 92px;
   height: 67px;
@@ -887,15 +915,15 @@ main .Contact .img-1 {
   margin-bottom: 50px;
 }
 @media (min-width: 1440px) {
-  main .Contact .img-1 {
+  main .Contact .position-box .img-1 {
     display: none;
   }
 }
-main .Contact .message {
+main .Contact .position-box .message {
   margin-bottom: 90px;
 }
 @media (min-width: 1440px) {
-  main .Contact .message {
+  main .Contact .position-box .message {
     position: absolute;
     top: 200px;
     right: 150px;
@@ -905,7 +933,7 @@ main .Contact .message {
     border-radius: 40px;
     margin-bottom: 0;
   }
-  main .Contact .message::before {
+  main .Contact .position-box .message::before {
     content: " ";
     position: absolute;
     top: 4px;
@@ -916,22 +944,22 @@ main .Contact .message {
     border-radius: 40px;
   }
 }
-main .Contact .message p {
+main .Contact .position-box .message p {
   font-size: 32px;
   line-height: 1.2;
 }
 @media (min-width: 1440px) {
-  main .Contact .message p {
+  main .Contact .position-box .message p {
     text-align: left;
     font-size: 40px;
     margin-left: 30px;
   }
 }
-main .Contact .message p .point-blue {
+main .Contact .position-box .message p .point-blue {
   color: #3E81FF;
 }
 @media (min-width: 1440px) {
-  main .Contact .tale2 {
+  main .Contact .position-box .tale2 {
     position: absolute;
     top: 350px;
     right: 490px;
@@ -940,7 +968,7 @@ main .Contact .message p .point-blue {
     background-color: white;
     transform: rotate(-40deg);
   }
-  main .Contact .tale2::before {
+  main .Contact .position-box .tale2::before {
     position: absolute;
     content: "";
     top: 2px;
@@ -951,7 +979,7 @@ main .Contact .message p .point-blue {
     transform: rotate(7deg);
   }
 }
-main .Contact .person {
+main .Contact .position-box .person {
   position: absolute;
   bottom: 80px;
   left: 50%;
@@ -960,29 +988,29 @@ main .Contact .person {
   z-index: 10;
 }
 @media (min-width: 1440px) {
-  main .Contact .person {
+  main .Contact .position-box .person {
     width: 200px;
     bottom: 200px;
     transform: translate(-40%);
   }
 }
-main .Contact .person img {
+main .Contact .position-box .person img {
   display: inline-block;
   width: 134px;
 }
 @media (min-width: 1440px) {
-  main .Contact .person img {
+  main .Contact .position-box .person img {
     width: 200px;
   }
 }
-main .Contact .earth {
+main .Contact .position-box .earth {
   position: absolute;
   bottom: -40vh;
   z-index: 0;
   transform: scale(200%);
 }
 @media (min-width: 1440px) {
-  main .Contact .earth {
+  main .Contact .position-box .earth {
     bottom: -120vh;
     transform: scale(100%);
   }

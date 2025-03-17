@@ -21,7 +21,7 @@ body {
     max-width: $break-large;
     margin: 0 auto;
     padding: 0 10px;
-    border: 1px dotted red;
+    // border: 1px dotted red;
   }
 }
 
@@ -188,15 +188,49 @@ h2 {
 
 main {
   margin: 0 auto;
-
+  
   .Intro {
     position: relative;
     overflow: hidden;
     height: 90vh;
-
+    .scroll-right {
+      position: relative;
+      // background-color: aquamarine;
+      .scroll-bar {
+        @include responsive(large-screens) {
+          position: fixed;
+          top: 120px;
+          // left: 10px;
+          margin-left: 30px;
+          height: 300px;
+          width: 3px;
+          
+          background-color: white;
+        }
+        .scroll-circle {
+          @include responsive(large-screens) {
+            position: absolute;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            left: -6px;
+            background-color: white;
+            border-radius: 10px;
+            &::before {
+              content: "";
+              position: absolute;
+              top: 285px;
+              width: 15px;
+              height: 15px;
+              background-color: white;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+    }
     @include responsive(large-screens) {
       height: 950px;
-      border-bottom: 1px solid $color-white;
     }
     .moon {
       position: absolute;
@@ -292,10 +326,12 @@ main {
   }
 
   .About-me {
+    
     @include responsive(large-screens) {
       height: 950px;
-      border-bottom: 1px solid $color-white;
     }
+
+
     .flex-box {
       @include responsive(large-screens) {
         display: flex;
@@ -472,7 +508,6 @@ main {
   .Skill {
     @include responsive(large-screens) {
       height: 950px;
-      border-bottom: 1px solid $color-white;
     }
     .wrapper {
 
@@ -486,7 +521,7 @@ main {
           grid-template-columns: repeat(5, 180px);
           gap: 60px;
           grid-template-rows: minmax(180px, auto);
-          background-color: lightcoral;
+          // background-color: lightcoral;
         }
         
         li {
@@ -530,7 +565,6 @@ main {
     background-size: cover;
     @include responsive(large-screens) {
       height: 950px;
-      border-bottom: 1px solid $color-white;
     }
     //공통
     .site-box {
@@ -630,11 +664,13 @@ main {
                 margin-bottom: 10px;
 
                 &:hover {
-                  color: white;
                   background-color: $color-black;
                   border: 1px solid $color-white;
                 }
                 span {
+                  color: $color-black;
+                }
+                .arrow {
                   position: absolute;
                   top: 0;
                   right: 15px;
@@ -682,7 +718,6 @@ main {
   .Portfolio-other {
     @include responsive(large-screens) {
       height: 950px;
-      border-bottom: 1px solid $color-white;
     }
     .sample-flex {
       padding-top: 60px;
@@ -776,182 +811,184 @@ main {
   }
 
   .Contact {
-    position: relative;
-    height: 840px;
-    text-align: center;
-    // background-color: pink;
-    overflow: hidden;
-    margin-top: 100px;
+    
+    .position-box {
+      position: relative;
+      height: 840px;
+      text-align: center;
+      // background-color: pink;
+      overflow: hidden;
+      margin-top: 100px;
 
-    @include responsive(large-screens) {
-      height: 900px;
-      text-align: none;
-
-    }
-    h2 {
-      margin-bottom: 60px;
       @include responsive(large-screens) {
-        margin-left: 120px;
+        height: 900px;
+        text-align: none;
       }
-    }
-    .email-txt {
-      @include responsive(large-screens) {
-        position: absolute;
-        top: 150px;
-        left: 200px;
-        text-align: right;
-        padding: 25px;
-        border: 1px solid white;
-        border-radius: 40px;
-        &::before {
-          content: " ";
+      h2 {
+        margin-bottom: 60px;
+        @include responsive(large-screens) {
+          margin-left: 120px;
+        }
+      }
+      .email-txt {
+        @include responsive(large-screens) {
           position: absolute;
-          top: 4px;
-          left: 4px;
-          width: 368px;
-          height: 148px;
+          top: 150px;
+          left: 200px;
+          text-align: right;
+          padding: 25px;
           border: 1px solid white;
           border-radius: 40px;
+          &::before {
+            content: " ";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 368px;
+            height: 148px;
+            border: 1px solid white;
+            border-radius: 40px;
+          }
+        }
+        strong {
+          font-size: 24px;
+          font-weight: 600;
+          @include responsive(large-screens) {
+            font-size: 36px;
+          }
+        }
+        a {
+          font-size: 20px;
+          @include responsive(large-screens) {
+            font-size: 32px;
+          }
         }
       }
-      strong {
-        font-size: 24px;
-        font-weight: 600;
+      .tale1 {
         @include responsive(large-screens) {
-          font-size: 36px;
-        }
-      }
-      a {
-        font-size: 20px;
-        @include responsive(large-screens) {
-          font-size: 32px;
-        }
-      }
-    }
-    .tale1 {
-      @include responsive(large-screens) {
-        position: absolute;
-        top: 300px;
-        left: 540px;
-        width: 60px;
-        height: 1px;
-        background-color: white;
-        transform: rotate(30deg);
-        &::before {
           position: absolute;
-          content: "";
-          top: -3px;
-          left: 5px;
+          top: 300px;
+          left: 540px;
           width: 60px;
           height: 1px;
           background-color: white;
-          transform: rotate(10deg);
+          transform: rotate(30deg);
+          &::before {
+            position: absolute;
+            content: "";
+            top: -3px;
+            left: 5px;
+            width: 60px;
+            height: 1px;
+            background-color: white;
+            transform: rotate(10deg);
+          }
         }
       }
-    }
-
-    .img-1 {
-      display: inline-block;
-      width: 92px;
-      height: 67px;
-      border: 1px solid $color-white;
-      margin-top: 60px;
-      margin-bottom: 50px;
-      @include responsive(large-screens) {
-        display: none;
+  
+      .img-1 {
+        display: inline-block;
+        width: 92px;
+        height: 67px;
+        border: 1px solid $color-white;
+        margin-top: 60px;
+        margin-bottom: 50px;
+        @include responsive(large-screens) {
+          display: none;
+        }
       }
-    }
-
-    .message {
-      margin-bottom: 90px;
-      @include responsive(large-screens) {
-        position: absolute;
-        top: 200px;
-        right: 150px;
-        // text-align: left;
-        padding: 25px;
-        width: 367px;
-        border: 1px solid white;
-        border-radius: 40px;
-        margin-bottom: 0;
-        // background-color: aquamarine;
-
-        &::before {
-          content: " ";
+  
+      .message {
+        margin-bottom: 90px;
+        @include responsive(large-screens) {
           position: absolute;
-          top: 4px;
-          left: 4px;
-          width: 368px;
-          height: 148px;
+          top: 200px;
+          right: 150px;
+          // text-align: left;
+          padding: 25px;
+          width: 367px;
           border: 1px solid white;
           border-radius: 40px;
+          margin-bottom: 0;
+          // background-color: aquamarine;
+  
+          &::before {
+            content: " ";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 368px;
+            height: 148px;
+            border: 1px solid white;
+            border-radius: 40px;
+          }
+        }
+        p {
+          font-size: 32px;
+          line-height: 1.2;
+          @include responsive(large-screens) {
+            text-align: left;
+            font-size: 40px;
+            margin-left: 30px;
+          }
+          .point-blue {
+            color: $color-blue;
+          }
         }
       }
-      p {
-        font-size: 32px;
-        line-height: 1.2;
+      .tale2 {
         @include responsive(large-screens) {
-          text-align: left;
-          font-size: 40px;
-          margin-left: 30px;
-        }
-        .point-blue {
-          color: $color-blue;
-        }
-      }
-    }
-    .tale2 {
-      @include responsive(large-screens) {
-        position: absolute;
-        top: 350px;
-        right: 490px;
-        width: 70px;
-        height: 1px;
-        background-color: white;
-        transform: rotate(-40deg);
-        &::before {
           position: absolute;
-          content: "";
-          top: 2px;
-          right: -3px;
+          top: 350px;
+          right: 490px;
           width: 70px;
           height: 1px;
           background-color: white;
-          transform: rotate(7deg);
+          transform: rotate(-40deg);
+          &::before {
+            position: absolute;
+            content: "";
+            top: 2px;
+            right: -3px;
+            width: 70px;
+            height: 1px;
+            background-color: white;
+            transform: rotate(7deg);
+          }
         }
       }
-    }
-    .person {
-      position: absolute;
-      bottom: 80px;
-      left: 50%;
-      transform: translate(-50%);
-      width: 134px;
-      z-index: 10;
-      @include responsive(large-screens) {
-        width: 200px;
-        bottom: 200px;
-        transform: translate(-40%);
-      }
-      img {
-        display: inline-block;
+      .person {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        transform: translate(-50%);
         width: 134px;
+        z-index: 10;
         @include responsive(large-screens) {
           width: 200px;
-  
+          bottom: 200px;
+          transform: translate(-40%);
+        }
+        img {
+          display: inline-block;
+          width: 134px;
+          @include responsive(large-screens) {
+            width: 200px;
+    
+          }
         }
       }
-    }
-
-    .earth {
-      position: absolute;
-      bottom: -40vh;
-      z-index: 0;
-      transform: scale(200%);
-      @include responsive(large-screens) {
-        bottom: -120vh;
-        transform: scale(100%);
-
+  
+      .earth {
+        position: absolute;
+        bottom: -40vh;
+        z-index: 0;
+        transform: scale(200%);
+        @include responsive(large-screens) {
+          bottom: -120vh;
+          transform: scale(100%);
+  
+        }
       }
     }
   }
