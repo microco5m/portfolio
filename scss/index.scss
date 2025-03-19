@@ -234,13 +234,24 @@ main {
     }
     .moon {
       position: absolute;
-      top: -40vh;
+      top: -300px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: -1;
-      transform: scale(200%);
+      width: 1200px;
+      @include responsive(medium-screens) {
+        top: -300px;
+      }
+
       @include responsive(large-screens) {
-        transform: scale(90%);
-        top: -1200px;
-        left: 0;
+        top: -400px;
+        transform: translateX(-60%);
+      }
+
+      img {
+        @include responsive(large-screens) {
+          width: 1440px;
+        }
       }
     }
 
@@ -272,7 +283,9 @@ main {
           border: 2px solid #fff;
           border-radius: 50px;
           box-sizing: border-box;
-
+          @include responsive(large-screens) {
+            bottom: 10vh;
+          }
           &::before {
             position: absolute;
             top: 10px;
@@ -506,6 +519,10 @@ main {
   }// About-me
 
   .Skill {
+    text-align: center;
+    background-image: url(../images/bg2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     @include responsive(large-screens) {
       height: 950px;
     }
@@ -559,10 +576,7 @@ main {
   }// Skill
 
   .Portfolio-site {
-    text-align: center;
-    background-image: url(../images/bg2.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+
     @include responsive(large-screens) {
       height: 950px;
     }
@@ -814,14 +828,14 @@ main {
     
     .position-box {
       position: relative;
-      height: 840px;
+      height: 800px;
       text-align: center;
       // background-color: pink;
       overflow: hidden;
       margin-top: 100px;
 
       @include responsive(large-screens) {
-        height: 900px;
+        height: 800px;
         text-align: none;
       }
       h2 {
@@ -893,7 +907,7 @@ main {
         border: 1px solid $color-white;
         margin-top: 60px;
         margin-bottom: 50px;
-        @include responsive(large-screens) {
+        @include responsive(medium-screens) {
           display: none;
         }
       }
@@ -981,13 +995,11 @@ main {
   
       .earth {
         position: absolute;
-        bottom: -40vh;
+        bottom: -50px;
+        left: 0;
         z-index: 0;
-        transform: scale(200%);
         @include responsive(large-screens) {
-          bottom: -120vh;
-          transform: scale(100%);
-  
+          bottom: -300px;
         }
       }
     }

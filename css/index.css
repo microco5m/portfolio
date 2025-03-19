@@ -288,15 +288,26 @@ main .Intro .scroll-right {
 }
 main .Intro .moon {
   position: absolute;
-  top: -40vh;
+  top: -300px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: -1;
-  transform: scale(200%);
+  width: 1200px;
+}
+@media (min-width: 768px) {
+  main .Intro .moon {
+    top: -300px;
+  }
 }
 @media (min-width: 1440px) {
   main .Intro .moon {
-    transform: scale(90%);
-    top: -1200px;
-    left: 0;
+    top: -400px;
+    transform: translateX(-60%);
+  }
+}
+@media (min-width: 1440px) {
+  main .Intro .moon img {
+    width: 1440px;
   }
 }
 main .Intro .rocket {
@@ -326,6 +337,11 @@ main .Intro .mouse a span {
   border: 2px solid #fff;
   border-radius: 50px;
   box-sizing: border-box;
+}
+@media (min-width: 1440px) {
+  main .Intro .mouse a span {
+    bottom: 10vh;
+  }
 }
 main .Intro .mouse a span::before {
   position: absolute;
@@ -540,6 +556,12 @@ main .About-me .flex-box .profile-square .profile-txt .info li .bg-box {
     font-size: 16px;
   }
 }
+main .Skill {
+  text-align: center;
+  background-image: url(../images/bg2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 @media (min-width: 1440px) {
   main .Skill {
     height: 950px;
@@ -586,12 +608,6 @@ main .Skill .wrapper .skill-list li a img {
   main .Skill .wrapper .skill-list2 {
     justify-content: right;
   }
-}
-main .Portfolio-site {
-  text-align: center;
-  background-image: url(../images/bg2.png);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 @media (min-width: 1440px) {
   main .Portfolio-site {
@@ -828,14 +844,14 @@ main .Portfolio-other .sample-flex #tab-2 {
 }
 main .Contact .position-box {
   position: relative;
-  height: 840px;
+  height: 800px;
   text-align: center;
   overflow: hidden;
   margin-top: 100px;
 }
 @media (min-width: 1440px) {
   main .Contact .position-box {
-    height: 900px;
+    height: 800px;
     text-align: none;
   }
 }
@@ -914,7 +930,7 @@ main .Contact .position-box .img-1 {
   margin-top: 60px;
   margin-bottom: 50px;
 }
-@media (min-width: 1440px) {
+@media (min-width: 768px) {
   main .Contact .position-box .img-1 {
     display: none;
   }
@@ -1005,13 +1021,12 @@ main .Contact .position-box .person img {
 }
 main .Contact .position-box .earth {
   position: absolute;
-  bottom: -40vh;
+  bottom: -50px;
+  left: 0;
   z-index: 0;
-  transform: scale(200%);
 }
 @media (min-width: 1440px) {
   main .Contact .position-box .earth {
-    bottom: -120vh;
-    transform: scale(100%);
+    bottom: -300px;
   }
 }/*# sourceMappingURL=index.css.map */
