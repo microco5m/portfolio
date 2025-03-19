@@ -59,12 +59,22 @@ header {
       right: 0px;
       z-index: 120;
       width: 40px;
-      @include responsive(large-screens) {
-        display: none;
-        
+      height: 35px;
+      display: block;
+      cursor: pointer;
+      &.active {
+        span {
+          &:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+          }
+        }
       }
-      // height: 38px; 
-      // background-color: aquamarine;
       span {
         box-shadow: 1px 1px 5px #00000057;
         display: block;
@@ -72,14 +82,19 @@ header {
         width: 100%;
         border-radius: 5px;
         background-color: $color-white;
+        position: absolute;
 
+        &:nth-child(1) {
+          top: 0;
+        }
         &:nth-child(2) {
-          margin: 7px 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        &:nth-child(3) {
+          bottom: 0;
         }
 
-        // &.active { //메뉴가 열렸을 때 X 모양으로 변경하기
-
-        // }
       }
     }
 
@@ -277,8 +292,8 @@ main {
           position: absolute;
           bottom: 3vh;
           left: 50%;
-          width: 30px;
-          height: 50px;
+          width: 35px;
+          height: 55px;
           margin-left: -15px;
           border: 2px solid #fff;
           border-radius: 50px;
@@ -289,19 +304,18 @@ main {
           &::before {
             position: absolute;
             top: 10px;
-            left: 50%;
+            left: 45%;
             content: '';
-            width: 6px;
-            height: 6px;
+            width: 10px;
+            height: 10px;
             margin-left: -3px;
-            background-color: #fff;
+            background-color: $color-blue;
             border-radius: 100%;
             -webkit-animation: sdb 2s infinite;
-            animation: sdb 2s infinite;
-            box-sizing: border-box;
+            animation: wheel-up-dw 2s infinite;
           }
 
-          @-webkit-keyframes sdb {
+          @-webkit-keyframes wheel-up-dw {
             0% {
               -webkit-transform: translate(0, 0);
               opacity: 0;
@@ -317,7 +331,7 @@ main {
               opacity: 0;
             }
           }
-          @keyframes sdb {
+          @keyframes wheel-up-dw {
             0% {
               transform: translate(0, 0);
               opacity: 0;
@@ -534,6 +548,7 @@ main {
         grid-template-columns: repeat(2, 158px);
         grid-template-rows: minmax(158px, auto);
         gap: 12px;
+        
         @include responsive(large-screens) {
           grid-template-columns: repeat(5, 180px);
           gap: 60px;
@@ -541,35 +556,54 @@ main {
           // background-color: lightcoral;
         }
         
-        li {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .progress-circle {
+          position: relative;
           width: 158px;
           height: 158px;
+
+          display: flex;
+          // flex-direction: column;
+          align-items: center;
+          justify-content: center;
   
-          border: 15px solid #D9D9D9;
           border-radius: 90px;
+          background: conic-gradient($color-blue 3.6deg, $color-white 0deg);
           cursor: pointer;
           @include responsive(large-screens) {
             width: 180px;
             height: 180px;
             border-radius: 120px;
           }
-          a {
-            img {
-              margin: 0 auto;
-              width: 98px;
-              height: 98px;
-              border-radius: 24px;
+
+          &::before {
+            position: absolute;
+            content: "";
+            width: 130px;
+            height: 130px;
+
+            border-radius: 50%;
+            background-color: $color-black;
+            @include responsive(large-screens) {
+              width: 150px;
+              height: 150px;
             }
           }
-        }
-      }
-  
-      .skill-list2 {
-        @include responsive(large-screens) {
-          justify-content: right;
+          .progress-num {
+            position: relative;
+            font-size: 40px;
+
+          }
+          img {
+            margin: 0 auto;
+            position: absolute;
+            width: 98px;
+            height: 98px;
+            border-radius: 24px;
+            @include responsive(large-screens) {
+              width: 110px;
+              height: 110px;
+            }
+          }
         }
       }
     }
@@ -602,16 +636,17 @@ main {
           margin-bottom: 60px;
           @include responsive(large-screens) {
             display: grid;
-            grid-template-columns: repeat(2, 49%);
+            grid-template-columns: repeat(2, 48%);
             grid-template-rows: auto;
             gap: 20px;
             align-items: center;
             width: 1180px;
             height: 100%;
+            justify-content: center;
           }
           img {
             @include responsive(large-screens) {
-              padding: 10px;
+              padding-left: 20px;
               // background-color: aquamarine;
             }
           }
@@ -620,6 +655,7 @@ main {
               // border: 1px solid lightsalmon;
               text-align: left;
               height: 85%;
+              margin-right: 20px;
             }
             h3 {
               padding: 5px;
@@ -649,6 +685,7 @@ main {
             }
       
             .btns {
+              
               @include responsive(large-screens) {
                 display: flex;
                 justify-content: space-between;
@@ -680,6 +717,9 @@ main {
                 &:hover {
                   background-color: $color-black;
                   border: 1px solid $color-white;
+                  span {
+                    color: $color-white;
+                  }
                 }
                 span {
                   color: $color-black;
@@ -689,7 +729,7 @@ main {
                   top: 0;
                   right: 15px;
                   font: 35px $font-arrow;
-                  color: $color-black;
+                  // color: $color-black;
                   font-weight: normal;
                 }
                 
@@ -697,12 +737,24 @@ main {
       
               .btn-plan {
                 cursor: pointer;
-                background-image: url(../images/i-logo-btn.svg);
+                img {
+                  position: absolute;
+                  top: 15%;
+                  left: 10px;
+                  width: 40px;
+                  padding: 0;
+                }
               }
       
               .btn-page {
                 cursor: pointer;
-                background-image: url(../images/i-github-mark.svg);
+                img {
+                  position: absolute;
+                  top: 15%;
+                  left: 10px;
+                  width: 40px;
+                  padding: 0;
+                }
               }
             }
           }
@@ -711,17 +763,21 @@ main {
           img {
             @include responsive(large-screens) {
               grid-area: 1 / 2;
+              padding-left: 0;
+              padding-right: 20px;
             }
           }
           .site-txt {
             @include responsive(large-screens) {
               grid-area: 1 / 1;
               text-align: right;
+              margin-right: 0;
+              margin-left: 20px;
             }
           }
           .btns {
             @include responsive(large-screens) {
-              transform: translateX(180px);
+              transform: translateX(150px);
             }
           }
         }
@@ -825,13 +881,13 @@ main {
   }
 
   .Contact {
+    overflow: hidden;
     
     .position-box {
       position: relative;
       height: 800px;
       text-align: center;
       // background-color: pink;
-      overflow: hidden;
       margin-top: 100px;
 
       @include responsive(large-screens) {
@@ -996,10 +1052,20 @@ main {
       .earth {
         position: absolute;
         bottom: -50px;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: 0;
+        @include responsive(medium-screens) {
+          bottom: -300px;
+        }
         @include responsive(large-screens) {
           bottom: -300px;
+        }
+        img {
+          width: 500px;
+          @include responsive(medium-screens) {
+            width: 1200px;
+          }
         }
       }
     }

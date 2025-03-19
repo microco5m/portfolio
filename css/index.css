@@ -127,11 +127,18 @@ header .logo-menu-flex #mobile-btn {
   right: 0px;
   z-index: 120;
   width: 40px;
+  height: 35px;
+  display: block;
+  cursor: pointer;
 }
-@media (min-width: 1440px) {
-  header .logo-menu-flex #mobile-btn {
-    display: none;
-  }
+header .logo-menu-flex #mobile-btn.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+header .logo-menu-flex #mobile-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+header .logo-menu-flex #mobile-btn.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 header .logo-menu-flex #mobile-btn span {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3411764706);
@@ -140,9 +147,17 @@ header .logo-menu-flex #mobile-btn span {
   width: 100%;
   border-radius: 5px;
   background-color: #fff;
+  position: absolute;
+}
+header .logo-menu-flex #mobile-btn span:nth-child(1) {
+  top: 0;
 }
 header .logo-menu-flex #mobile-btn span:nth-child(2) {
-  margin: 7px 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+header .logo-menu-flex #mobile-btn span:nth-child(3) {
+  bottom: 0;
 }
 header .logo-menu-flex .main-menu {
   display: none;
@@ -331,8 +346,8 @@ main .Intro .mouse a span {
   position: absolute;
   bottom: 3vh;
   left: 50%;
-  width: 30px;
-  height: 50px;
+  width: 35px;
+  height: 55px;
   margin-left: -15px;
   border: 2px solid #fff;
   border-radius: 50px;
@@ -346,17 +361,16 @@ main .Intro .mouse a span {
 main .Intro .mouse a span::before {
   position: absolute;
   top: 10px;
-  left: 50%;
+  left: 45%;
   content: "";
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
   margin-left: -3px;
-  background-color: #fff;
+  background-color: #3E81FF;
   border-radius: 100%;
-  animation: sdb 2s infinite;
-  box-sizing: border-box;
+  animation: wheel-up-dw 2s infinite;
 }
-@keyframes sdb {
+@keyframes wheel-up-dw {
   0% {
     transform: translate(0, 0);
     opacity: 0;
@@ -581,32 +595,53 @@ main .Skill .wrapper .skill-list {
     grid-template-rows: minmax(180px, auto);
   }
 }
-main .Skill .wrapper .skill-list li {
+main .Skill .wrapper .skill-list .progress-circle {
+  position: relative;
+  width: 158px;
+  height: 158px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 158px;
-  height: 158px;
-  border: 15px solid #D9D9D9;
   border-radius: 90px;
+  background: conic-gradient(#3E81FF 3.6deg, #fff 0deg);
   cursor: pointer;
 }
 @media (min-width: 1440px) {
-  main .Skill .wrapper .skill-list li {
+  main .Skill .wrapper .skill-list .progress-circle {
     width: 180px;
     height: 180px;
     border-radius: 120px;
   }
 }
-main .Skill .wrapper .skill-list li a img {
+main .Skill .wrapper .skill-list .progress-circle::before {
+  position: absolute;
+  content: "";
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: #000;
+}
+@media (min-width: 1440px) {
+  main .Skill .wrapper .skill-list .progress-circle::before {
+    width: 150px;
+    height: 150px;
+  }
+}
+main .Skill .wrapper .skill-list .progress-circle .progress-num {
+  position: relative;
+  font-size: 40px;
+}
+main .Skill .wrapper .skill-list .progress-circle img {
   margin: 0 auto;
+  position: absolute;
   width: 98px;
   height: 98px;
   border-radius: 24px;
 }
 @media (min-width: 1440px) {
-  main .Skill .wrapper .skill-list2 {
-    justify-content: right;
+  main .Skill .wrapper .skill-list .progress-circle img {
+    width: 110px;
+    height: 110px;
   }
 }
 @media (min-width: 1440px) {
@@ -636,23 +671,25 @@ main .Portfolio-site .site-box .site-slide .site-sample {
 @media (min-width: 1440px) {
   main .Portfolio-site .site-box .site-slide .site-sample {
     display: grid;
-    grid-template-columns: repeat(2, 49%);
+    grid-template-columns: repeat(2, 48%);
     grid-template-rows: auto;
     gap: 20px;
     align-items: center;
     width: 1180px;
     height: 100%;
+    justify-content: center;
   }
 }
 @media (min-width: 1440px) {
   main .Portfolio-site .site-box .site-slide .site-sample img {
-    padding: 10px;
+    padding-left: 20px;
   }
 }
 @media (min-width: 1440px) {
   main .Portfolio-site .site-box .site-slide .site-sample .site-txt {
     text-align: left;
     height: 85%;
+    margin-right: 20px;
   }
 }
 main .Portfolio-site .site-box .site-slide .site-sample .site-txt h3 {
@@ -714,6 +751,9 @@ main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a:hover 
   background-color: #000;
   border: 1px solid #fff;
 }
+main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a:hover span {
+  color: #fff;
+}
 main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a span {
   color: #000;
 }
@@ -722,31 +762,46 @@ main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a .arrow
   top: 0;
   right: 15px;
   font: 35px "Comfortaa";
-  color: #000;
   font-weight: normal;
 }
 main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-plan {
   cursor: pointer;
-  background-image: url(../images/i-logo-btn.svg);
+}
+main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-plan img {
+  position: absolute;
+  top: 15%;
+  left: 10px;
+  width: 40px;
+  padding: 0;
 }
 main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-page {
   cursor: pointer;
-  background-image: url(../images/i-github-mark.svg);
+}
+main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-page img {
+  position: absolute;
+  top: 15%;
+  left: 10px;
+  width: 40px;
+  padding: 0;
 }
 @media (min-width: 1440px) {
   main .Portfolio-site .site-box .site-slide .site2 img {
     grid-area: 1/2;
+    padding-left: 0;
+    padding-right: 20px;
   }
 }
 @media (min-width: 1440px) {
   main .Portfolio-site .site-box .site-slide .site2 .site-txt {
     grid-area: 1/1;
     text-align: right;
+    margin-right: 0;
+    margin-left: 20px;
   }
 }
 @media (min-width: 1440px) {
   main .Portfolio-site .site-box .site-slide .site2 .btns {
-    transform: translateX(180px);
+    transform: translateX(150px);
   }
 }
 @media (min-width: 1440px) {
@@ -842,11 +897,13 @@ main .Portfolio-other .sample-flex .tab-content ul li a h4::before {
 main .Portfolio-other .sample-flex #tab-2 {
   display: none;
 }
+main .Contact {
+  overflow: hidden;
+}
 main .Contact .position-box {
   position: relative;
   height: 800px;
   text-align: center;
-  overflow: hidden;
   margin-top: 100px;
 }
 @media (min-width: 1440px) {
@@ -1022,11 +1079,25 @@ main .Contact .position-box .person img {
 main .Contact .position-box .earth {
   position: absolute;
   bottom: -50px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 0;
+}
+@media (min-width: 768px) {
+  main .Contact .position-box .earth {
+    bottom: -300px;
+  }
 }
 @media (min-width: 1440px) {
   main .Contact .position-box .earth {
     bottom: -300px;
+  }
+}
+main .Contact .position-box .earth img {
+  width: 500px;
+}
+@media (min-width: 768px) {
+  main .Contact .position-box .earth img {
+    width: 1200px;
   }
 }/*# sourceMappingURL=index.css.map */

@@ -1,20 +1,39 @@
-const main = document.getElementsByTagName('main')[0]; // 보일 영역
-const sectionAll = document.getElementsByTagName('section');
-let page = 0; // 영역 포지션 초기값
-const lastPage = container.length - 1; // 마지막 페이지
+//tab-menu
 
-window.addEventListener('wheel',(e)=>{
-    e.preventDefault();
-    if(e.deltaY > 0){
-        page++;
-    }else if(e.deltaY < 0){
-        page--;
+const menuBtn = document.querySelector("#mobile-btn");
+
+menuBtn.addEventListener('click', (e) => {
+  e.currentTarget.classList.toggle('active');
+})
+
+//Intro
+
+
+
+
+
+
+
+//skill
+let progressCircles = document.querySelectorAll(".progress-circle");
+
+progressCircles.forEach((circle) => {
+  let progressNum = circle.querySelector(".progress-num");
+  progressNum.textContent = "0%"
+
+  let progressEndNum = parseInt(circle.getAttribute("data-percent"));
+  let progressStartNum = 0;
+
+  let progress = setInterval(() => {
+    progressStartNum ++;
+    progressNum.textContent = `${progressStartNum}%`;
+
+    circle.style.background = `conic-gradient(#3E81FF ${progressStartNum * 3.6}deg, #fff 0deg)`
+
+    if (progressStartNum == progressEndNum) {
+      clearInterval(progress);
     }
-    if(page < 0){
-        page=0;
-    }else if(page > lastPage){
-        page = lastPage;
-    }
-    console.log(e.deltaY)
-    wrap.style.top = page * -100 + 'vh';
-},{passive:false}); // 디폴트 기능 제거 - 스크롤
+  },20)
+})
+
+
