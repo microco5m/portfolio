@@ -65,13 +65,15 @@ header {
       &.active {
         span {
           &:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+            transform: rotate(45deg);
+            top: 50%;
           }
           &:nth-child(2) {
             opacity: 0;
           }
           &:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+            transform: rotate(-45deg);
+            top: 50%;
           }
         }
       }
