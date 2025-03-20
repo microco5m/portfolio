@@ -192,7 +192,7 @@ section {
     @include responsive(large-screens) {
       padding-left: 120px;
       padding-right: 120px;
-      padding-top: 120px;
+      padding-top: 80px;
       margin-top: 0;
     }
   }
@@ -219,7 +219,7 @@ main {
   .Intro {
     position: relative;
     overflow: hidden;
-    height: 90vh;
+    height: 100vh;
     .scroll-right {
       position: relative;
       // background-color: aquamarine;
@@ -367,7 +367,7 @@ main {
   .About-me {
     
     @include responsive(large-screens) {
-      height: 950px;
+      height: 100vh
     }
 
 
@@ -550,7 +550,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     @include responsive(large-screens) {
-      height: 950px;
+      height: 100vh;
     }
     .wrapper {
 
@@ -624,7 +624,7 @@ main {
   .Portfolio-site {
 
     @include responsive(large-screens) {
-      height: 950px;
+      height: 100vh;
     }
     //공통
     .site-box {
@@ -799,7 +799,7 @@ main {
 
   .Portfolio-other {
     @include responsive(large-screens) {
-      height: 950px;
+      height: 100vh;
     }
     .sample-flex {
       padding-top: 60px;
@@ -821,6 +821,7 @@ main {
         li {
           font-size: 20px;
           padding: 5px;
+          cursor: pointer;
           &:hover {
             background-color: $color-white;
             color: $color-blue;
@@ -841,6 +842,7 @@ main {
           li {
             &:nth-child(1) {
               margin-right: 12px;
+
             }
             a {
               
@@ -894,6 +896,9 @@ main {
 
   .Contact {
     overflow: hidden;
+    @include responsive(large-screens) {
+      height: 100vh;
+    }
     
     .position-box {
       position: relative;

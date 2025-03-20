@@ -242,7 +242,7 @@ section .wrapper {
   section .wrapper {
     padding-left: 120px;
     padding-right: 120px;
-    padding-top: 120px;
+    padding-top: 80px;
     margin-top: 0;
   }
 }
@@ -269,7 +269,7 @@ main {
 main .Intro {
   position: relative;
   overflow: hidden;
-  height: 90vh;
+  height: 100vh;
 }
 main .Intro .scroll-right {
   position: relative;
@@ -396,7 +396,7 @@ main .Intro .mouse a span::before {
 }
 @media (min-width: 1440px) {
   main .About-me {
-    height: 950px;
+    height: 100vh;
   }
 }
 @media (min-width: 1440px) {
@@ -586,7 +586,7 @@ main .Skill {
 }
 @media (min-width: 1440px) {
   main .Skill {
-    height: 950px;
+    height: 100vh;
   }
 }
 main .Skill .wrapper .skill-list {
@@ -654,7 +654,7 @@ main .Skill .wrapper .skill-list .progress-circle img {
 }
 @media (min-width: 1440px) {
   main .Portfolio-site {
-    height: 950px;
+    height: 100vh;
   }
 }
 @media (min-width: 1440px) {
@@ -814,7 +814,7 @@ main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-pag
 }
 @media (min-width: 1440px) {
   main .Portfolio-other {
-    height: 950px;
+    height: 100vh;
   }
 }
 main .Portfolio-other .sample-flex {
@@ -841,6 +841,7 @@ main .Portfolio-other .sample-flex .tabs {
 main .Portfolio-other .sample-flex .tabs li {
   font-size: 20px;
   padding: 5px;
+  cursor: pointer;
 }
 main .Portfolio-other .sample-flex .tabs li:hover {
   background-color: #fff;
@@ -907,6 +908,11 @@ main .Portfolio-other .sample-flex #tab-2 {
 }
 main .Contact {
   overflow: hidden;
+}
+@media (min-width: 1440px) {
+  main .Contact {
+    height: 100vh;
+  }
 }
 main .Contact .position-box {
   position: relative;
