@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>신전 떡볶이 키오스크</title>
+  <link rel="stylesheet" href="./css/kiosk.css">
+</head>
+
+<body>
+  <div class="back">
+    <div class="flex">
+      <div class="main">
+        <h1 class="logo"><img src="./img/logo.svg" alt="">신전떡볶이</h1>
+        <div class="result"> <!-- list -->
+
+        </div>
+      </div> <!-- main -->
+
+      <div class="cart">
+        <h2>주문 리스트</h2>
+        <div class="cart-items"></div>
+
+        <div class="calculate">
+          <div class="noOfItems">총 0 개</div>
+          <div class="total">총 0 원</div>
+        </div>
+        <div class="pay-box">지불금액<p class="pay">0</p>원</div>
+        <div class="change-box">거스름돈<p class="change">0</p>원</div> <!-- 거스름돈 -->
+      </div> <!-- order -->
+
+      <div class="wallet-btns">
+        <img src="./img/character.png" alt="">
+        <!-- <h2>지갑</h2> -->
+        <div class="money-all">
+          <div id="money100" class="money">100</div>
+          <div id="money500" class="money">500</div>
+          <div id="money1000" class="money">1000</div>
+          <div id="money5000" class="money">5000</div>
+          <div id="money10000" class="money">10000</div>
+          <div id="money50000" class="money">50000</div>
+        </div>
+    
+        <div class="btns">
+          <div id="buy-btn">결제하기</div>
+          <div id="reset">다시하기</div>
+        </div>
+      </div>
+    </div> <!-- menu-order -->
+  </div>
+  <script src="./js/script.js"></script>
+
+</body>
+
+</html>
