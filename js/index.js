@@ -42,10 +42,11 @@ window.onload = function () {
 
 
 
-
+// 스크롤
   let sections = document.querySelectorAll('section');  // 모든 섹션 요소 선택
   let currentSectionIndex = 0;  // 현재 섹션 인덱스
   let isScrolling = false;  // 스크롤이 진행 중인지 여부를 추적
+  let widthWide = 1440;
   
   window.addEventListener('wheel', function(event) {
       // 스크롤이 진행 중이면 이벤트 무시
