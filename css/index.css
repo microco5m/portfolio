@@ -280,16 +280,16 @@ h2 .point-blue {
 main {
   margin: 0 auto;
 }
-main .Intro {
+main #Intro {
   position: relative;
   overflow: hidden;
   height: 100vh;
 }
-main .Intro .scroll-right {
+main #Intro .scroll-right {
   position: relative;
 }
 @media (min-width: 1440px) {
-  main .Intro .scroll-right .scroll-bar {
+  main #Intro .scroll-right .scroll-bar {
     position: fixed;
     top: 120px;
     margin-left: 30px;
@@ -299,7 +299,7 @@ main .Intro .scroll-right {
   }
 }
 @media (min-width: 1440px) {
-  main .Intro .scroll-right .scroll-bar .scroll-circle {
+  main #Intro .scroll-right .scroll-bar .scroll-circle {
     position: absolute;
     top: 0;
     width: 15px;
@@ -308,7 +308,7 @@ main .Intro .scroll-right {
     background-color: white;
     border-radius: 10px;
   }
-  main .Intro .scroll-right .scroll-bar .scroll-circle::before {
+  main #Intro .scroll-right .scroll-bar .scroll-circle::before {
     content: "";
     position: absolute;
     top: 285px;
@@ -319,13 +319,13 @@ main .Intro .scroll-right {
   }
 }
 @media (min-width: 1440px) {
-  main .Intro {
+  main #Intro {
     height: 950px;
   }
 }
-main .Intro h2 {
+main #Intro h2 {
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%);
   font-size: 50px;
@@ -344,8 +344,8 @@ main .Intro h2 {
     transform: translate(-50%) translateY(0);
     opacity: 1;
   }
-  50% {
-    filter: blur(4px);
+  75% {
+    filter: blur(3px);
     transform: translate(-50%) translateY(0);
     opacity: 1;
   }
@@ -355,7 +355,12 @@ main .Intro h2 {
     opacity: 0;
   }
 }
-main .Intro .moon {
+@media (min-width: 768px) {
+  main #Intro h2 {
+    font-size: 70px;
+  }
+}
+main #Intro .moon {
   position: absolute;
   top: -300px;
   left: 50%;
@@ -381,39 +386,39 @@ main .Intro .moon {
   }
 }
 @media (min-width: 768px) {
-  main .Intro .moon {
+  main #Intro .moon {
     top: -300px;
   }
 }
 @media (min-width: 1440px) {
-  main .Intro .moon {
+  main #Intro .moon {
     top: -400px;
-    transform: translateX(-61%);
+    transform: translateX(-61.5%);
     animation: moon-scale-desktop 2s ease forwards;
   }
   @keyframes moon-scale-desktop {
     0% {
       top: -100px;
       left: 50%;
-      transform: translateX(-61%) scale(1.2);
+      transform: translateX(-61.5%) scale(1.2);
     }
     50% {
       top: -100px;
       left: 50%;
-      transform: translateX(-61%) scale(1.2);
+      transform: translateX(-61.5%) scale(1.2);
     }
     100% {
       left: 50%;
-      transform: translateX(-61%) scale(1);
+      transform: translateX(-61.5%) scale(1);
     }
   }
 }
 @media (min-width: 1440px) {
-  main .Intro .moon img {
+  main #Intro .moon img {
     width: 1440px;
   }
 }
-main .Intro .rocket {
+main #Intro .rocket {
   position: absolute;
   top: 15%;
   left: 48%;
@@ -436,15 +441,15 @@ main .Intro .rocket {
   }
 }
 @media (min-width: 1440px) {
-  main .Intro .rocket {
+  main #Intro .rocket {
     transform: translateX(-10%);
   }
 }
-main .Intro .mouse a {
+main #Intro .mouse a {
   padding-top: 60px;
   cursor: default;
 }
-main .Intro .mouse a span {
+main #Intro .mouse a span {
   position: absolute;
   bottom: 3vh;
   left: 50%;
@@ -456,11 +461,11 @@ main .Intro .mouse a span {
   box-sizing: border-box;
 }
 @media (min-width: 1440px) {
-  main .Intro .mouse a span {
+  main #Intro .mouse a span {
     bottom: 10vh;
   }
 }
-main .Intro .mouse a span::before {
+main #Intro .mouse a span::before {
   position: absolute;
   top: 10px;
   left: 45%;
@@ -489,29 +494,30 @@ main .Intro .mouse a span::before {
   }
 }
 @media (min-width: 1440px) {
-  main .About-me {
+  main #About-me {
     height: 100vh;
   }
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box {
+  main #About-me .flex-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 }
-main .About-me .flex-box .profile-photobox {
+main #About-me .flex-box .profile-photobox {
   position: relative;
   height: 400px;
   width: 100%;
+  overflow: hidden;
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box .profile-photobox {
+  main #About-me .flex-box .profile-photobox {
     width: 690px;
     height: 500px;
   }
 }
-main .About-me .flex-box .profile-photobox .profile-line {
+main #About-me .flex-box .profile-photobox .profile-line {
   position: absolute;
   top: 0;
   left: 50%;
@@ -525,7 +531,7 @@ main .About-me .flex-box .profile-photobox .profile-line {
   border-bottom-left-radius: 130px;
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box .profile-photobox .profile-line {
+  main #About-me .flex-box .profile-photobox .profile-line {
     width: 483px;
     height: 473px;
     border: 3px solid #fff;
@@ -535,7 +541,7 @@ main .About-me .flex-box .profile-photobox .profile-line {
     border-bottom-left-radius: 180px;
   }
 }
-main .About-me .flex-box .profile-photobox .profile-line::before {
+main #About-me .flex-box .profile-photobox .profile-line::before {
   position: absolute;
   top: 4px;
   left: 6px;
@@ -549,7 +555,7 @@ main .About-me .flex-box .profile-photobox .profile-line::before {
   border-bottom-left-radius: 130px;
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box .profile-photobox .profile-line::before {
+  main #About-me .flex-box .profile-photobox .profile-line::before {
     width: 477px;
     height: 467px;
     border: 3px solid #fff;
@@ -559,7 +565,14 @@ main .About-me .flex-box .profile-photobox .profile-line::before {
     border-bottom-left-radius: 180px;
   }
 }
-main .About-me .flex-box .profile-square {
+main #About-me .flex-box .profile-photobox .profile-line img {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-45%);
+}
+main #About-me .flex-box .profile-square {
   position: relative;
   width: 100%;
   height: 535px;
@@ -567,19 +580,19 @@ main .About-me .flex-box .profile-square {
   padding-top: 50px;
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box .profile-square {
+  main #About-me .flex-box .profile-square {
     width: 50%;
     height: 650px;
   }
 }
-main .About-me .flex-box .profile-square .box-line1 {
+main #About-me .flex-box .profile-square .box-line1 {
   position: absolute;
   top: 10px;
   right: 0;
   width: 80%;
   border: 1px solid white;
 }
-main .About-me .flex-box .profile-square .box-line1::after {
+main #About-me .flex-box .profile-square .box-line1::after {
   position: absolute;
   top: 20px;
   right: 10px;
@@ -587,7 +600,7 @@ main .About-me .flex-box .profile-square .box-line1::after {
   width: 100%;
   border: 1px solid white;
 }
-main .About-me .flex-box .profile-square .box-line1::before {
+main #About-me .flex-box .profile-square .box-line1::before {
   position: absolute;
   content: "";
   top: -30px;
@@ -595,14 +608,14 @@ main .About-me .flex-box .profile-square .box-line1::before {
   height: 400px;
   border: 1px solid white;
 }
-main .About-me .flex-box .profile-square .box-line2 {
+main #About-me .flex-box .profile-square .box-line2 {
   position: absolute;
   bottom: 30px;
   left: 20px;
   width: 70%;
   border: 1px solid white;
 }
-main .About-me .flex-box .profile-square .box-line2::after {
+main #About-me .flex-box .profile-square .box-line2::after {
   position: absolute;
   bottom: 20px;
   left: -10px;
@@ -610,7 +623,7 @@ main .About-me .flex-box .profile-square .box-line2::after {
   width: 70%;
   border: 1px solid white;
 }
-main .About-me .flex-box .profile-square .box-line2::before {
+main #About-me .flex-box .profile-square .box-line2::before {
   position: absolute;
   content: "";
   bottom: -30px;
@@ -618,61 +631,61 @@ main .About-me .flex-box .profile-square .box-line2::before {
   height: 400px;
   border: 1px solid white;
 }
-main .About-me .flex-box .profile-square .profile-txt {
+main #About-me .flex-box .profile-square .profile-txt {
   width: 90%;
   margin: 30px auto;
 }
-main .About-me .flex-box .profile-square .profile-txt .introduction-1 {
+main #About-me .flex-box .profile-square .profile-txt .introduction-1 {
   font-size: 20px;
   text-align: left;
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box .profile-square .profile-txt .introduction-1 {
+  main #About-me .flex-box .profile-square .profile-txt .introduction-1 {
     font-size: 36px;
   }
 }
-main .About-me .flex-box .profile-square .profile-txt .introduction-2 {
+main #About-me .flex-box .profile-square .profile-txt .introduction-2 {
   font-size: 20px;
   text-align: right;
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box .profile-square .profile-txt .introduction-2 {
+  main #About-me .flex-box .profile-square .profile-txt .introduction-2 {
     font-size: 36px;
   }
 }
-main .About-me .flex-box .profile-square .profile-txt p {
+main #About-me .flex-box .profile-square .profile-txt p {
   margin-top: 20px;
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box .profile-square .profile-txt p {
+  main #About-me .flex-box .profile-square .profile-txt p {
     font-size: 20px;
   }
 }
-main .About-me .flex-box .profile-square .profile-txt .info {
+main #About-me .flex-box .profile-square .profile-txt .info {
   width: 100%;
   margin-top: 20px;
 }
-main .About-me .flex-box .profile-square .profile-txt .info li {
+main #About-me .flex-box .profile-square .profile-txt .info li {
   margin: 5px 0;
   margin-top: 10px;
 }
-main .About-me .flex-box .profile-square .profile-txt .info li .bg-box {
+main #About-me .flex-box .profile-square .profile-txt .info li .bg-box {
   padding: 3px;
   background-color: #fff;
   color: #000;
   font-size: 18px;
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box .profile-square .profile-txt .info li .bg-box {
+  main #About-me .flex-box .profile-square .profile-txt .info li .bg-box {
     font-size: 20px;
   }
 }
 @media (min-width: 1440px) {
-  main .About-me .flex-box .profile-square .profile-txt .info li ul li {
+  main #About-me .flex-box .profile-square .profile-txt .info li ul li {
     font-size: 16px;
   }
 }
-main .Skill {
+main #Skill {
   text-align: center;
   background-image: url(../images/bg2.png);
   background-repeat: no-repeat;
@@ -681,11 +694,11 @@ main .Skill {
   padding-bottom: 100px;
 }
 @media (min-width: 1440px) {
-  main .Skill {
+  main #Skill {
     height: 100vh;
   }
 }
-main .Skill .wrapper .skill-list {
+main #Skill .wrapper .skill-list {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(2, 158px);
@@ -693,13 +706,13 @@ main .Skill .wrapper .skill-list {
   gap: 12px;
 }
 @media (min-width: 1440px) {
-  main .Skill .wrapper .skill-list {
+  main #Skill .wrapper .skill-list {
     grid-template-columns: repeat(5, 180px);
     gap: 60px;
     grid-template-rows: minmax(180px, auto);
   }
 }
-main .Skill .wrapper .skill-list .progress-circle {
+main #Skill .wrapper .skill-list .progress-circle {
   position: relative;
   width: 158px;
   height: 158px;
@@ -713,7 +726,7 @@ main .Skill .wrapper .skill-list .progress-circle {
   transform: translateY(100px);
   transition: opacity 0.7s ease, transform 0.9s ease;
 }
-main .Skill .wrapper .skill-list .progress-circle .progress-circle {
+main #Skill .wrapper .skill-list .progress-circle .progress-circle {
   position: relative;
   width: 158px;
   height: 158px;
@@ -725,13 +738,13 @@ main .Skill .wrapper .skill-list .progress-circle .progress-circle {
   cursor: pointer;
 }
 @media (min-width: 1440px) {
-  main .Skill .wrapper .skill-list .progress-circle .progress-circle {
+  main #Skill .wrapper .skill-list .progress-circle .progress-circle {
     width: 180px;
     height: 180px;
     border-radius: 120px;
   }
 }
-main .Skill .wrapper .skill-list .progress-circle .progress-circle::before {
+main #Skill .wrapper .skill-list .progress-circle .progress-circle::before {
   position: absolute;
   content: "";
   width: 130px;
@@ -740,16 +753,16 @@ main .Skill .wrapper .skill-list .progress-circle .progress-circle::before {
   background-color: #000;
 }
 @media (min-width: 1440px) {
-  main .Skill .wrapper .skill-list .progress-circle .progress-circle::before {
+  main #Skill .wrapper .skill-list .progress-circle .progress-circle::before {
     width: 150px;
     height: 150px;
   }
 }
-main .Skill .wrapper .skill-list .progress-circle .progress-circle .progress-num {
+main #Skill .wrapper .skill-list .progress-circle .progress-circle .progress-num {
   position: relative;
   font-size: 40px;
 }
-main .Skill .wrapper .skill-list .progress-circle .progress-circle img {
+main #Skill .wrapper .skill-list .progress-circle .progress-circle img {
   margin: 0 auto;
   position: absolute;
   width: 98px;
@@ -757,23 +770,23 @@ main .Skill .wrapper .skill-list .progress-circle .progress-circle img {
   border-radius: 24px;
   background-color: #000;
 }
-main .Skill .wrapper .skill-list .progress-circle .progress-circle img:hover {
+main #Skill .wrapper .skill-list .progress-circle .progress-circle img:hover {
   opacity: 0.2;
 }
 @media (min-width: 1440px) {
-  main .Skill .wrapper .skill-list .progress-circle .progress-circle img {
+  main #Skill .wrapper .skill-list .progress-circle .progress-circle img {
     width: 110px;
     height: 110px;
   }
 }
 @media (min-width: 1440px) {
-  main .Skill .wrapper .skill-list .progress-circle {
+  main #Skill .wrapper .skill-list .progress-circle {
     width: 180px;
     height: 180px;
     border-radius: 120px;
   }
 }
-main .Skill .wrapper .skill-list .progress-circle::before {
+main #Skill .wrapper .skill-list .progress-circle::before {
   position: absolute;
   content: "";
   width: 130px;
@@ -782,16 +795,16 @@ main .Skill .wrapper .skill-list .progress-circle::before {
   background-color: #000;
 }
 @media (min-width: 1440px) {
-  main .Skill .wrapper .skill-list .progress-circle::before {
+  main #Skill .wrapper .skill-list .progress-circle::before {
     width: 150px;
     height: 150px;
   }
 }
-main .Skill .wrapper .skill-list .progress-circle .progress-num {
+main #Skill .wrapper .skill-list .progress-circle .progress-num {
   position: relative;
   font-size: 40px;
 }
-main .Skill .wrapper .skill-list .progress-circle img {
+main #Skill .wrapper .skill-list .progress-circle img {
   margin: 0 auto;
   position: absolute;
   width: 98px;
@@ -799,22 +812,22 @@ main .Skill .wrapper .skill-list .progress-circle img {
   border-radius: 24px;
   background-color: #000;
 }
-main .Skill .wrapper .skill-list .progress-circle img:hover {
+main #Skill .wrapper .skill-list .progress-circle img:hover {
   opacity: 0.2;
 }
 @media (min-width: 1440px) {
-  main .Skill .wrapper .skill-list .progress-circle img {
+  main #Skill .wrapper .skill-list .progress-circle img {
     width: 110px;
     height: 110px;
   }
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site {
+  main #Portfolio-site {
     height: 100vh;
   }
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box {
+  main #Portfolio-site .site-box {
     width: 1180px;
     overflow-x: hidden;
     border: 1px solid rgba(255, 255, 255, 0.7);
@@ -823,17 +836,17 @@ main .Skill .wrapper .skill-list .progress-circle img:hover {
   }
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide {
+  main #Portfolio-site .site-box .site-slide {
     width: 3540px;
     height: 65vh;
     display: flex;
   }
 }
-main .Portfolio-site .site-box .site-slide .site-sample {
+main #Portfolio-site .site-box .site-slide .site-sample {
   margin-bottom: 60px;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site-sample {
+  main #Portfolio-site .site-box .site-slide .site-sample {
     display: grid;
     grid-template-columns: repeat(2, 48%);
     grid-template-rows: auto;
@@ -845,55 +858,55 @@ main .Portfolio-site .site-box .site-slide .site-sample {
   }
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site-sample img {
+  main #Portfolio-site .site-box .site-slide .site-sample img {
     padding-left: 20px;
   }
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site-sample .site-txt {
+  main #Portfolio-site .site-box .site-slide .site-sample .site-txt {
     text-align: left;
     height: 85%;
     margin-right: 20px;
   }
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt h3 {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt h3 {
   padding: 5px;
   border-bottom: 3px solid #fff;
   margin-bottom: 10px;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site-sample .site-txt h3 {
+  main #Portfolio-site .site-box .site-slide .site-sample .site-txt h3 {
     font-size: 48px;
     border-bottom: none;
     padding-left: 0;
   }
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt strong {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt strong {
   font-size: 18px;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site-sample .site-txt strong {
+  main #Portfolio-site .site-box .site-slide .site-sample .site-txt strong {
     font-size: 32px;
   }
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt p {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt p {
   font-size: 16px;
   margin: 30px 0;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site-sample .site-txt p {
+  main #Portfolio-site .site-box .site-slide .site-sample .site-txt p {
     font-size: 24px;
     height: 150px;
   }
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns {
+  main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns {
     display: flex;
     justify-content: space-between;
     width: 398px;
   }
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a {
   position: relative;
   margin: 0 auto;
   cursor: pointer;
@@ -911,37 +924,37 @@ main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a {
   background-size: 39px;
   margin-bottom: 10px;
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a:hover {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a:hover {
   background-color: #000;
   border: 1px solid #fff;
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a:hover span {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a:hover span {
   color: #fff;
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a span {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a span {
   color: #000;
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a .arrow {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns a .arrow {
   position: absolute;
   top: 0;
   right: 15px;
   font: 35px "Comfortaa";
   font-weight: normal;
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-plan {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-plan {
   cursor: pointer;
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-plan img {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-plan img {
   position: absolute;
   top: 15%;
   left: 10px;
   width: 40px;
   padding: 0;
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-page {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-page {
   cursor: pointer;
 }
-main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-page img {
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-page img {
   position: absolute;
   top: 15%;
   left: 10px;
@@ -949,14 +962,14 @@ main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-pag
   padding: 0;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site2 img {
+  main #Portfolio-site .site-box .site-slide .site2 img {
     grid-area: 1/2;
     padding-left: 0;
     padding-right: 20px;
   }
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site2 .site-txt {
+  main #Portfolio-site .site-box .site-slide .site2 .site-txt {
     grid-area: 1/1;
     text-align: right;
     margin-right: 0;
@@ -964,58 +977,58 @@ main .Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-pag
   }
 }
 @media (min-width: 1440px) {
-  main .Portfolio-site .site-box .site-slide .site2 .btns {
+  main #Portfolio-site .site-box .site-slide .site2 .btns {
     transform: translateX(150px);
   }
 }
 @media (min-width: 1440px) {
-  main .Portfolio-other {
+  main #Portfolio-other {
     height: 100vh;
   }
 }
-main .Portfolio-other .sample-flex {
+main #Portfolio-other .sample-flex {
   padding-top: 60px;
   height: 100%;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-other .sample-flex {
+  main #Portfolio-other .sample-flex {
     padding-top: 0;
     display: flex;
   }
 }
-main .Portfolio-other .sample-flex .tabs {
+main #Portfolio-other .sample-flex .tabs {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-other .sample-flex .tabs {
+  main #Portfolio-other .sample-flex .tabs {
     display: block;
     width: 220px;
     margin-right: 20px;
     margin-bottom: 0;
   }
 }
-main .Portfolio-other .sample-flex .tabs li {
+main #Portfolio-other .sample-flex .tabs li {
   font-size: 20px;
   padding: 5px;
   width: 33%;
   text-align: center;
   cursor: pointer;
 }
-main .Portfolio-other .sample-flex .tabs li:hover {
+main #Portfolio-other .sample-flex .tabs li:hover {
   background-color: #fff;
   color: #3E81FF;
   font-weight: 600;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-other .sample-flex .tabs li {
+  main #Portfolio-other .sample-flex .tabs li {
     font-size: 36px;
     width: 220px;
     text-align: right;
   }
 }
-main .Portfolio-other .sample-flex .tab-content ul {
+main #Portfolio-other .sample-flex .tab-content ul {
   display: grid;
   grid-template-columns: repeat(2, 48%);
   grid-template-rows: minmax(158px);
@@ -1023,26 +1036,26 @@ main .Portfolio-other .sample-flex .tab-content ul {
   width: 100%;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-other .sample-flex .tab-content ul {
+  main #Portfolio-other .sample-flex .tab-content ul {
     grid-template-columns: repeat(2, 460px);
     grid-template-rows: minmax(460px);
     gap: 20px;
   }
 }
-main .Portfolio-other .sample-flex .tab-content ul li {
+main #Portfolio-other .sample-flex .tab-content ul li {
   width: 100%;
 }
-main .Portfolio-other .sample-flex .tab-content ul li:nth-child(1) {
+main #Portfolio-other .sample-flex .tab-content ul li:nth-child(1) {
   margin-right: 12px;
 }
-main .Portfolio-other .sample-flex .tab-content ul li a .tab-img {
+main #Portfolio-other .sample-flex .tab-content ul li a .tab-img {
   position: relative;
   z-index: 0;
   overflow: hidden;
   width: 100%;
   height: 100%;
 }
-main .Portfolio-other .sample-flex .tab-content ul li a .tab-img::after {
+main #Portfolio-other .sample-flex .tab-content ul li a .tab-img::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1054,20 +1067,20 @@ main .Portfolio-other .sample-flex .tab-content ul li a .tab-img::after {
   background-color: blue;
   transition: all 0.3s;
 }
-main .Portfolio-other .sample-flex .tab-content ul li a .tab-img:hover::after {
+main #Portfolio-other .sample-flex .tab-content ul li a .tab-img:hover::after {
   height: 20%;
 }
-main .Portfolio-other .sample-flex .tab-content ul li a .tab-img img {
+main #Portfolio-other .sample-flex .tab-content ul li a .tab-img img {
   width: 100%;
   height: 100%;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-other .sample-flex .tab-content ul li a .tab-img img {
+  main #Portfolio-other .sample-flex .tab-content ul li a .tab-img img {
     width: 460px;
     height: 500px;
   }
 }
-main .Portfolio-other .sample-flex .tab-content ul li a h4 {
+main #Portfolio-other .sample-flex .tab-content ul li a h4 {
   position: relative;
   width: 100%;
   font-size: 16px;
@@ -1077,12 +1090,12 @@ main .Portfolio-other .sample-flex .tab-content ul li a h4 {
   text-align: center;
   margin-top: 20px;
 }
-main .Portfolio-other .sample-flex .tab-content ul li a h4:hover {
+main #Portfolio-other .sample-flex .tab-content ul li a h4:hover {
   background-color: #fff;
   color: black;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-other .sample-flex .tab-content ul li a h4 {
+  main #Portfolio-other .sample-flex .tab-content ul li a h4 {
     width: 462px;
     font-size: 32px;
     padding: 5px;
@@ -1090,7 +1103,7 @@ main .Portfolio-other .sample-flex .tab-content ul li a h4:hover {
     border-radius: 30px;
   }
 }
-main .Portfolio-other .sample-flex .tab-content ul li a h4::before {
+main #Portfolio-other .sample-flex .tab-content ul li a h4::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -1101,7 +1114,7 @@ main .Portfolio-other .sample-flex .tab-content ul li a h4::before {
   border-radius: 20px;
 }
 @media (min-width: 1440px) {
-  main .Portfolio-other .sample-flex .tab-content ul li a h4::before {
+  main #Portfolio-other .sample-flex .tab-content ul li a h4::before {
     top: 1px;
     left: 1px;
     width: 458px;
@@ -1110,45 +1123,45 @@ main .Portfolio-other .sample-flex .tab-content ul li a h4::before {
     border-radius: 30px;
   }
 }
-main .Portfolio-other .sample-flex #tab-javascript {
+main #Portfolio-other .sample-flex #tab-javascript {
   display: block;
 }
-main .Portfolio-other .sample-flex #tab-design {
+main #Portfolio-other .sample-flex #tab-design {
   display: none;
 }
-main .Portfolio-other .sample-flex #tab-video {
+main #Portfolio-other .sample-flex #tab-video {
   display: none;
 }
-main .Contact {
+main #Contact {
   overflow: hidden;
 }
 @media (min-width: 1440px) {
-  main .Contact {
+  main #Contact {
     height: 100vh;
   }
 }
-main .Contact .position-box {
+main #Contact .position-box {
   position: relative;
   height: 800px;
   text-align: center;
   margin-top: 100px;
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box {
+  main #Contact .position-box {
     height: 800px;
     text-align: none;
   }
 }
-main .Contact .position-box h2 {
+main #Contact .position-box h2 {
   margin-bottom: 60px;
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box h2 {
+  main #Contact .position-box h2 {
     margin-left: 120px;
   }
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box .email-txt {
+  main #Contact .position-box .email-txt {
     position: absolute;
     top: 150px;
     left: 200px;
@@ -1157,7 +1170,7 @@ main .Contact .position-box h2 {
     border: 1px solid white;
     border-radius: 40px;
   }
-  main .Contact .position-box .email-txt::before {
+  main #Contact .position-box .email-txt::before {
     content: " ";
     position: absolute;
     top: 4px;
@@ -1168,25 +1181,28 @@ main .Contact .position-box h2 {
     border-radius: 40px;
   }
 }
-main .Contact .position-box .email-txt strong {
+main #Contact .position-box .email-txt strong {
   font-size: 24px;
   font-weight: 600;
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box .email-txt strong {
+  main #Contact .position-box .email-txt strong {
     font-size: 36px;
   }
 }
-main .Contact .position-box .email-txt a {
+main #Contact .position-box .email-txt a {
   font-size: 20px;
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box .email-txt a {
+  main #Contact .position-box .email-txt a {
     font-size: 32px;
   }
 }
+main #Contact .position-box .email-txt a:hover {
+  text-decoration: underline;
+}
 @media (min-width: 1440px) {
-  main .Contact .position-box .tale1 {
+  main #Contact .position-box .tale1 {
     position: absolute;
     top: 300px;
     left: 540px;
@@ -1195,7 +1211,7 @@ main .Contact .position-box .email-txt a {
     background-color: white;
     transform: rotate(30deg);
   }
-  main .Contact .position-box .tale1::before {
+  main #Contact .position-box .tale1::before {
     position: absolute;
     content: "";
     top: -3px;
@@ -1206,24 +1222,23 @@ main .Contact .position-box .email-txt a {
     transform: rotate(10deg);
   }
 }
-main .Contact .position-box .img-1 {
+main #Contact .position-box .img-1 {
   display: inline-block;
   width: 92px;
   height: 67px;
-  border: 1px solid #fff;
   margin-top: 60px;
   margin-bottom: 50px;
 }
 @media (min-width: 768px) {
-  main .Contact .position-box .img-1 {
+  main #Contact .position-box .img-1 {
     display: none;
   }
 }
-main .Contact .position-box .message {
+main #Contact .position-box .message {
   margin-bottom: 90px;
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box .message {
+  main #Contact .position-box .message {
     position: absolute;
     top: 200px;
     right: 150px;
@@ -1233,7 +1248,7 @@ main .Contact .position-box .message {
     border-radius: 40px;
     margin-bottom: 0;
   }
-  main .Contact .position-box .message::before {
+  main #Contact .position-box .message::before {
     content: " ";
     position: absolute;
     top: 4px;
@@ -1244,22 +1259,22 @@ main .Contact .position-box .message {
     border-radius: 40px;
   }
 }
-main .Contact .position-box .message p {
+main #Contact .position-box .message p {
   font-size: 32px;
   line-height: 1.2;
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box .message p {
+  main #Contact .position-box .message p {
     text-align: left;
     font-size: 40px;
     margin-left: 30px;
   }
 }
-main .Contact .position-box .message p .point-blue {
+main #Contact .position-box .message p .point-blue {
   color: #3E81FF;
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box .tale2 {
+  main #Contact .position-box .tale2 {
     position: absolute;
     top: 350px;
     right: 490px;
@@ -1268,7 +1283,7 @@ main .Contact .position-box .message p .point-blue {
     background-color: white;
     transform: rotate(-40deg);
   }
-  main .Contact .position-box .tale2::before {
+  main #Contact .position-box .tale2::before {
     position: absolute;
     content: "";
     top: 2px;
@@ -1279,7 +1294,7 @@ main .Contact .position-box .message p .point-blue {
     transform: rotate(7deg);
   }
 }
-main .Contact .position-box .person {
+main #Contact .position-box .person {
   position: absolute;
   bottom: 80px;
   left: 50%;
@@ -1288,22 +1303,22 @@ main .Contact .position-box .person {
   z-index: 10;
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box .person {
+  main #Contact .position-box .person {
     width: 200px;
     bottom: 200px;
     transform: translate(-40%);
   }
 }
-main .Contact .position-box .person img {
+main #Contact .position-box .person img {
   display: inline-block;
   width: 134px;
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box .person img {
+  main #Contact .position-box .person img {
     width: 200px;
   }
 }
-main .Contact .position-box .earth {
+main #Contact .position-box .earth {
   position: absolute;
   bottom: -50px;
   left: 50%;
@@ -1311,24 +1326,24 @@ main .Contact .position-box .earth {
   z-index: 0;
 }
 @media (min-width: 768px) {
-  main .Contact .position-box .earth {
+  main #Contact .position-box .earth {
     bottom: -300px;
   }
 }
 @media (min-width: 1440px) {
-  main .Contact .position-box .earth {
+  main #Contact .position-box .earth {
     bottom: -300px;
   }
 }
-main .Contact .position-box .earth img {
+main #Contact .position-box .earth img {
   width: 500px;
 }
 @media (min-width: 768px) {
-  main .Contact .position-box .earth img {
+  main #Contact .position-box .earth img {
     width: 1200px;
   }
 }
-main .Contact .position-box .footer {
+main #Contact .position-box .footer {
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -1339,11 +1354,11 @@ main .Contact .position-box .footer {
   background-color: rgba(0, 0, 0, 0.747);
 }
 @media (min-width: 768px) {
-  main .Contact .position-box .footer {
+  main #Contact .position-box .footer {
     bottom: -10px;
   }
 }
-main .Contact .position-box .footer h2 {
+main #Contact .position-box .footer h2 {
   font-size: 13px;
   font-weight: normal;
   font-family: "Noto Sans KR";

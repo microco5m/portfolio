@@ -228,7 +228,7 @@ h2 {
 main {
   margin: 0 auto;
   
-  .Intro {
+  #Intro {
     position: relative;
     overflow: hidden;
     height: 100vh;
@@ -273,7 +273,7 @@ main {
     }
     h2 {
       position: absolute;
-      top: 40%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%);
       font-size: 50px;
@@ -283,8 +283,11 @@ main {
       @keyframes title-ani {
         0% {filter: blur(0px); transform: translate(-50%) translateY(0); opacity: 1;}
         25% {filter: blur(0px); transform: translate(-50%) translateY(0); opacity: 1;}
-        50% {filter: blur(4px); transform: translate(-50%) translateY(0); opacity: 1;}
+        75% {filter: blur(3px); transform: translate(-50%) translateY(0); opacity: 1;}
         100% {filter: blur(4px); transform: translate(-50%) translateY(100px); opacity: 0;}
+      }
+      @include responsive(medium-screens) {
+        font-size: 70px;
       }
     }
     .moon {
@@ -307,13 +310,13 @@ main {
 
       @include responsive(large-screens) {
         top: -400px;
-        transform: translateX(-61%);
+        transform: translateX(-61.5%);
         animation: moon-scale-desktop 2s ease forwards;
 
         @keyframes moon-scale-desktop {
-          0% {top: -100px; left: 50%; transform: translateX(-61%) scale(1.2)};
-          50% {top: -100px; left: 50%; transform: translateX(-61%) scale(1.2)};
-          100% {left: 50%; transform: translateX(-61%) scale(1)};
+          0% {top: -100px; left: 50%; transform: translateX(-61.5%) scale(1.2)};
+          50% {top: -100px; left: 50%; transform: translateX(-61.5%) scale(1.2)};
+          100% {left: 50%; transform: translateX(-61.5%) scale(1)};
         }
       }
 
@@ -412,7 +415,7 @@ main {
     }
   }
 
-  .About-me {
+  #About-me {
     
     @include responsive(large-screens) {
       height: 100vh
@@ -430,6 +433,7 @@ main {
         position: relative;
         height: 400px;
         width: 100%;
+        overflow: hidden;
         @include responsive(large-screens) {
           width: 690px;
           height: 500px;
@@ -437,7 +441,6 @@ main {
         .profile-line {
           position: absolute;
           top: 0;
-
           left: 50%;
           transform: translateX(-50%);
           width: 306px;
@@ -478,7 +481,13 @@ main {
               border-bottom-left-radius: 180px;
             }
           }
-          
+          img {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            width: 70%;
+            transform: translate(-45%);
+          }
         }
       }
       .profile-square {
@@ -592,7 +601,7 @@ main {
     }
   }// About-me
 
-  .Skill {
+  #Skill {
     text-align: center;
     background-image: url(../images/bg2.png);
     background-repeat: no-repeat;
@@ -736,7 +745,7 @@ main {
     }
   }// Skill
 
-  .Portfolio-site {
+  #Portfolio-site {
 
     @include responsive(large-screens) {
       height: 100vh;
@@ -912,7 +921,7 @@ main {
     }
   } // Prortfolio
 
-  .Portfolio-other {
+  #Portfolio-other {
     @include responsive(large-screens) {
       height: 100vh;
     }
@@ -1063,7 +1072,7 @@ main {
     
   }
 
-  .Contact {
+  #Contact {
     overflow: hidden;
     @include responsive(large-screens) {
       height: 100vh;
@@ -1105,6 +1114,7 @@ main {
             border: 1px solid white;
             border-radius: 40px;
           }
+
         }
         strong {
           font-size: 24px;
@@ -1117,6 +1127,10 @@ main {
           font-size: 20px;
           @include responsive(large-screens) {
             font-size: 32px;
+          }
+
+          &:hover {
+            text-decoration: underline;
           }
         }
       }
@@ -1146,7 +1160,7 @@ main {
         display: inline-block;
         width: 92px;
         height: 67px;
-        border: 1px solid $color-white;
+        // border: 1px solid $color-white;
         margin-top: 60px;
         margin-bottom: 50px;
         @include responsive(medium-screens) {
