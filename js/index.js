@@ -80,13 +80,10 @@ window.onload = function () {
       event.preventDefault();  // 기본 스크롤 동작 방지
     }, { passive: false });
   }
-
-
 }
 
 
 //스크롤 애니메이션
-
 
 let windowWidth = $(window).width();
 

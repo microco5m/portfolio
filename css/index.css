@@ -1338,6 +1338,11 @@ main .Contact .position-box .footer {
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.747);
 }
+@media (min-width: 768px) {
+  main .Contact .position-box .footer {
+    bottom: -10px;
+  }
+}
 main .Contact .position-box .footer h2 {
   font-size: 13px;
   font-weight: normal;

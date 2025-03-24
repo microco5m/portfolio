@@ -1263,6 +1263,9 @@ main {
         height: 30px;
         width: 100vw;
         background-color: rgba(0, 0, 0, 0.747);
+        @include responsive(medium-screens) {
+          bottom: -10px;
+        }
         h2 {
           font-size: 13px;
           font-weight: normal;

@@ -1,0 +1,41 @@
+@charset "uft8";
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font: 16px 'Noto Sans KR'
+}
+ul,
+ol {
+    list-style: none;
+}
+a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+img {
+    display: block;
+    width: 100%;
+}
+h1 {
+    font-size: 24px;
+}
+h2 {
+    font-size: 18px;
+}
+h3 {
+    font-size: 16px;
+}
+p {
+    line-height: 1.6;
+}
+strong {
+    display: block;
+}
+address {
+    font-style: normal;
+}
