@@ -388,23 +388,23 @@ main .Intro .moon {
 @media (min-width: 1440px) {
   main .Intro .moon {
     top: -400px;
-    transform: translateX(-60%);
+    transform: translateX(-61%);
     animation: moon-scale-desktop 2s ease forwards;
   }
   @keyframes moon-scale-desktop {
     0% {
       top: -100px;
       left: 50%;
-      transform: translateX(-62%) scale(1.2);
+      transform: translateX(-61%) scale(1.2);
     }
     50% {
       top: -100px;
       left: 50%;
-      transform: translateX(-62%) scale(1.2);
+      transform: translateX(-61%) scale(1.2);
     }
     100% {
       left: 50%;
-      transform: translateX(-62%) scale(1);
+      transform: translateX(-61%) scale(1);
     }
   }
 }
