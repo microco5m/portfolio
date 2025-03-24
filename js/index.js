@@ -1,14 +1,15 @@
 window.onload = function () {
 
   //tab-menu
+  const mobileBtn = document.getElementById('mobile-btn');
+  const mainMenu = document.querySelector('.main-menu');
 
-  const menuBtn = document.querySelector("#mobile-btn");
-  const mainMenu = document.querySelector(".main-menu");
+  mobileBtn.addEventListener('click', function () {
+    mobileBtn.classList.toggle('active');
+    mainMenu.classList.toggle('active');
+  });
 
-  menuBtn.addEventListener('click', (e) => {
-    e.currentTarget.classList.toggle('active');
 
-  })
 
   //Intro
 
@@ -42,48 +43,64 @@ window.onload = function () {
 
 
 
-// 스크롤
+  // 풀페이지 스크롤
   let sections = document.querySelectorAll('section');  // 모든 섹션 요소 선택
   let currentSectionIndex = 0;  // 현재 섹션 인덱스
-  let isScrolling = false;  // 스크롤이 진행 중인지 여부를 추적
-  let widthWide = 1440;
-  
-  window.addEventListener('wheel', function(event) {
-      // 스크롤이 진행 중이면 이벤트 무시
-      if (isScrolling) return;
-  
+  let isScrolling = false;  // 스크롤이 진행 중인지 여부
+
+  // 화면 가로 크기가 1440px 이상일 때만 실행
+  if (window.innerWidth >= 1440) {
+    let windowWidth = window.innerWidth;
+
+    window.addEventListener('wheel', function (event) {
+
+      if (isScrolling) return; // 스크롤이 진행 중이면 이벤트 무시
+
       isScrolling = true;  // 스크롤 진행 시작
-  
-      // 마우스 휠이 아래로 내려갔을 때 (다음 섹션으로 이동)
+
       if (event.deltaY > 0) {
-          if (currentSectionIndex < sections.length - 1) {
-              currentSectionIndex++;
-          }
+        if (currentSectionIndex < sections.length - 1) {
+          currentSectionIndex++;
+        }
       } else {
-          // 마우스 휠이 위로 올라갔을 때 (이전 섹션으로 이동)
-          if (currentSectionIndex > 0) {
-              currentSectionIndex--;
-          }
+        if (currentSectionIndex > 0) {
+          currentSectionIndex--;
+        }
       }
-  
-      // 해당 섹션으로 스크롤 이동
+
       sections[currentSectionIndex].scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        behavior: 'smooth',
+        block: 'start'
       });
-  
-      // 스크롤이 끝난 후, 다시 스크롤 가능하도록 설정
+
       setTimeout(() => {
-          isScrolling = false;
-      }, 800); // 스크롤 이동에 걸리는 시간 (예: 800ms)
-  
-      // 기본 스크롤 동작 방지 (페이지 스크롤을 방지)
-      event.preventDefault();
-  }, { passive: false });
-  
+        isScrolling = false;
+      }, 800);
+
+      event.preventDefault();  // 기본 스크롤 동작 방지
+    }, { passive: false });
+  }
 
 
-  //스크롤 애니메이션
-  // const observer = new IntersectionObserver(callback);
 }
 
+
+//스크롤 애니메이션
+
+
+let windowWidth = $(window).width();
+
+
+$(`.Skill li > div`).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
+
+$(window).scroll(function () {
+  var scrollTop = $(this).scrollTop();
+
+  $(`.Skill li > div`).each(function () {
+    var offsetTop = $(this).offset().top;
+    if (scrollTop + $(window).height() > offsetTop && $(this).css('opacity') == 0) {
+      $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+
+    }
+  });
+})

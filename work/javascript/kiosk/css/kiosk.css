@@ -15,6 +15,7 @@ body {
   background-color: white;
   padding: 30px 30px;
   width: 1400px;
+  margin-top: 20px;
 }
 .back .flex {
   display: flex;
