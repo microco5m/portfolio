@@ -475,7 +475,24 @@ main #Intro .mouse a span::before {
   margin-left: -3px;
   background-color: #3E81FF;
   border-radius: 100%;
+  -webkit-animation: sdb 2s infinite;
   animation: wheel-up-dw 2s infinite;
+}
+@-webkit-keyframes wheel-up-dw {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes wheel-up-dw {
   0% {
