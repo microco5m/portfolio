@@ -44,7 +44,36 @@ window.onload = function () {
 
 
 
+  // Portfolio-other
+
+const tabsWrap = document.querySelector(".tabs-wrap");
+const tabBtn = document.querySelectorAll(".tab-btn");
+const tabContent = document.querySelectorAll(".tab-content");
+
+tabsWrap.addEventListener("click", (e)=> {
+  const id = e.target.dataset.id;
+  // console.log(id)
+
+  if(id) {
+    tabBtn.forEach((btn) => {
+      btn.classList.remove("active");
+    });
+    e.target.classList.add("active")
+
+    tabContent.forEach((tabCon) => {
+      tabCon.classList.remove("active");
+    });
+
+    const element = document.getElementById(id);
+    element.classList.add("active");
+  }
+})
+
+
 }
+
+
+
 
 
 // 스크롤 애니 자바스크립트
@@ -56,22 +85,22 @@ window.onload = function () {
 
 //스크롤 애니메이션
 
-// let windowWidth = $(window).width();
+let windowWidth = $(window).width();
 
 
-// $(`#Skill li > div`).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
+$(`#Skill li > div`).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
 
-// $(window).scroll(function () {
-//   var scrollTop = $(this).scrollTop();
+$(window).scroll(function () {
+  var scrollTop = $(this).scrollTop();
 
-//   $(`#Skill li > div`).each(function () {
-//     var offsetTop = $(this).offset().top;
-//     if (scrollTop + $(window).height() > offsetTop && $(this).css('opacity') == 0) {
-//       $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+  $(`#Skill li > div`).each(function () {
+    var offsetTop = $(this).offset().top;
+    if (scrollTop + $(window).height() > offsetTop && $(this).css('opacity') == 0) {
+      $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
 
-//     }
-//   });
-// })
+    }
+  });
+})
 
 
 
