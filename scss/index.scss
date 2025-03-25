@@ -2,13 +2,21 @@
 @import "./common.scss";
 @import "./mixin.scss";
 
-
+html, body {
+  scroll-behavior: smooth;
+}
 body {
   background-image: url(../images/bg1.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  cursor: url(../images/cursor.png)m auto;
+  background-repeat: repeat-x;
+  cursor: url(../images/cursor.png) auto;
+  animation: bg 60s linear infinite; //
+  @keyframes bg {
+    0% {background-position: 0;}
+    100% {background-position: -2100px;}
+}
 }
 
 .container {
@@ -28,10 +36,11 @@ body {
 
 // ============
 .cursor-img {
-  position: absolute;
+  position: fixed;
   width: 40px;
   z-index: 1000;
 }
+
 // ++ header 
 header {
   position: fixed;
@@ -165,11 +174,17 @@ header {
           border: 1px solid $color-white;
           border-radius: 10px;
           background-color: rgba($color: $color-black, $alpha: 0.5);
+
+          
         }
         li {
           margin: 10px;
           @include responsive(large-screens) {
             width: 100px;
+            &.active a {
+              font-weight: bold;
+              color: blue; /* 활성화된 메뉴 색상 */
+            }
           }
           a {
             span {
@@ -760,7 +775,7 @@ main {
 
       @include responsive(large-screens) {
         width: 1180px;
-        overflow-x: hidden;
+        overflow-x: scroll;
         // background-color: orange;
         border: 1px solid rgba($color: $color-white, $alpha: 0.7) ;
         border-radius: 30px;
@@ -792,6 +807,8 @@ main {
             }
           }
           .site-txt {
+            text-align: center;
+
             @include responsive(large-screens) {
               // border: 1px solid lightsalmon;
               text-align: left;
@@ -1009,7 +1026,9 @@ main {
               margin-right: 12px;
             }
             a {
-              
+              &:hover {
+                filter: blur(4px);
+              }
               .tab-img {
                 position: relative;
                 z-index: 0;
@@ -1031,11 +1050,13 @@ main {
                   transition: all 0.3s;
                 }
                 &:hover::after {
-                  height: 20%;
+                  height: 100%;
                 }
+                
                 img {
                   width: 100%;
                   height: 100%;
+                  
                   @include responsive(large-screens) {
                     width: 460px;
                     height: 500px;
@@ -1295,7 +1316,8 @@ main {
         width: 100vw;
         background-color: rgba(0, 0, 0, 0.747);
         @include responsive(medium-screens) {
-          bottom: -12px;
+          bottom: -22px;
+          height: 35px;
         }
         h2 {
           font-size: 13px;

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ribeye&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
@@ -71,12 +72,26 @@ p {
   line-height: 1.8;
 }
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: url(../images/bg1.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  cursor: url(../images/cursor.png) m auto;
+  background-repeat: repeat-x;
+  cursor: url(../images/cursor.png) auto;
+  animation: bg 60s linear infinite;
+}
+@keyframes bg {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -2100px;
+  }
 }
 
 .container {
@@ -95,7 +110,7 @@ body {
 }
 
 .cursor-img {
-  position: absolute;
+  position: fixed;
   width: 40px;
   z-index: 1000;
 }
@@ -235,6 +250,10 @@ header .logo-menu-flex .main-menu .gnb li {
 @media (min-width: 1440px) {
   header .logo-menu-flex .main-menu .gnb li {
     width: 100px;
+  }
+  header .logo-menu-flex .main-menu .gnb li.active a {
+    font-weight: bold;
+    color: blue; /* 활성화된 메뉴 색상 */
   }
 }
 header .logo-menu-flex .main-menu .gnb li a span:hover {
@@ -836,7 +855,7 @@ main #Skill .wrapper .skill-list .progress-circle img:hover {
 @media (min-width: 1440px) {
   main #Portfolio-site .site-box {
     width: 1180px;
-    overflow-x: hidden;
+    overflow-x: scroll;
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 30px;
     background-color: rgba(0, 0, 0, 0.7);
@@ -868,6 +887,9 @@ main #Portfolio-site .site-box .site-slide .site-sample {
   main #Portfolio-site .site-box .site-slide .site-sample img {
     padding-left: 20px;
   }
+}
+main #Portfolio-site .site-box .site-slide .site-sample .site-txt {
+  text-align: center;
 }
 @media (min-width: 1440px) {
   main #Portfolio-site .site-box .site-slide .site-sample .site-txt {
@@ -1069,6 +1091,9 @@ main #Portfolio-other .tabs-wrap .tab-content ul li {
 main #Portfolio-other .tabs-wrap .tab-content ul li:nth-child(1) {
   margin-right: 12px;
 }
+main #Portfolio-other .tabs-wrap .tab-content ul li a:hover {
+  filter: blur(4px);
+}
 main #Portfolio-other .tabs-wrap .tab-content ul li a .tab-img {
   position: relative;
   z-index: 0;
@@ -1089,7 +1114,7 @@ main #Portfolio-other .tabs-wrap .tab-content ul li a .tab-img::after {
   transition: all 0.3s;
 }
 main #Portfolio-other .tabs-wrap .tab-content ul li a .tab-img:hover::after {
-  height: 20%;
+  height: 100%;
 }
 main #Portfolio-other .tabs-wrap .tab-content ul li a .tab-img img {
   width: 100%;
@@ -1367,7 +1392,8 @@ main #Contact .position-box .footer {
 }
 @media (min-width: 768px) {
   main #Contact .position-box .footer {
-    bottom: -12px;
+    bottom: -22px;
+    height: 35px;
   }
 }
 main #Contact .position-box .footer h2 {

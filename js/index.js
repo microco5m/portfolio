@@ -78,7 +78,51 @@ tabsWrap.addEventListener("click", (e)=> {
   }
 })
 
-
+  // 풀페이지 스크롤
+  // let sections = document.querySelectorAll('section');  // 모든 섹션 요소 선택
+  // let currentSectionIndex = 0;  // 현재 섹션 인덱스
+  // let isScrolling = false;  // 스크롤이 진행 중인지 여부
+  
+  // // 화면 가로 크기가 1440px 이상일 때만 풀페이지 스크롤 기능을 실행
+  // if (window.innerWidth >= 1440) {  // 1440px 이상일 때만 실행
+  
+  //   window.addEventListener('wheel', function (event) {
+  
+  //     if (isScrolling) return; // 스크롤이 진행 중이면 이벤트 무시
+  
+  //     isScrolling = true;  // 스크롤 진행 시작
+  
+  //     // 마우스 휠을 내린 경우 (deltaY > 0)
+  //     if (event.deltaY > 0) {
+  //       if (currentSectionIndex < sections.length - 1) {
+  //         currentSectionIndex++;  // 다음 섹션으로 이동
+  //       }
+  //     } else {  // 마우스 휠을 올린 경우 (deltaY < 0)
+  //       if (currentSectionIndex > 0) {
+  //         currentSectionIndex--;  // 이전 섹션으로 이동
+  //       }
+  //     }
+  
+  //     // 해당 섹션으로 부드럽게 스크롤 이동
+  //     sections[currentSectionIndex].scrollIntoView({
+  //       behavior: 'smooth',
+  //       block: 'start'
+  //     });
+  
+  //     // 800ms 후에 스크롤 완료로 간주하여 다시 스크롤을 받을 수 있게 설정
+  //     setTimeout(() => {
+  //       isScrolling = false;
+  //     }, 800);
+  
+  //     // 기본 스크롤 동작 방지 (페이지 자체 스크롤 막기)
+  //     event.preventDefault();  
+  //   }, { passive: false });
+  
+  // } else {
+  //   // 화면 가로 크기가 1440px 미만일 경우 풀페이지 스크롤을 비활성화
+  //   console.log('풀페이지 스크롤은 1440px 이상일 때만 활성화됩니다.');
+  // }
+  
 }
 
 
@@ -115,40 +159,3 @@ $(window).scroll(function () {
 
 
 
-  // // 풀페이지 스크롤
-  // let sections = document.querySelectorAll('section');  // 모든 섹션 요소 선택
-  // let currentSectionIndex = 0;  // 현재 섹션 인덱스
-  // let isScrolling = false;  // 스크롤이 진행 중인지 여부
-
-  // // 화면 가로 크기가 1440px 이상일 때만 실행
-  // if (window.innerWidth >= 1440) {
-
-
-  //   window.addEventListener('wheel', function (event) {
-
-  //     if (isScrolling) return; // 스크롤이 진행 중이면 이벤트 무시
-
-  //     isScrolling = true;  // 스크롤 진행 시작
-
-  //     if (event.deltaY > 0) {
-  //       if (currentSectionIndex < sections.length - 1) {
-  //         currentSectionIndex++;
-  //       }
-  //     } else {
-  //       if (currentSectionIndex > 0) {
-  //         currentSectionIndex--;
-  //       }
-  //     }
-
-  //     sections[currentSectionIndex].scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start'
-  //     });
-
-  //     setTimeout(() => {
-  //       isScrolling = false;
-  //     }, 800);
-
-  //     event.preventDefault();  // 기본 스크롤 동작 방지
-  //   }, { passive: false });
-  // }
