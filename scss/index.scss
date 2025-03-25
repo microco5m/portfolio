@@ -8,6 +8,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  cursor: url(../images/cursor.png)m auto;
 }
 
 .container {
@@ -26,7 +27,11 @@ body {
 }
 
 // ============
-
+.cursor-img {
+  position: absolute;
+  width: 40px;
+  z-index: 1000;
+}
 // ++ header 
 header {
   position: fixed;
@@ -1282,20 +1287,21 @@ main {
       }
       .footer {
         position: absolute;
-        left: 50%;
         bottom: 0;
+        left: 50%;
         transform: translate(-50%);
         z-index: 50;
         height: 30px;
         width: 100vw;
         background-color: rgba(0, 0, 0, 0.747);
         @include responsive(medium-screens) {
-          bottom: -10px;
+          bottom: -12px;
         }
         h2 {
           font-size: 13px;
           font-weight: normal;
           font-family: $font-main;
+          text-align: center;
         }
       }
     }

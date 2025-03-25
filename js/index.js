@@ -1,4 +1,13 @@
 window.onload = function () {
+  document.addEventListener('mousemove', (e) => {
+    let mouseX = e.pageX + 15; // document의 x좌표값
+    let mouseY = e.pageY + 15; // document의 y좌표값
+
+    let cursor = document.querySelector('.cursor-img');
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+})
+
 
   //tab-menu
   const mobileBtn = document.getElementById('mobile-btn');
