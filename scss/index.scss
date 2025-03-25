@@ -447,7 +447,6 @@ main {
       height: 100vh
     }
 
-
     .flex-box {
       @include responsive(large-screens) {
         display: flex;
@@ -516,6 +515,7 @@ main {
           }
         }
       }
+
       .profile-square {
         position: relative;
         // background-color: green;
@@ -625,7 +625,7 @@ main {
         }
       }
     }
-  }// About-me
+  }// #About-me
 
   #Skill {
     text-align: center;
