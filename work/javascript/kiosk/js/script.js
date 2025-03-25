@@ -1,7 +1,7 @@
 //주문리스트에 주문거리 추가하는 JS
 const products = [
   { id: 1, images: "menu1.png", name: "떡볶이", price: 3500, quantity: 1 },
-  { id: 2, images: "menu2.png", name: "로제 떡볶이", price: 500, quantity: 1 },
+  { id: 2, images: "menu2.png", name: "로제 떡볶이", price: 5500, quantity: 1 },
   { id: 3, images: "menu3.png", name: "순대", price: 3500, quantity: 1 },
   { id: 4, images: "menu4.png", name: "만두 튀김(3)", price: 1700, quantity: 1 },
   { id: 5, images: "menu5.png", name: "김말이 튀김(3)", price: 1700, quantity: 1 },
