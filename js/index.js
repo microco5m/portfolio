@@ -1,4 +1,18 @@
 window.onload = function () {
+
+  const scrollPosition = sessionStorage.getItem('scrollPosition');
+  if (scrollPosition) {
+    window.scrollTo(0, scrollPosition); // 이전 스크롤 위치로 이동
+  }
+
+  // 스크롤 위치를 저장하는 이벤트 리스너 추가
+  window.addEventListener('scroll', () => {
+    sessionStorage.setItem('scrollPosition', window.scrollY); // 현재 스크롤 위치 저장
+  });
+
+
+
+// 마우스 커서
   document.addEventListener('mousemove', (e) => {
     let mouseX = e.pageX + 15; // document의 x좌표값
     let mouseY = e.pageY + 15; // document의 y좌표값
@@ -181,6 +195,8 @@ window.onload = function () {
 //스크롤 애니메이션
 
 let windowWidth = $(window).width();
+// let tabletSize = 768;
+let desktopSize = 1440;
 
 $(`h2`).css({ 'opacity': 0, 'transform': 'translateX(-100px)' });
 $(`#Skill li > div`).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
@@ -188,17 +204,67 @@ $(`#Skill li > div`).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
 $(window).scroll(function () {
   let scrollTop = $(this).scrollTop();
 
-  $(`h2`).each(function () {
-    var offsetTop = $(this).offset().top;
-    if (scrollTop + $(window).height() > offsetTop && $(this).css('opacity') == 0) {
-      $(this).css({ 'opacity': 1, 'transform': 'translateX(0)' });
+  if (windowWidth < desktopSize) {
+    $('.email-txt').each(function () {
+      let offsetTop = $(this).offset().top;
+      if (scrollTop + $(window).height() > offsetTop) {
+          $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+      } else {
+          $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
+      }
+    });
+
+  } else {
+    $('.email-txt').each(function () {
+      let offsetTop = $(this).offset().top;
+      if (scrollTop + $(window).height() > offsetTop) {
+        $(this).addClass("move");
+      } else {
+        $(this).removeClass("move");
+      }
+    });
+
+    $('.tale1').each(function () {
+      let offsetTop = $(this).offset().top;
+      if (scrollTop + $(window).height() > offsetTop) {
+        $(this).addClass("move");
+      } else {
+        $(this).removeClass("move");
+      }
+    });
+  }
+
+  $('h2').each(function () {
+    let offsetTop = $(this).offset().top;
+    if (scrollTop + $(window).height() > offsetTop) {
+        $(this).css({ 'opacity': 1, 'transform': 'translateX(0)' });
+    } else {
+        $(this).css({ 'opacity': 0, 'transform': 'translateX(-100px)' });
+    }
+  });
+
+  $('.profile-photobox').each(function () {
+    let offsetTop = $(this).offset().top;
+    if (scrollTop + $(window).height() > offsetTop) {
+        $(this).css({ 'opacity': 1});
+    } else {
+        $(this).css({ 'opacity': 0});
     }
   });
 
   $(`#Skill li > div`).each(function () {
-    var offsetTop = $(this).offset().top;
+    let offsetTop = $(this).offset().top;
     if (scrollTop + $(window).height() > offsetTop && $(this).css('opacity') == 0) {
       $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+    }
+  });
+
+  $('.site-sample').each(function () {
+    let offsetTop = $(this).offset().top;
+    if (scrollTop + $(window).height() > offsetTop) {
+      $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+    } else {
+        $(this).css({ 'opacity': 0, 'transform': 'translateY(-100px)' });
     }
   });
 })

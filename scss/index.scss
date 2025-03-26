@@ -151,28 +151,10 @@ header {
       background-color: $color-blue;
       width: 100vw;
 
-      -webkit-animation: scale-in-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
       animation: scale-in-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
       &.active {
         // 토글용
         display: block;
-      }
-      
-      @-webkit-keyframes scale-in-tr {
-        0% {
-          -webkit-transform: scale(0);
-                  transform: scale(0);
-          -webkit-transform-origin: 100% 0%;
-                  transform-origin: 100% 0%;
-          opacity: 1;
-        }
-        100% {
-          -webkit-transform: scale(1);
-                  transform: scale(1);
-          -webkit-transform-origin: 100% 0%;
-                  transform-origin: 100% 0%;
-          opacity: 1;
-        }
       }
       @keyframes scale-in-tr {
         0% {
@@ -623,6 +605,23 @@ main {
         width: 100%;
         overflow: hidden;
 
+        opacity: 0;
+        transition: opacity 0.7s ease, transform 0.9s ease;
+
+        animation: profile-ani 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation-delay: 0.5s;
+        @keyframes profile-ani {
+          0% {
+            transform: translateY(400px) rotateX(30deg) scale(0);
+            transform-origin: 50% 100%;
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(0) rotateX(0) scale(1);
+            transform-origin: 50% -1000px;
+            opacity: 1;
+          }
+        }
         @include responsive(large-screens) {
           width: 690px;
           height: 500px;
@@ -988,7 +987,6 @@ main {
         border: 1px solid rgba($color: $color-white, $alpha: 0.7);
         border-radius: 30px;
         background-color: rgba($color: $color-black, $alpha: 0.7);
-
       }
 
       .site-slide {
@@ -1001,6 +999,9 @@ main {
         .site-sample {
           margin-bottom: 60px;
 
+          opacity: 0;
+          transform: translateY(-100px);
+          transition: opacity 0.7s ease, transform 0.9s ease;
           @include responsive(large-screens) {
             display: grid;
             grid-template-columns: repeat(2, 48%);
@@ -1369,10 +1370,12 @@ main {
       text-align: center;
       // background-color: pink;
       margin-top: 100px;
+      
 
       @include responsive(large-screens) {
         height: 800px;
         text-align: none;
+        opacity: 1;
       }
 
       h2 {
@@ -1382,71 +1385,125 @@ main {
           margin-left: 120px;
         }
       }
+      .email-saying {
 
-      .email-txt {
-        @include responsive(large-screens) {
-          position: absolute;
-          top: 150px;
-          left: 200px;
-          text-align: right;
-          padding: 25px;
-          border: 1px solid white;
-          border-radius: 40px;
+        // opacity: 0;
+        // transform: translateY(100px);
+        // transition: opacity 0.7s ease, transform 0.9s ease;
+        // @include responsive(large-screens) {
+        //   position: absolute;
+        //   top: 0;
+        //   left: 0;
+        // }
+        .email-txt {
+          opacity: 0;
+          transform: translateY(100px);
+          transition: opacity 0.7s ease, transform 0.9s ease;
 
-          &::before {
-            content: " ";
+          @include responsive(large-screens) {
             position: absolute;
-            top: 4px;
-            left: 4px;
-            width: 368px;
-            height: 148px;
+            top: 150px;
+            left: 200px;
+            text-align: right;
+            padding: 25px;
             border: 1px solid white;
             border-radius: 40px;
+  
+            &.move {
+              animation: speech-bubble1 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+              animation-delay: 0.5s;
+            }
+  
+            @keyframes speech-bubble1 {
+              0% {
+                transform: scale(0.2);
+                transform-origin: 100% 100%;
+                opacity: 0;
+              }
+              100% {
+                transform: scale(1);
+                transform-origin: 100% 100%;
+                opacity: 1;
+              }
+            }
+  
+            &::before {
+              content: " ";
+              position: absolute;
+              top: 4px;
+              left: 4px;
+              width: 368px;
+              height: 148px;
+              border: 1px solid white;
+              border-radius: 40px;
+            }
+  
           }
-
+  
+          strong {
+            font-size: 24px;
+            font-weight: 600;
+  
+            @include responsive(large-screens) {
+              font-size: 36px;
+            }
+          }
+  
+          a {
+            font-size: 20px;
+  
+            @include responsive(large-screens) {
+              font-size: 32px;
+            }
+  
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
+  
+        .tale1 {
 
-        strong {
-          font-size: 24px;
-          font-weight: 600;
 
           @include responsive(large-screens) {
-            font-size: 36px;
-          }
-        }
-
-        a {
-          font-size: 20px;
-
-          @include responsive(large-screens) {
-            font-size: 32px;
-          }
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-
-      .tale1 {
-        @include responsive(large-screens) {
-          position: absolute;
-          top: 300px;
-          left: 540px;
-          width: 60px;
-          height: 1px;
-          background-color: white;
-          transform: rotate(30deg);
-
-          &::before {
             position: absolute;
-            content: "";
-            top: -3px;
-            left: 5px;
+            top: 300px;
+            left: 540px;
             width: 60px;
             height: 1px;
             background-color: white;
-            transform: rotate(10deg);
+            transform: rotate(30deg);
+
+            opacity: 0;
+            transition: opacity 0.7s ease, transform 0.9s ease;
+
+            &.move {
+              animation: speech-tale1 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+              animation-delay: 0.5s;
+            }
+            @keyframes speech-tale1 {
+              0% {
+                transform: scale(0.2) rotate(30deg);
+                transform-origin: 100% 100%;
+                opacity: 0;
+              }
+              100% {
+                transform: scale(1) rotate(30deg);
+                transform-origin: 100% 100%;
+                opacity: 1;
+              }
+            }
+  
+            &::before {
+              position: absolute;
+              content: "";
+              top: -3px;
+              left: 5px;
+              width: 60px;
+              height: 1px;
+              background-color: white;
+              transform: rotate(10deg);
+            }
           }
         }
       }
@@ -1463,69 +1520,106 @@ main {
           display: none;
         }
       }
-
-      .message {
-        margin-bottom: 90px;
-
-        @include responsive(large-screens) {
-          position: absolute;
-          top: 200px;
-          right: 150px;
-          // text-align: left;
-          padding: 25px;
-          width: 367px;
-          border: 1px solid white;
-          border-radius: 40px;
-          margin-bottom: 0;
-          // background-color: aquamarine;
-
-          &::before {
-            content: " ";
+      .message-saying {
+        .message {
+          margin-bottom: 90px;
+  
+          @include responsive(large-screens) {
             position: absolute;
-            top: 4px;
-            left: 4px;
-            width: 368px;
-            height: 148px;
+            top: 200px;
+            right: 150px;
+            // text-align: left;
+            padding: 25px;
+            width: 367px;
             border: 1px solid white;
             border-radius: 40px;
+            margin-bottom: 0;
+            // background-color: aquamarine;
+  
+            &.move {
+            animation: speech-bubble2 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation-delay: 1s;
+            }
+  
+            @keyframes speech-bubble2 {
+              0% {
+                transform: scale(0.3);
+                transform-origin: 0% 100%;
+                opacity: 0;
+              }
+              100% {
+                transform: scale(1);
+                transform-origin: 0% 100%;
+                opacity: 1;
+              }
+            }
+  
+            &::before {
+              content: " ";
+              position: absolute;
+              top: 4px;
+              left: 4px;
+              width: 368px;
+              height: 148px;
+              border: 1px solid white;
+              border-radius: 40px;
+            }
+          }
+  
+          p {
+            font-size: 32px;
+            line-height: 1.2;
+  
+            @include responsive(large-screens) {
+              text-align: left;
+              font-size: 40px;
+              margin-left: 30px;
+            }
+  
+            .point-blue {
+              color: $color-blue;
+            }
           }
         }
-
-        p {
-          font-size: 32px;
-          line-height: 1.2;
-
+  
+        .tale2 {
           @include responsive(large-screens) {
-            text-align: left;
-            font-size: 40px;
-            margin-left: 30px;
-          }
-
-          .point-blue {
-            color: $color-blue;
-          }
-        }
-      }
-
-      .tale2 {
-        @include responsive(large-screens) {
-          position: absolute;
-          top: 350px;
-          right: 490px;
-          width: 70px;
-          height: 1px;
-          background-color: white;
-          transform: rotate(-40deg);
-
-          &::before {
             position: absolute;
-            content: "";
-            top: 2px;
-            right: -3px;
+            top: 350px;
+            right: 490px;
             width: 70px;
             height: 1px;
             background-color: white;
-            transform: rotate(7deg);
+            transform: rotate(-40deg);
+            
+            &.move {
+              animation: speech-tale2 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+              animation-delay: 1s;
+            }
+            @keyframes speech-tale2 {
+              0% {
+                top: 370px;
+                transform: scale(0.4) rotate(-40deg);
+                transform-origin: 0% 100%;
+                opacity: 0;
+              }
+              100% {
+                top: 370px;
+                transform: scale(1) rotate(-40deg);
+                transform-origin: 0% 100%;
+                opacity: 1;
+              }
+            }
+            &::before {
+              position: absolute;
+              content: "";
+              top: 2px;
+              right: -3px;
+              width: 70px;
+              height: 1px;
+              background-color: white;
+              transform: rotate(7deg);
+            }
           }
         }
       }
@@ -1562,6 +1656,11 @@ main {
         transform: translateX(-50%);
         z-index: 0;
 
+        animation: earth-move 4s ease forwards;
+        @keyframes earth-move {
+          0% {bottom: 0px; left: 50%;transform-origin: bottom; transform:translateX(-50%) scale(0.2); }
+          100% {bottom: -50px; left: 50%; transform:translateX(-50%) scale(1); }
+        }
         @include responsive(medium-screens) {
           bottom: -300px;
         }
