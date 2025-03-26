@@ -72,7 +72,8 @@ p {
   line-height: 1.8;
 }
 
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
 
@@ -110,7 +111,7 @@ body {
 }
 
 .cursor-img {
-  position: fixed;
+  position: absolute;
   width: 40px;
   z-index: 1000;
 }
@@ -195,21 +196,25 @@ header .logo-menu-flex .main-menu {
   position: fixed;
   top: 0;
   left: 0;
-  height: 45vh;
+  height: 60vh;
   border-bottom-left-radius: 100%;
   background-color: #3E81FF;
   width: 100vw;
-  animation: tabmenu-ani 0.4s ease forwards;
+  animation: scale-in-tr 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 header .logo-menu-flex .main-menu.active {
   display: block;
 }
-@keyframes tabmenu-ani {
+@keyframes scale-in-tr {
   0% {
-    transform: translate(100px, -100px);
+    transform: scale(0);
+    transform-origin: 100% 0%;
+    opacity: 1;
   }
   100% {
-    transform: translate(0, 0);
+    transform: scale(1);
+    transform-origin: 100% 0%;
+    opacity: 1;
   }
 }
 @media (min-width: 1440px) {
@@ -253,7 +258,8 @@ header .logo-menu-flex .main-menu .gnb li {
   }
   header .logo-menu-flex .main-menu .gnb li.active a {
     font-weight: bold;
-    color: blue; /* 활성화된 메뉴 색상 */
+    color: blue;
+    /* 활성화된 메뉴 색상 */
   }
 }
 header .logo-menu-flex .main-menu .gnb li a span:hover {
@@ -1404,7 +1410,7 @@ main #Contact .position-box .footer {
     height: 35px;
   }
 }
-main #Contact .position-box .footer h2 {
+main #Contact .position-box .footer p {
   font-size: 13px;
   font-weight: normal;
   font-family: "Noto Sans KR";
