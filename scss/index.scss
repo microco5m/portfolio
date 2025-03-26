@@ -8,7 +8,8 @@ body {
 }
 
 body {
-  background-image: url(../images/bg1.jpg);
+  background-color: black;
+  background-image: url(../images/star.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -44,9 +45,13 @@ body {
 
 // ============
 .cursor-img {
-  position: absolute;
-  width: 40px;
-  z-index: 1000;
+  display: none;
+  @include responsive(large-screens) {
+    display: block;
+    position: absolute;
+    width: 40px;
+    z-index: 1000;
+  }
 }
 
 // ++ header 
@@ -75,6 +80,11 @@ header {
 
       @include responsive(large-screens) {
         width: 55px;
+      }
+      img {
+        &:hover {
+          filter: invert(45%) sepia(39%) saturate(3173%) hue-rotate(203deg) brightness(98%) contrast(107%);
+        }
       }
     }
 
@@ -608,8 +618,11 @@ main {
         opacity: 0;
         transition: opacity 0.7s ease, transform 0.9s ease;
 
-        animation: profile-ani 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation-delay: 0.5s;
+        &.move {
+          animation: profile-ani 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          // animation-delay: 0s;
+        }
+
         @keyframes profile-ani {
           0% {
             transform: translateY(400px) rotateX(30deg) scale(0);
@@ -810,9 +823,7 @@ main {
         }
       }
     }
-  }
-
-  // #About-me
+  } // #About-me
 
   #Skill {
     text-align: center;
@@ -834,6 +845,12 @@ main {
         grid-template-columns: repeat(2, 158px);
         grid-template-rows: minmax(158px, auto);
         gap: 12px;
+
+        @include responsive(medium-screens) {
+          grid-template-columns: repeat(4, 180px);
+          gap: 60px;
+          grid-template-rows: minmax(180px, auto);
+        }
 
         @include responsive(large-screens) {
           grid-template-columns: repeat(5, 180px);
@@ -967,14 +984,16 @@ main {
         }
       }
     }
-  }
-
-  // Skill
+  } // Skill
 
   #Portfolio-site {
 
+    background: url(../images/earth2.png) no-repeat left;
+    background-size: 80%;
     @include responsive(large-screens) {
       height: 100vh;
+    background-size: 20%;
+
     }
 
     //공통
@@ -1141,35 +1160,33 @@ main {
           }
         }
 
-        .site2 {
-          img {
-            @include responsive(large-screens) {
-              grid-area: 1 / 2;
-              padding-left: 0;
-              padding-right: 20px;
-            }
-          }
+        // .site2 {
+        //   img {
+        //     @include responsive(large-screens) {
+        //       grid-area: 1 / 2;
+        //       padding-left: 0;
+        //       padding-right: 20px;
+        //     }
+        //   }
 
-          .site-txt {
-            @include responsive(large-screens) {
-              grid-area: 1 / 1;
-              text-align: right;
-              margin-right: 0;
-              margin-left: 20px;
-            }
-          }
+        //   .site-txt {
+        //     @include responsive(large-screens) {
+        //       grid-area: 1 / 1;
+        //       text-align: right;
+        //       margin-right: 0;
+        //       margin-left: 20px;
+        //     }
+        //   }
 
-          .btns {
-            @include responsive(large-screens) {
-              transform: translateX(150px);
-            }
-          }
-        }
+        //   .btns {
+        //     @include responsive(large-screens) {
+        //       transform: translateX(150px);
+        //     }
+        //   }
+        // }
       }
     }
-  }
-
-  // Prortfolio
+  } // Prortfolio
 
   #Portfolio-other {
     @include responsive(large-screens) {
@@ -1284,13 +1301,21 @@ main {
                   z-index: 10;
                   width: 100%;
                   height: 0;
-                  opacity: 0.6;
-                  background-color: blue;
-                  transition: all 0.3s;
+                  opacity: 0.8;
+                  background-color: #3E81FF;
+                  transition: all 0.2s;
                 }
 
-                &:hover::after {
-                  height: 100%;
+                &:hover {
+                  // border-radius: 20px;
+                  animation: hover-border 0.3s ease-in-out forwards;
+                  @keyframes hover-border {
+                    0%{border-radius: 0px;}
+                    100%{border-radius: 40px;}
+                  }
+                  &::after {
+                    height: 30%;
+                  }
                 }
 
                 img {
@@ -1366,7 +1391,7 @@ main {
 
     .position-box {
       position: relative;
-      height: 800px;
+      height: 850px;
       text-align: center;
       // background-color: pink;
       margin-top: 100px;
@@ -1387,14 +1412,6 @@ main {
       }
       .email-saying {
 
-        // opacity: 0;
-        // transform: translateY(100px);
-        // transition: opacity 0.7s ease, transform 0.9s ease;
-        // @include responsive(large-screens) {
-        //   position: absolute;
-        //   top: 0;
-        //   left: 0;
-        // }
         .email-txt {
           opacity: 0;
           transform: translateY(100px);
@@ -1411,9 +1428,8 @@ main {
   
             &.move {
               animation: speech-bubble1 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-              animation-delay: 0.5s;
+              animation-delay: 1.7s;
             }
-  
             @keyframes speech-bubble1 {
               0% {
                 transform: scale(0.2);
@@ -1426,6 +1442,7 @@ main {
                 opacity: 1;
               }
             }
+  
   
             &::before {
               content: " ";
@@ -1479,7 +1496,7 @@ main {
 
             &.move {
               animation: speech-tale1 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-              animation-delay: 0.5s;
+              animation-delay: 1.7s;
             }
             @keyframes speech-tale1 {
               0% {
@@ -1516,6 +1533,9 @@ main {
         margin-top: 60px;
         margin-bottom: 50px;
 
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 0.7s ease, transform 0.9s ease;
         @include responsive(medium-screens) {
           display: none;
         }
@@ -1523,9 +1543,13 @@ main {
       .message-saying {
         .message {
           margin-bottom: 90px;
-  
+          
+          opacity: 0;
+          transform: translateY(100px) scale(1);
+          transition: opacity 0.7s ease, transform 0.9s ease;
+
           @include responsive(large-screens) {
-            position: absolute;
+            position: absolute;                                                    
             top: 200px;
             right: 150px;
             // text-align: left;
@@ -1535,30 +1559,30 @@ main {
             border-radius: 40px;
             margin-bottom: 0;
             // background-color: aquamarine;
-  
+
             &.move {
-            animation: speech-bubble2 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-            animation-delay: 1s;
-            }
+              animation: speech-bubble2 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+              animation-delay: 1.9s;
   
-            @keyframes speech-bubble2 {
-              0% {
-                transform: scale(0.3);
-                transform-origin: 0% 100%;
-                opacity: 0;
-              }
-              100% {
-                transform: scale(1);
-                transform-origin: 0% 100%;
-                opacity: 1;
+              @keyframes speech-bubble2 {
+                0% {
+                  transform: scale(0.3);
+                  transform-origin: 0% 100%;
+                  opacity: 0;
+                }
+                100% {
+                  transform: scale(1);
+                  transform-origin: 0% 100%;
+                  opacity: 1;
+                }
               }
             }
-  
+
             &::before {
               content: " ";
               position: absolute;
               top: 4px;
-              left: 4px;
+              right: 4px;
               width: 368px;
               height: 148px;
               border: 1px solid white;
@@ -1590,26 +1614,26 @@ main {
             width: 70px;
             height: 1px;
             background-color: white;
-            transform: rotate(-40deg);
+            transform: rotate(-30deg);
             
             &.move {
-              animation: speech-tale2 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-              animation-delay: 1s;
-            }
-            @keyframes speech-tale2 {
-              0% {
-                top: 370px;
-                transform: scale(0.4) rotate(-40deg);
-                transform-origin: 0% 100%;
-                opacity: 0;
+              animation: speech-tale2 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+              animation-delay: 1.9s;
+  
+              @keyframes speech-tale2 {
+                0% {
+                  transform: scale(0.3) rotate(-30deg);
+                  transform-origin: 0% 100%;
+                  opacity: 0;
+                }
+                100% {
+                  transform: scale(1) rotate(-30deg);
+                  transform-origin: 0% 100%;
+                  opacity: 1;
+                }
               }
-              100% {
-                top: 370px;
-                transform: scale(1) rotate(-40deg);
-                transform-origin: 0% 100%;
-                opacity: 1;
-              }
             }
+
             &::before {
               position: absolute;
               content: "";
@@ -1626,16 +1650,41 @@ main {
 
       .person {
         position: absolute;
-        bottom: 80px;
+        bottom: 90px;
         left: 50%;
         transform: translate(-50%);
         width: 134px;
         z-index: 10;
 
+        opacity: 0;
+        // transform: translateY(100px);
+        transition: opacity 0.7s ease-in-out, transform 0.9s ease;
+
+        &.move {
+          animation: person-move 1.5s ease-in-out forwards;
+          @keyframes person-move {
+            0% { bottom: 500px; left: 50%; transform: translate(-50%) rotate(5deg);}
+            25% { bottom: 400px; left: 50%; transform: translate(-50%) rotate(5deg);}
+            50% { bottom: 200px; left: 50%; transform: translate(-50%) rotate(-5deg);}
+            75% { bottom: 150px; left: 50%; transform: translate(-50%) rotate(-2deg);}
+            100% { bottom: 90px; left: 50%; transform: translate(-50%) rotate(0);}
+          }
+        }
         @include responsive(large-screens) {
           width: 200px;
           bottom: 200px;
           transform: translate(-40%);
+
+          &.move2 {
+            animation: person-move2 1.5s ease-in-out forwards;
+            @keyframes person-move2 {
+              0% { bottom: 500px; left: 50%; transform: translate(-40%) rotate(5deg);}
+              25% { bottom: 400px; left: 50%; transform: translate(-40%) rotate(5deg);}
+              50% { bottom: 300px; left: 50%; transform: translate(-40%) rotate(-5deg);}
+              75% { bottom: 200px; left: 50%; transform: translate(-40%) rotate(-2deg);}
+              100% { bottom: 200px; left: 50%; transform: translate(-40%) rotate(0);}
+            }
+          }
         }
 
         img {
@@ -1656,17 +1705,24 @@ main {
         transform: translateX(-50%);
         z-index: 0;
 
-        animation: earth-move 4s ease forwards;
+        animation: earth-move 3s ease forwards;
         @keyframes earth-move {
           0% {bottom: 0px; left: 50%;transform-origin: bottom; transform:translateX(-50%) scale(0.2); }
           100% {bottom: -50px; left: 50%; transform:translateX(-50%) scale(1); }
         }
+
         @include responsive(medium-screens) {
           bottom: -300px;
         }
 
         @include responsive(large-screens) {
           bottom: -300px;
+
+          animation: earth-move2 3s ease forwards;
+          @keyframes earth-move2 {
+            0% {bottom: 0px; left: 50%;transform-origin: bottom; transform:translateX(-50%) scale(0.2); }
+            100% {bottom: -300px; left: 50%; transform:translateX(-50%) scale(1); }
+          }
         }
 
         img {
@@ -1689,7 +1745,7 @@ main {
         background-color: rgba(0, 0, 0, 0.747);
 
         @include responsive(medium-screens) {
-          bottom: -22px;
+          bottom: 0px;
           height: 35px;
         }
 

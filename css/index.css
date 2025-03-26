@@ -78,7 +78,8 @@ body {
 }
 
 body {
-  background-image: url(../images/bg1.jpg);
+  background-color: black;
+  background-image: url(../images/star.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -111,9 +112,15 @@ body {
 }
 
 .cursor-img {
-  position: absolute;
-  width: 40px;
-  z-index: 1000;
+  display: none;
+}
+@media (min-width: 1440px) {
+  .cursor-img {
+    display: block;
+    position: absolute;
+    width: 40px;
+    z-index: 1000;
+  }
 }
 
 header {
@@ -144,6 +151,9 @@ header .logo-menu-flex .logo {
   header .logo-menu-flex .logo {
     width: 55px;
   }
+}
+header .logo-menu-flex .logo img:hover {
+  filter: invert(45%) sepia(39%) saturate(3173%) hue-rotate(203deg) brightness(98%) contrast(107%);
 }
 header .logo-menu-flex #mobile-btn {
   position: absolute;
@@ -555,8 +565,9 @@ main #About-me .flex-box .profile-photobox {
   overflow: hidden;
   opacity: 0;
   transition: opacity 0.7s ease, transform 0.9s ease;
-  animation: profile-ani 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: 0.5s;
+}
+main #About-me .flex-box .profile-photobox.move {
+  animation: profile-ani 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 @keyframes profile-ani {
   0% {
@@ -764,6 +775,13 @@ main #Skill .wrapper .skill-list {
   grid-template-rows: minmax(158px, auto);
   gap: 12px;
 }
+@media (min-width: 768px) {
+  main #Skill .wrapper .skill-list {
+    grid-template-columns: repeat(4, 180px);
+    gap: 60px;
+    grid-template-rows: minmax(180px, auto);
+  }
+}
 @media (min-width: 1440px) {
   main #Skill .wrapper .skill-list {
     grid-template-columns: repeat(5, 180px);
@@ -880,9 +898,14 @@ main #Skill .wrapper .skill-list .progress-circle img:hover {
     height: 110px;
   }
 }
+main #Portfolio-site {
+  background: url(../images/earth2.png) no-repeat left;
+  background-size: 80%;
+}
 @media (min-width: 1440px) {
   main #Portfolio-site {
     height: 100vh;
+    background-size: 20%;
   }
 }
 @media (min-width: 1440px) {
@@ -1027,26 +1050,6 @@ main #Portfolio-site .site-box .site-slide .site-sample .site-txt .btns .btn-pag
   padding: 0;
 }
 @media (min-width: 1440px) {
-  main #Portfolio-site .site-box .site-slide .site2 img {
-    grid-area: 1/2;
-    padding-left: 0;
-    padding-right: 20px;
-  }
-}
-@media (min-width: 1440px) {
-  main #Portfolio-site .site-box .site-slide .site2 .site-txt {
-    grid-area: 1/1;
-    text-align: right;
-    margin-right: 0;
-    margin-left: 20px;
-  }
-}
-@media (min-width: 1440px) {
-  main #Portfolio-site .site-box .site-slide .site2 .btns {
-    transform: translateX(150px);
-  }
-}
-@media (min-width: 1440px) {
   main #Portfolio-other {
     height: 100vh;
   }
@@ -1142,12 +1145,23 @@ main #Portfolio-other .tabs-wrap .tab-content ul li a .tab-img::after {
   z-index: 10;
   width: 100%;
   height: 0;
-  opacity: 0.6;
-  background-color: blue;
-  transition: all 0.3s;
+  opacity: 0.8;
+  background-color: #3E81FF;
+  transition: all 0.2s;
+}
+main #Portfolio-other .tabs-wrap .tab-content ul li a .tab-img:hover {
+  animation: hover-border 0.3s ease-in-out forwards;
+}
+@keyframes hover-border {
+  0% {
+    border-radius: 0px;
+  }
+  100% {
+    border-radius: 40px;
+  }
 }
 main #Portfolio-other .tabs-wrap .tab-content ul li a .tab-img:hover::after {
-  height: 100%;
+  height: 30%;
 }
 main #Portfolio-other .tabs-wrap .tab-content ul li a .tab-img img {
   width: 100%;
@@ -1212,7 +1226,7 @@ main #Contact {
 }
 main #Contact .position-box {
   position: relative;
-  height: 800px;
+  height: 850px;
   text-align: center;
   margin-top: 100px;
 }
@@ -1248,7 +1262,7 @@ main #Contact .position-box .email-saying .email-txt {
   }
   main #Contact .position-box .email-saying .email-txt.move {
     animation: speech-bubble1 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-    animation-delay: 0.5s;
+    animation-delay: 1.7s;
   }
   @keyframes speech-bubble1 {
     0% {
@@ -1307,7 +1321,7 @@ main #Contact .position-box .email-saying .email-txt a:hover {
   }
   main #Contact .position-box .email-saying .tale1.move {
     animation: speech-tale1 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-    animation-delay: 0.5s;
+    animation-delay: 1.7s;
   }
   @keyframes speech-tale1 {
     0% {
@@ -1338,6 +1352,9 @@ main #Contact .position-box .img-1 {
   height: 67px;
   margin-top: 60px;
   margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.7s ease, transform 0.9s ease;
 }
 @media (min-width: 768px) {
   main #Contact .position-box .img-1 {
@@ -1346,6 +1363,9 @@ main #Contact .position-box .img-1 {
 }
 main #Contact .position-box .message-saying .message {
   margin-bottom: 90px;
+  opacity: 0;
+  transform: translateY(100px) scale(1);
+  transition: opacity 0.7s ease, transform 0.9s ease;
 }
 @media (min-width: 1440px) {
   main #Contact .position-box .message-saying .message {
@@ -1359,8 +1379,8 @@ main #Contact .position-box .message-saying .message {
     margin-bottom: 0;
   }
   main #Contact .position-box .message-saying .message.move {
-    animation: speech-bubble2 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-    animation-delay: 1s;
+    animation: speech-bubble2 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation-delay: 1.9s;
   }
   @keyframes speech-bubble2 {
     0% {
@@ -1378,7 +1398,7 @@ main #Contact .position-box .message-saying .message {
     content: " ";
     position: absolute;
     top: 4px;
-    left: 4px;
+    right: 4px;
     width: 368px;
     height: 148px;
     border: 1px solid white;
@@ -1407,22 +1427,20 @@ main #Contact .position-box .message-saying .message p .point-blue {
     width: 70px;
     height: 1px;
     background-color: white;
-    transform: rotate(-40deg);
+    transform: rotate(-30deg);
   }
   main #Contact .position-box .message-saying .tale2.move {
-    animation: speech-tale2 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-    animation-delay: 1s;
+    animation: speech-tale2 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation-delay: 1.9s;
   }
   @keyframes speech-tale2 {
     0% {
-      top: 370px;
-      transform: scale(0.4) rotate(-40deg);
+      transform: scale(0.3) rotate(-30deg);
       transform-origin: 0% 100%;
       opacity: 0;
     }
     100% {
-      top: 370px;
-      transform: scale(1) rotate(-40deg);
+      transform: scale(1) rotate(-30deg);
       transform-origin: 0% 100%;
       opacity: 1;
     }
@@ -1440,17 +1458,79 @@ main #Contact .position-box .message-saying .message p .point-blue {
 }
 main #Contact .position-box .person {
   position: absolute;
-  bottom: 80px;
+  bottom: 90px;
   left: 50%;
   transform: translate(-50%);
   width: 134px;
   z-index: 10;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out, transform 0.9s ease;
+}
+main #Contact .position-box .person.move {
+  animation: person-move 1.5s ease-in-out forwards;
+}
+@keyframes person-move {
+  0% {
+    bottom: 500px;
+    left: 50%;
+    transform: translate(-50%) rotate(5deg);
+  }
+  25% {
+    bottom: 400px;
+    left: 50%;
+    transform: translate(-50%) rotate(5deg);
+  }
+  50% {
+    bottom: 200px;
+    left: 50%;
+    transform: translate(-50%) rotate(-5deg);
+  }
+  75% {
+    bottom: 150px;
+    left: 50%;
+    transform: translate(-50%) rotate(-2deg);
+  }
+  100% {
+    bottom: 90px;
+    left: 50%;
+    transform: translate(-50%) rotate(0);
+  }
 }
 @media (min-width: 1440px) {
   main #Contact .position-box .person {
     width: 200px;
     bottom: 200px;
     transform: translate(-40%);
+  }
+  main #Contact .position-box .person.move2 {
+    animation: person-move2 1.5s ease-in-out forwards;
+  }
+  @keyframes person-move2 {
+    0% {
+      bottom: 500px;
+      left: 50%;
+      transform: translate(-40%) rotate(5deg);
+    }
+    25% {
+      bottom: 400px;
+      left: 50%;
+      transform: translate(-40%) rotate(5deg);
+    }
+    50% {
+      bottom: 300px;
+      left: 50%;
+      transform: translate(-40%) rotate(-5deg);
+    }
+    75% {
+      bottom: 200px;
+      left: 50%;
+      transform: translate(-40%) rotate(-2deg);
+    }
+    100% {
+      bottom: 200px;
+      left: 50%;
+      transform: translate(-40%) rotate(0);
+    }
   }
 }
 main #Contact .position-box .person img {
@@ -1468,7 +1548,7 @@ main #Contact .position-box .earth {
   left: 50%;
   transform: translateX(-50%);
   z-index: 0;
-  animation: earth-move 4s ease forwards;
+  animation: earth-move 3s ease forwards;
 }
 @keyframes earth-move {
   0% {
@@ -1491,6 +1571,20 @@ main #Contact .position-box .earth {
 @media (min-width: 1440px) {
   main #Contact .position-box .earth {
     bottom: -300px;
+    animation: earth-move2 3s ease forwards;
+  }
+  @keyframes earth-move2 {
+    0% {
+      bottom: 0px;
+      left: 50%;
+      transform-origin: bottom;
+      transform: translateX(-50%) scale(0.2);
+    }
+    100% {
+      bottom: -300px;
+      left: 50%;
+      transform: translateX(-50%) scale(1);
+    }
   }
 }
 main #Contact .position-box .earth img {
@@ -1513,7 +1607,7 @@ main #Contact .position-box .footer {
 }
 @media (min-width: 768px) {
   main #Contact .position-box .footer {
-    bottom: -22px;
+    bottom: 0px;
     height: 35px;
   }
 }

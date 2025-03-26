@@ -1,14 +1,14 @@
 window.onload = function () {
 
-  const scrollPosition = sessionStorage.getItem('scrollPosition');
-  if (scrollPosition) {
-    window.scrollTo(0, scrollPosition); // 이전 스크롤 위치로 이동
-  }
+  // const scrollPosition = sessionStorage.getItem('scrollPosition');
+  // if (scrollPosition) {
+  //   window.scrollTo(0, scrollPosition); // 이전 스크롤 위치로 이동
+  // }
 
-  // 스크롤 위치를 저장하는 이벤트 리스너 추가
-  window.addEventListener('scroll', () => {
-    sessionStorage.setItem('scrollPosition', window.scrollY); // 현재 스크롤 위치 저장
-  });
+  // // 스크롤 위치를 저장하는 이벤트 리스너 추가
+  // window.addEventListener('scroll', () => {
+  //   sessionStorage.setItem('scrollPosition', window.scrollY); // 현재 스크롤 위치 저장
+  // });
 
 
 
@@ -24,12 +24,33 @@ window.onload = function () {
 
 
   //tab-menu
+    // 모바일 메뉴 버튼 및 메뉴 DOM 요소를 가져옵니다.
   const mobileBtn = document.getElementById('mobile-btn');
   const mainMenu = document.querySelector('.main-menu');
+  const menuItems = document.querySelectorAll('.gnb > li');  // 메뉴 항목들
+  const body = document.querySelector('body');  // body 요소
 
+  // 햄버거 메뉴 버튼 클릭 시 메뉴 열고 닫기
   mobileBtn.addEventListener('click', function () {
     mobileBtn.classList.toggle('active');
     mainMenu.classList.toggle('active');
+  });
+
+  // 메뉴 항목 클릭 시 메뉴 닫기
+  menuItems.forEach(item => {
+    item.addEventListener('click', function() {
+      mobileBtn.classList.remove('active');  // 햄버거 버튼 애니메이션 닫기
+      mainMenu.classList.remove('active');  // 메뉴 닫기
+    });
+  });
+
+  // 메뉴 이외의 영역 클릭 시 메뉴 닫기
+  body.addEventListener('click', function(event) {
+    // 클릭된 곳이 메뉴 또는 햄버거 버튼이 아닐 경우
+    if (!mainMenu.contains(event.target) && !mobileBtn.contains(event.target)) {
+      mobileBtn.classList.remove('active');  // 햄버거 버튼 애니메이션 닫기
+      mainMenu.classList.remove('active');  // 메뉴 닫기
+    }
   });
 
 
@@ -67,8 +88,9 @@ window.onload = function () {
   let progressCircles = document.querySelectorAll(".progress-circle");
 
   function animateProgress(circle) {
-    let progressNum = circle.querySelector(".progress-num");
+    let progressNum = circle.querySelectorAll(".progress-num");
     progressNum.textContent = "0%";
+    
     let progressEndNum = parseInt(circle.getAttribute("data-percent"));
     let progressStartNum = 0;
     let progress = setInterval(() => {
@@ -86,16 +108,6 @@ window.onload = function () {
     progressCircles.forEach((circle) => {
       const rect = circle.getBoundingClientRect();
       if (rect.top >= 0 && rect.bottom <= window.innerHeight && !circle.hasAnimated) {
-        animateProgress(circle);
-        circle.hasAnimated = true; // 각 원형 진행 표시기마다 애니메이션이 진행되었음을 표시
-      }
-    });
-  });
-
-  // 마우스 오버 이벤트 리스너
-  progressCircles.forEach((circle) => {
-    circle.addEventListener("mouseover", () => {
-      if (!circle.hasAnimated) {
         animateProgress(circle);
         circle.hasAnimated = true; // 각 원형 진행 표시기마다 애니메이션이 진행되었음을 표시
       }
@@ -214,6 +226,25 @@ $(window).scroll(function () {
       }
     });
 
+    $('.message').each(function () {
+      let offsetTop = $(this).offset().top;
+      if (scrollTop + $(window).height() > offsetTop) {
+        $(this).css({ 'opacity': 1, 'transform':'translateY(0px)  scale(1)'});
+      } else {
+        $(this).css({ 'opacity': 0, 'transform':'translateY(100px)  scale(0.5)'});
+      }
+    });
+    $('.person').each(function () {
+      let offsetTop = $(this).offset().top;
+      if (scrollTop + $(window).height() > offsetTop) {
+          $(this).css({ 'opacity': 1});
+          $(this).addClass("move");
+      } else {
+        $(this).css({ 'opacity': 0});
+        $(this).removeClass("move");
+      }
+    });
+
   } else {
     $('.email-txt').each(function () {
       let offsetTop = $(this).offset().top;
@@ -224,12 +255,46 @@ $(window).scroll(function () {
       }
     });
 
+
     $('.tale1').each(function () {
       let offsetTop = $(this).offset().top;
       if (scrollTop + $(window).height() > offsetTop) {
+        $(this).css({ 'opacity': 1});
         $(this).addClass("move");
       } else {
+        $(this).css({ 'opacity': 0});
         $(this).removeClass("move");
+      }
+    });
+
+    $('.message').each(function () {
+      let offsetTop = $(this).offset().top;
+      if (scrollTop + $(window).height() > offsetTop) {
+        $(this).css({ 'opacity': 1, 'transform':'translateX(0px)'});
+        $(this).addClass("move");
+      } else {
+        $(this).css({ 'opacity': 0, 'transform':'translateX(0px)'});
+        $(this).removeClass("move");
+      }
+    });
+    $('.tale2').each(function () {
+      let offsetTop = $(this).offset().top;
+      if (scrollTop + $(window).height() > offsetTop) {
+        $(this).css({ 'opacity': 1, 'transform':'translateX(0px)'});
+        $(this).addClass("move");
+      } else {
+        $(this).css({ 'opacity': 0, 'transform':'translateX(0px)'});
+        $(this).removeClass("move");
+      }
+    });
+    $('.person').each(function () {
+      let offsetTop = $(this).offset().top;
+      if (scrollTop + $(window).height() > offsetTop) {
+          $(this).css({ 'opacity': 1});
+          $(this).addClass("move2");
+      } else {
+        $(this).css({ 'opacity': 0});
+        $(this).removeClass("move2");
       }
     });
   }
@@ -247,17 +312,31 @@ $(window).scroll(function () {
     let offsetTop = $(this).offset().top;
     if (scrollTop + $(window).height() > offsetTop) {
         $(this).css({ 'opacity': 1});
+        $(this).addClass('move');
     } else {
         $(this).css({ 'opacity': 0});
+        $(this).removeClass('move');
     }
   });
 
-  $(`#Skill li > div`).each(function () {
+  $('.img-1').each(function () {
     let offsetTop = $(this).offset().top;
-    if (scrollTop + $(window).height() > offsetTop && $(this).css('opacity') == 0) {
-      $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+    if (scrollTop + $(window).height() > offsetTop) {
+        $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+    } else {
+        $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
     }
   });
+
+  $('#Skill li > div').each(function () {
+    let offsetTop = $(this).offset().top;
+    if (scrollTop + $(window).height() > offsetTop) {
+        $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+    } else {
+        $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
+    }
+  });
+
 
   $('.site-sample').each(function () {
     let offsetTop = $(this).offset().top;
