@@ -85,6 +85,23 @@ window.onload = function () {
   //   }, 20)
   // })
 
+  // const skills = [
+  //   { id:1, name:'html', images:'i_html5.png',datapercent:"80"},
+  //   { id:2, name:'css', images:'i_CSS.png',datapercent:"80"},
+  //   { id:3, name:'Javascript', images:'.i_js.png',datapercent:"60"},
+  //   { id:4, name:'sass', images:'i_SASS.png',datapercent:"85"},
+  //   { id:5, name:'jQuery', images:'i_jQuery.png',datapercent:"60"},
+  //   { id:6, name:'React', images:'i_React.png',datapercent:"30"},
+  //   { id:7, name:'Git', images:'i_Git.png',datapercent:"80"},
+  //   { id:8, name:'Figma', images:'i_Figma.png',datapercent:"50"},
+  //   { id:9, name:'Photoshop', images:'i_photoshop.png',datapercent:"70"},
+  //   { id:10, name:'Illustrator', images:'i_ai.png',datapercent:"60"},
+  //   { id:11, name:'Premiere Pro', images:'i_pr.png',datapercent:"80"},
+  //   { id:12, name:'After Effects', images:'i_hae.png',datapercent:"50"},
+  // ]
+
+  // const 
+
   let progressCircles = document.querySelectorAll(".progress-circle");
 
   function animateProgress(circle) {
@@ -113,6 +130,23 @@ window.onload = function () {
       }
     });
   });
+
+
+  
+
+
+
+
+
+// 포트폴리오 사이트
+
+$(function () {
+  function aniArrow() {
+  $(".arrow").animate({ marginRight: '-5px' }, 800)
+    .animate({ marginRight: 0 }, 1000, aniArrow); // linear 사용시 안됨.
+  }
+  aniArrow();
+})
 
 
   // Portfolio-other
@@ -193,6 +227,21 @@ window.onload = function () {
 
 }
 
+
+// Footer
+window.addEventListener('scroll', function() {
+  // 스크롤이 페이지 맨 아래에 도달했을 때 footer를 나타나게 함
+  const footer = document.getElementById('footer');
+  const scrollHeight = document.documentElement.scrollHeight;
+  const scrollPosition = window.innerHeight + window.scrollY;
+
+  // 스크롤 위치가 페이지 끝에 가까워지면 footer를 보이게 합니다.
+  if (scrollHeight - scrollPosition <= 100) {
+      footer.classList.add('show');
+  } else {
+      footer.classList.remove('show');
+  }
+});
 
 
 

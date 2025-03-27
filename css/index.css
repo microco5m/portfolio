@@ -217,16 +217,12 @@ header .logo-menu-flex .main-menu.active {
 }
 @keyframes scale-in-tr {
   0% {
-    -webkit-transform: scale(0);
     transform: scale(0);
-    -webkit-transform-origin: 100% 0%;
     transform-origin: 100% 0%;
     opacity: 1;
   }
   100% {
-    -webkit-transform: scale(1);
     transform: scale(1);
-    -webkit-transform-origin: 100% 0%;
     transform-origin: 100% 0%;
     opacity: 1;
   }
@@ -532,24 +528,7 @@ main #Intro .mouse a span::before {
   margin-left: -3px;
   background-color: #3E81FF;
   border-radius: 100%;
-  -webkit-animation: sdb 2s infinite;
   animation: wheel-up-dw 2s infinite;
-}
-@-webkit-keyframes wheel-up-dw {
-  0% {
-    -webkit-transform: translate(0, 0);
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    -webkit-transform: translate(0, 20px);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 @keyframes wheel-up-dw {
   0% {
@@ -799,7 +778,7 @@ main #Skill .wrapper .skill-list {
 @media (min-width: 768px) {
   main #Skill .wrapper .skill-list {
     grid-template-columns: repeat(4, 180px);
-    gap: 60px;
+    gap: 12px;
     grid-template-rows: minmax(180px, auto);
   }
 }
@@ -1247,13 +1226,14 @@ main #Contact {
 }
 main #Contact .position-box {
   position: relative;
-  height: 850px;
+  height: 100vh;
   text-align: center;
   margin-top: 100px;
+  max-height: 820px;
 }
 @media (min-width: 1440px) {
   main #Contact .position-box {
-    height: 800px;
+    max-height: 950px;
     text-align: none;
     opacity: 1;
   }
@@ -1538,17 +1518,17 @@ main #Contact .position-box .person.move {
       transform: translate(-40%) rotate(5deg);
     }
     50% {
-      bottom: 300px;
+      bottom: 350px;
       left: 50%;
       transform: translate(-40%) rotate(-5deg);
     }
     75% {
-      bottom: 200px;
+      bottom: 300px;
       left: 50%;
       transform: translate(-40%) rotate(-2deg);
     }
     100% {
-      bottom: 200px;
+      bottom: 300px;
       left: 50%;
       transform: translate(-40%) rotate(0);
     }
@@ -1563,11 +1543,12 @@ main #Contact .position-box .person img {
     width: 200px;
   }
 }
-main #Contact .position-box .earth {
+main #Contact .position-box .earth img {
   position: absolute;
-  bottom: -50px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  width: 500px;
   z-index: 0;
   animation: earth-move 3s ease forwards;
 }
@@ -1579,19 +1560,15 @@ main #Contact .position-box .earth {
     transform: translateX(-50%) scale(0.2);
   }
   100% {
-    bottom: -50px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%) scale(1);
   }
 }
 @media (min-width: 768px) {
-  main #Contact .position-box .earth {
-    bottom: -300px;
-  }
-}
-@media (min-width: 1440px) {
-  main #Contact .position-box .earth {
-    bottom: -300px;
+  main #Contact .position-box .earth img {
+    width: 1200px;
+    bottom: -200px;
     animation: earth-move2 3s ease forwards;
   }
   @keyframes earth-move2 {
@@ -1602,39 +1579,31 @@ main #Contact .position-box .earth {
       transform: translateX(-50%) scale(0.2);
     }
     100% {
-      bottom: -300px;
+      bottom: -200px;
       left: 50%;
       transform: translateX(-50%) scale(1);
     }
   }
 }
-main #Contact .position-box .earth img {
-  width: 500px;
-}
-@media (min-width: 768px) {
-  main #Contact .position-box .earth img {
-    width: 1200px;
-  }
-}
-main #Contact .position-box .footer {
-  position: absolute;
+
+#footer {
+  position: fixed;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateX(-50%) translateY(100%);
+  transition: transform 0.5s ease-in-out;
   z-index: 50;
   height: 30px;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.747);
+  background-color: rgba(31, 30, 30, 0.747);
 }
-@media (min-width: 768px) {
-  main #Contact .position-box .footer {
-    bottom: 0px;
-    height: 35px;
-  }
+#footer.show {
+  transform: translateX(-50%) translateY(0);
 }
-main #Contact .position-box .footer p {
+#footer p {
   font-size: 13px;
   font-weight: normal;
   font-family: "Noto Sans KR";
   text-align: center;
+  padding: 5px;
 }/*# sourceMappingURL=index.css.map */
