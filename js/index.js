@@ -12,7 +12,7 @@ window.onload = function () {
 
 
 
-// 마우스 커서
+  // 마우스 커서
   document.addEventListener('mousemove', (e) => {
     let mouseX = e.pageX + 15; // document의 x좌표값
     let mouseY = e.pageY + 15; // document의 y좌표값
@@ -24,7 +24,7 @@ window.onload = function () {
 
 
   //tab-menu
-    // 모바일 메뉴 버튼 및 메뉴 DOM 요소를 가져옵니다.
+  // 모바일 메뉴 버튼 및 메뉴 DOM 요소를 가져옵니다.
   const mobileBtn = document.getElementById('mobile-btn');
   const mainMenu = document.querySelector('.main-menu');
   const menuItems = document.querySelectorAll('.gnb > li');  // 메뉴 항목들
@@ -38,14 +38,14 @@ window.onload = function () {
 
   // 메뉴 항목 클릭 시 메뉴 닫기
   menuItems.forEach(item => {
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function () {
       mobileBtn.classList.remove('active');  // 햄버거 버튼 애니메이션 닫기
       mainMenu.classList.remove('active');  // 메뉴 닫기
     });
   });
 
   // 메뉴 이외의 영역 클릭 시 메뉴 닫기
-  body.addEventListener('click', function(event) {
+  body.addEventListener('click', function (event) {
     // 클릭된 곳이 메뉴 또는 햄버거 버튼이 아닐 경우
     if (!mainMenu.contains(event.target) && !mobileBtn.contains(event.target)) {
       mobileBtn.classList.remove('active');  // 햄버거 버튼 애니메이션 닫기
@@ -105,10 +105,16 @@ window.onload = function () {
   let progressCircles = document.querySelectorAll(".progress-circle");
 
   function animateProgress(circle) {
-    let progressNum = circle.querySelectorAll(".progress-num");
+    let progressNum = circle.querySelector(".progress-num");
     progressNum.textContent = "0%";
-    
+  
+    // data-percent 속성을 제대로 가져올 수 있는지 확인
     let progressEndNum = parseInt(circle.getAttribute("data-percent"));
+    if (isNaN(progressEndNum)) {
+      console.error("Invalid data-percent value.");
+      return;
+    }
+  
     let progressStartNum = 0;
     let progress = setInterval(() => {
       progressStartNum++;
@@ -119,7 +125,7 @@ window.onload = function () {
       }
     }, 20);
   }
-
+  
   // 스크롤 이벤트 리스너
   window.addEventListener("scroll", () => {
     progressCircles.forEach((circle) => {
@@ -130,30 +136,61 @@ window.onload = function () {
       }
     });
   });
-
-
   
+  document.addEventListener("DOMContentLoaded", function () {
+    const skillItems = document.querySelectorAll("li");
+
+    skillItems.forEach((skillItem) => {
+      const circle = skillItem.querySelector(".progress-circle");
+      const skillText = skillItem.querySelector(".skill-txt");
+
+      circle.addEventListener("click", function () {
+        // 모든 .skill-txt에서 active 제거
+        document.querySelectorAll(".skill-txt.active").forEach((txt) => {
+          if (txt !== skillText) {
+            txt.classList.remove("active");
+          }
+        });
+
+        // 현재 클릭된 항목 toggle
+        skillText.classList.toggle("active");
+      });
+    });
+  });
 
 
 
-  
+
+  // 포트폴리오 사이트
+  const container = document.querySelector(".site-slide"); // 슬라이드 컨테이너
+  const btns = document.querySelectorAll(".slider__btn button"); // 모든 버튼들
+
+  // 버튼을 클릭하면 해당 슬라이드로 이동하도록 이벤트 리스너 추가
+  btns.forEach((button, index) => {
+    button.addEventListener("click", function (event) {
+      // 컨테이너를 해당 슬라이드로 이동
+      container.style.transform = `translateX(-${index * 1180}px)`; // 슬라이드당 1180px씩 이동
+
+      // 클릭한 버튼에 "active" 클래스를 추가하고 다른 버튼들에선 제거
+      btns.forEach((btn) => {
+        if (btn === event.target) {
+          btn.classList.add("active"); // 클릭한 버튼에 활성화 클래스 추가
+        } else {
+          btn.classList.remove("active"); // 다른 버튼들에서 활성화 클래스 제거
+        }
+      });
+    });
+  });
 
 
-
-// 포트폴리오 사이트
-
-
-
-
-
-
-$(function () {
-  function aniArrow() {
-  $(".arrow").animate({ marginRight: '-5px' }, 800)
-    .animate({ marginRight: 0 }, 1000, aniArrow); // linear 사용시 안됨.
-  }
-  aniArrow();
-})
+  // 페이지 버튼
+  $(function () {
+    function aniArrow() {
+      $(".arrow").animate({ marginRight: '-5px' }, 800)
+        .animate({ marginRight: 0 }, 1000, aniArrow); // linear 사용시 안됨.
+    }
+    aniArrow();
+  })
 
 
   // Portfolio-other
@@ -188,55 +225,55 @@ $(function () {
 
 
   // 풀페이지 스크롤
-  // let sections = document.querySelectorAll('section');  // 모든 섹션 요소 선택
-  // let currentSectionIndex = 0;  // 현재 섹션 인덱스
-  // let isScrolling = false;  // 스크롤이 진행 중인지 여부
+  let sections = document.querySelectorAll('section');  // 모든 섹션 요소 선택
+  let currentSectionIndex = 0;  // 현재 섹션 인덱스
+  let isScrolling = false;  // 스크롤이 진행 중인지 여부
 
-  // // 화면 가로 크기가 1440px 이상일 때만 풀페이지 스크롤 기능을 실행
-  // if (window.innerWidth >= 1440) {  // 1440px 이상일 때만 실행
+  // 화면 가로 크기가 1440px 이상일 때만 풀페이지 스크롤 기능을 실행
+  if (window.innerWidth >= 1440) {  // 1440px 이상일 때만 실행
 
-  //   window.addEventListener('wheel', function (event) {
+    window.addEventListener('wheel', function (event) {
 
-  //     if (isScrolling) return; // 스크롤이 진행 중이면 이벤트 무시
+      if (isScrolling) return; // 스크롤이 진행 중이면 이벤트 무시
 
-  //     isScrolling = true;  // 스크롤 진행 시작
+      isScrolling = true;  // 스크롤 진행 시작
 
-  //     // 마우스 휠을 내린 경우 (deltaY > 0)
-  //     if (event.deltaY > 0) {
-  //       if (currentSectionIndex < sections.length - 1) {
-  //         currentSectionIndex++;  // 다음 섹션으로 이동
-  //       }
-  //     } else {  // 마우스 휠을 올린 경우 (deltaY < 0)
-  //       if (currentSectionIndex > 0) {
-  //         currentSectionIndex--;  // 이전 섹션으로 이동
-  //       }
-  //     }
+      // 마우스 휠을 내린 경우 (deltaY > 0)
+      if (event.deltaY > 0) {
+        if (currentSectionIndex < sections.length - 1) {
+          currentSectionIndex++;  // 다음 섹션으로 이동
+        }
+      } else {  // 마우스 휠을 올린 경우 (deltaY < 0)
+        if (currentSectionIndex > 0) {
+          currentSectionIndex--;  // 이전 섹션으로 이동
+        }
+      }
 
-  //     // 해당 섹션으로 부드럽게 스크롤 이동
-  //     sections[currentSectionIndex].scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start'
-  //     });
+      // 해당 섹션으로 부드럽게 스크롤 이동
+      sections[currentSectionIndex].scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
 
-  //     // 800ms 후에 스크롤 완료로 간주하여 다시 스크롤을 받을 수 있게 설정
-  //     setTimeout(() => {
-  //       isScrolling = false;
-  //     }, 800);
+      // 800ms 후에 스크롤 완료로 간주하여 다시 스크롤을 받을 수 있게 설정
+      setTimeout(() => {
+        isScrolling = false;
+      }, 800);
 
-  //     // 기본 스크롤 동작 방지 (페이지 자체 스크롤 막기)
-  //     event.preventDefault();  
-  //   }, { passive: false });
+      // 기본 스크롤 동작 방지 (페이지 자체 스크롤 막기)
+      event.preventDefault();
+    }, { passive: false });
 
-  // } else {
-  //   // 화면 가로 크기가 1440px 미만일 경우 풀페이지 스크롤을 비활성화
-  //   console.log('풀페이지 스크롤은 1440px 이상일 때만 활성화됩니다.');
-  // }
+  } else {
+    // 화면 가로 크기가 1440px 미만일 경우 풀페이지 스크롤을 비활성화
+    console.log('풀페이지 스크롤은 1440px 이상일 때만 활성화됩니다.');
+  }
 
 }
 
 
 // Footer
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   // 스크롤이 페이지 맨 아래에 도달했을 때 footer를 나타나게 함
   const footer = document.getElementById('footer');
   const scrollHeight = document.documentElement.scrollHeight;
@@ -244,9 +281,9 @@ window.addEventListener('scroll', function() {
 
   // 스크롤 위치가 페이지 끝에 가까워지면 footer를 보이게 합니다.
   if (scrollHeight - scrollPosition <= 100) {
-      footer.classList.add('show');
+    footer.classList.add('show');
   } else {
-      footer.classList.remove('show');
+    footer.classList.remove('show');
   }
 });
 
@@ -275,51 +312,51 @@ $(window).scroll(function () {
   $('.tabs li').each(function () {
     let offsetTop = $(this).offset().top;
     if (scrollTop + $(window).height() > offsetTop) {
-        $(this).css({ 'opacity': 1, 'transform': 'translateX(0)' });
+      $(this).css({ 'opacity': 1, 'transform': 'translateX(0)' });
     } else {
-        $(this).css({ 'opacity': 0, 'transform': 'translateX(100px)' });
+      $(this).css({ 'opacity': 0, 'transform': 'translateX(100px)' });
     }
   });
 
-$('.tab-content li').each(function () {
-  let offsetTop = $(this).offset().top;
-  if (scrollTop + $(window).height() > offsetTop) {
+  $('.tab-content li').each(function () {
+    let offsetTop = $(this).offset().top;
+    if (scrollTop + $(window).height() > offsetTop) {
       $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
-  } else {
+    } else {
       $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
-  }
-});
+    }
+  });
 
 
 
 
 
-  
+
   if (windowWidth < desktopSize) {
     $('.email-txt').each(function () {
       let offsetTop = $(this).offset().top;
       if (scrollTop + $(window).height() > offsetTop) {
-          $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+        $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
       } else {
-          $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
+        $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
       }
     });
 
     $('.message').each(function () {
       let offsetTop = $(this).offset().top;
       if (scrollTop + $(window).height() > offsetTop) {
-        $(this).css({ 'opacity': 1, 'transform':'translateY(0px)  scale(1)'});
+        $(this).css({ 'opacity': 1, 'transform': 'translateY(0px)  scale(1)' });
       } else {
-        $(this).css({ 'opacity': 0, 'transform':'translateY(100px)  scale(0.5)'});
+        $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)  scale(0.5)' });
       }
     });
     $('.person').each(function () {
       let offsetTop = $(this).offset().top;
       if (scrollTop + $(window).height() > offsetTop) {
-          $(this).css({ 'opacity': 1});
-          $(this).addClass("move");
+        $(this).css({ 'opacity': 1 });
+        $(this).addClass("move");
       } else {
-        $(this).css({ 'opacity': 0});
+        $(this).css({ 'opacity': 0 });
         $(this).removeClass("move");
       }
     });
@@ -338,10 +375,10 @@ $('.tab-content li').each(function () {
     $('.tale1').each(function () {
       let offsetTop = $(this).offset().top;
       if (scrollTop + $(window).height() > offsetTop) {
-        $(this).css({ 'opacity': 1});
+        $(this).css({ 'opacity': 1 });
         $(this).addClass("move");
       } else {
-        $(this).css({ 'opacity': 0});
+        $(this).css({ 'opacity': 0 });
         $(this).removeClass("move");
       }
     });
@@ -349,30 +386,30 @@ $('.tab-content li').each(function () {
     $('.message').each(function () {
       let offsetTop = $(this).offset().top;
       if (scrollTop + $(window).height() > offsetTop) {
-        $(this).css({ 'opacity': 1, 'transform':'translateX(0px)'});
+        $(this).css({ 'opacity': 1, 'transform': 'translateX(0px)' });
         $(this).addClass("move");
       } else {
-        $(this).css({ 'opacity': 0, 'transform':'translateX(0px)'});
+        $(this).css({ 'opacity': 0, 'transform': 'translateX(0px)' });
         $(this).removeClass("move");
       }
     });
     $('.tale2').each(function () {
       let offsetTop = $(this).offset().top;
       if (scrollTop + $(window).height() > offsetTop) {
-        $(this).css({ 'opacity': 1, 'transform':'translateX(0px)'});
+        $(this).css({ 'opacity': 1, 'transform': 'translateX(0px)' });
         $(this).addClass("move");
       } else {
-        $(this).css({ 'opacity': 0, 'transform':'translateX(0px)'});
+        $(this).css({ 'opacity': 0, 'transform': 'translateX(0px)' });
         $(this).removeClass("move");
       }
     });
     $('.person').each(function () {
       let offsetTop = $(this).offset().top;
       if (scrollTop + $(window).height() > offsetTop) {
-          $(this).css({ 'opacity': 1});
-          $(this).addClass("move2");
+        $(this).css({ 'opacity': 1 });
+        $(this).addClass("move2");
       } else {
-        $(this).css({ 'opacity': 0});
+        $(this).css({ 'opacity': 0 });
         $(this).removeClass("move2");
       }
     });
@@ -381,38 +418,47 @@ $('.tab-content li').each(function () {
   $('h2').each(function () {
     let offsetTop = $(this).offset().top;
     if (scrollTop + $(window).height() > offsetTop) {
-        $(this).css({ 'opacity': 1, 'transform': 'translateX(0)' });
+      $(this).css({ 'opacity': 1, 'transform': 'translateX(0)' });
     } else {
-        $(this).css({ 'opacity': 0, 'transform': 'translateX(-100px)' });
+      $(this).css({ 'opacity': 0, 'transform': 'translateX(-100px)' });
     }
   });
 
   $('.profile-photobox').each(function () {
     let offsetTop = $(this).offset().top;
     if (scrollTop + $(window).height() > offsetTop) {
-        $(this).css({ 'opacity': 1});
-        $(this).addClass('move');
+      $(this).css({ 'opacity': 1 });
+      $(this).addClass('move');
     } else {
-        $(this).css({ 'opacity': 0});
-        $(this).removeClass('move');
+      $(this).css({ 'opacity': 0 });
+      $(this).removeClass('move');
     }
   });
 
   $('.img-1').each(function () {
     let offsetTop = $(this).offset().top;
     if (scrollTop + $(window).height() > offsetTop) {
-        $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+      $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
     } else {
-        $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
+      $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
+    }
+  });
+
+  $('.profile-square').each(function () {
+    let offsetTop = $(this).offset().top;
+    if (scrollTop + $(window).height() > offsetTop) {
+      $(this).css({ 'opacity': 1, 'transform': 'translateX(0)' });
+    } else {
+      $(this).css({ 'opacity': 0, 'transform': 'translateX(100px)' });
     }
   });
 
   $('#Skill li > div').each(function () {
     let offsetTop = $(this).offset().top;
     if (scrollTop + $(window).height() > offsetTop) {
-        $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+      $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
     } else {
-        $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
+      $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
     }
   });
 

@@ -217,12 +217,16 @@ header .logo-menu-flex .main-menu.active {
 }
 @keyframes scale-in-tr {
   0% {
+    -webkit-transform: scale(0);
     transform: scale(0);
+    -webkit-transform-origin: 100% 0%;
     transform-origin: 100% 0%;
     opacity: 1;
   }
   100% {
+    -webkit-transform: scale(1);
     transform: scale(1);
+    -webkit-transform-origin: 100% 0%;
     transform-origin: 100% 0%;
     opacity: 1;
   }
@@ -528,7 +532,24 @@ main #Intro .mouse a span::before {
   margin-left: -3px;
   background-color: #3E81FF;
   border-radius: 100%;
+  -webkit-animation: sdb 2s infinite;
   animation: wheel-up-dw 2s infinite;
+}
+@-webkit-keyframes wheel-up-dw {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes wheel-up-dw {
   0% {
@@ -648,6 +669,10 @@ main #About-me .flex-box .profile-square {
   height: 535px;
   padding: 0 20px;
   padding-top: 50px;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.7s ease, transform 0.9s ease;
+  transition-delay: 0.4s;
 }
 @media (min-width: 1440px) {
   main #About-me .flex-box .profile-square {
@@ -789,7 +814,10 @@ main #Skill .wrapper .skill-list {
     grid-template-rows: minmax(180px, auto);
   }
 }
-main #Skill .wrapper .skill-list .progress-circle {
+main #Skill .wrapper .skill-list li {
+  position: relative;
+}
+main #Skill .wrapper .skill-list li .progress-circle {
   position: relative;
   width: 158px;
   height: 158px;
@@ -803,25 +831,14 @@ main #Skill .wrapper .skill-list .progress-circle {
   transform: translateY(100px);
   transition: opacity 0.7s ease, transform 0.9s ease;
 }
-main #Skill .wrapper .skill-list .progress-circle .progress-circle {
-  position: relative;
-  width: 158px;
-  height: 158px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 90px;
-  background: conic-gradient(#3E81FF 0deg, #fff 0deg);
-  cursor: pointer;
-}
 @media (min-width: 1440px) {
-  main #Skill .wrapper .skill-list .progress-circle .progress-circle {
+  main #Skill .wrapper .skill-list li .progress-circle {
     width: 180px;
     height: 180px;
     border-radius: 120px;
   }
 }
-main #Skill .wrapper .skill-list .progress-circle .progress-circle::before {
+main #Skill .wrapper .skill-list li .progress-circle::before {
   position: absolute;
   content: "";
   width: 130px;
@@ -830,16 +847,16 @@ main #Skill .wrapper .skill-list .progress-circle .progress-circle::before {
   background-color: #000;
 }
 @media (min-width: 1440px) {
-  main #Skill .wrapper .skill-list .progress-circle .progress-circle::before {
+  main #Skill .wrapper .skill-list li .progress-circle::before {
     width: 150px;
     height: 150px;
   }
 }
-main #Skill .wrapper .skill-list .progress-circle .progress-circle .progress-num {
+main #Skill .wrapper .skill-list li .progress-circle .progress-num {
   position: relative;
   font-size: 40px;
 }
-main #Skill .wrapper .skill-list .progress-circle .progress-circle img {
+main #Skill .wrapper .skill-list li .progress-circle img {
   margin: 0 auto;
   position: absolute;
   width: 98px;
@@ -847,56 +864,30 @@ main #Skill .wrapper .skill-list .progress-circle .progress-circle img {
   border-radius: 24px;
   background-color: #000;
 }
-main #Skill .wrapper .skill-list .progress-circle .progress-circle img:hover {
+main #Skill .wrapper .skill-list li .progress-circle img:hover {
   opacity: 0.2;
 }
 @media (min-width: 1440px) {
-  main #Skill .wrapper .skill-list .progress-circle .progress-circle img {
+  main #Skill .wrapper .skill-list li .progress-circle img {
     width: 110px;
     height: 110px;
   }
 }
-@media (min-width: 1440px) {
-  main #Skill .wrapper .skill-list .progress-circle {
-    width: 180px;
-    height: 180px;
-    border-radius: 120px;
-  }
+main #Skill .wrapper .skill-list li .skill-txt {
+  display: none;
 }
-main #Skill .wrapper .skill-list .progress-circle::before {
+main #Skill .wrapper .skill-list li .skill-txt.active {
   position: absolute;
-  content: "";
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background-color: #000;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgba(240, 255, 255, 0.911);
+  color: black;
 }
-@media (min-width: 1440px) {
-  main #Skill .wrapper .skill-list .progress-circle::before {
-    width: 150px;
-    height: 150px;
-  }
-}
-main #Skill .wrapper .skill-list .progress-circle .progress-num {
-  position: relative;
-  font-size: 40px;
-}
-main #Skill .wrapper .skill-list .progress-circle img {
-  margin: 0 auto;
-  position: absolute;
-  width: 98px;
-  height: 98px;
-  border-radius: 24px;
-  background-color: #000;
-}
-main #Skill .wrapper .skill-list .progress-circle img:hover {
-  opacity: 0.2;
-}
-@media (min-width: 1440px) {
-  main #Skill .wrapper .skill-list .progress-circle img {
-    width: 110px;
-    height: 110px;
-  }
+main #Skill .wrapper .skill-list li .skill-txt.active p {
+  text-align: center;
+  padding: 30px 10px;
 }
 main #Portfolio-site {
   background: url(../images/earth2.png) no-repeat left;
@@ -919,33 +910,46 @@ main #Portfolio-site {
     background-color: rgba(0, 0, 0, 0.7);
   }
 }
-main #Portfolio-site .site-box .site-btn-left-right {
-  position: absolute;
-  bottom: 20px;
-  right: 40px;
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  width: 130px;
+main #Portfolio-site .site-box .slider__btn {
+  display: none;
 }
-main #Portfolio-site .site-box .site-btn-left-right div {
-  width: 50px;
-  padding: 15px;
-  color: #3E81FF;
-  border: 1px solid #3E81FF;
+@media (min-width: 1440px) {
+  main #Portfolio-site .site-box .slider__btn {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 200px;
+  }
 }
-main #Portfolio-site .site-box .site-btn-left-right div:hover {
-  background-color: #3E81FF;
-  color: #fff;
-  transition: all 0.4s;
-  font-weight: bold;
+@media (min-width: 1440px) {
+  main #Portfolio-site .site-box .slider__btn button {
+    border: none;
+    width: 50px;
+    padding: 15px;
+    color: #3E81FF;
+    border: 1px solid #3E81FF;
+    background-color: black;
+    cursor: pointer;
+  }
+  main #Portfolio-site .site-box .slider__btn button.active {
+    background-color: #3E81FF;
+    color: white;
+  }
+  main #Portfolio-site .site-box .slider__btn button:hover {
+    background-color: #3E81FF;
+    color: white;
+  }
 }
 @media (min-width: 1440px) {
   main #Portfolio-site .site-box .site-slide {
     position: relative;
     width: 3540px;
     display: flex;
-    height: 60vh;
+    height: 650px;
     transition: left 0.5s ease;
   }
 }
@@ -959,7 +963,8 @@ main #Portfolio-site .site-box .site-slide .site-sample {
     display: flex;
     justify-content: space-between;
     width: 1180px;
-    padding: 100px 50px;
+    flex-shrink: 0;
+    padding: 70px 50px;
   }
 }
 @media (min-width: 1440px) {
