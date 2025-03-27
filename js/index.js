@@ -136,9 +136,16 @@ window.onload = function () {
 
 
 
+  
+
 
 
 // 포트폴리오 사이트
+
+
+
+
+
 
 $(function () {
   function aniArrow() {
@@ -265,6 +272,29 @@ $(`#Skill li > div`).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
 $(window).scroll(function () {
   let scrollTop = $(this).scrollTop();
 
+  $('.tabs li').each(function () {
+    let offsetTop = $(this).offset().top;
+    if (scrollTop + $(window).height() > offsetTop) {
+        $(this).css({ 'opacity': 1, 'transform': 'translateX(0)' });
+    } else {
+        $(this).css({ 'opacity': 0, 'transform': 'translateX(100px)' });
+    }
+  });
+
+$('.tab-content li').each(function () {
+  let offsetTop = $(this).offset().top;
+  if (scrollTop + $(window).height() > offsetTop) {
+      $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+  } else {
+      $(this).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
+  }
+});
+
+
+
+
+
+  
   if (windowWidth < desktopSize) {
     $('.email-txt').each(function () {
       let offsetTop = $(this).offset().top;
@@ -387,14 +417,14 @@ $(window).scroll(function () {
   });
 
 
-  $('.site-sample').each(function () {
-    let offsetTop = $(this).offset().top;
-    if (scrollTop + $(window).height() > offsetTop) {
-      $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
-    } else {
-        $(this).css({ 'opacity': 0, 'transform': 'translateY(-100px)' });
-    }
-  });
+  // $('.site-sample').each(function () {
+  //   let offsetTop = $(this).offset().top;
+  //   if (scrollTop + $(window).height() > offsetTop) {
+  //     $(this).css({ 'opacity': 1, 'transform': 'translateY(0)' });
+  //   } else {
+  //       $(this).css({ 'opacity': 0, 'transform': 'translateY(-100px)' });
+  //   }
+  // });
 })
 
 
