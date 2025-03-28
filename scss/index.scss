@@ -981,7 +981,7 @@ main {
         border-radius: 30px;
         background-color: rgba($color: $color-black, $alpha: 0.7);
       }
-      .slider__btn{
+      .slider-btn{
         display:  none;
         @include responsive(large-screens) {
           display:  block;
@@ -995,6 +995,12 @@ main {
         }
         
         button {
+          z-index: 10;
+          position: relative;
+          &:hover {
+            background-color: $color-blue;
+            color: white;
+            }
           @include responsive(large-screens) {
             border: none;
             width: 50px;
@@ -1008,10 +1014,7 @@ main {
               background-color: $color-blue;
             color: white;
             }
-            &:hover {
-            background-color: $color-blue;
-            color: white;
-            }
+          
           }
         }
       }
@@ -1021,7 +1024,7 @@ main {
           width: calc(1180px * 3);
           display: flex;
           height: 650px;
-          transition: left 0.5s ease;
+          transition: transform 0.5s ease; //** 수정
         }
 
         .site-sample {
@@ -1059,7 +1062,7 @@ main {
               margin-bottom: 10px;
 
               @include responsive(large-screens) {
-                font-size: 48px;
+                font-size: 40px;
                 border-bottom: none;
                 padding-left: 0;
               }

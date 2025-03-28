@@ -85,24 +85,24 @@ window.onload = function () {
 
 
   // Portfolio
-  const container = document.querySelector(".site-slide");
-  const btns = document.querySelectorAll(".slider__btn button");
+  const siteSlide = document.querySelector(".site-slide");
+  const btns = document.querySelectorAll(".slider-btn button");
 
 
   btns.forEach((button, index) => {
     button.addEventListener("click", function (event) {
 
-      container.style.transform = `translateX(-${index * 1180}px)`;
+      siteSlide.style.transform = `translateX(-${index * 1180}px)`;
 
       btns.forEach((btn) => {
-        btn.classList.remove("active"); //★
+        btn.classList.remove("active");
       });
-      button.classList.add("active"); //★
+      button.classList.add("active");
     });
   });
 
 
-  // 페이지 버튼
+  // url 버튼
   $(function () {
     function aniArrow() {
       $(".arrow").animate({ marginRight: '-5px' }, 800)
@@ -159,9 +159,6 @@ window.onload = function () {
 // 
 let windowWidth = $(window).width();
 let desktopSize = 1440;
-
-$(`h2`).css({ 'opacity': 0, 'transform': 'translateX(-100px)' });
-$(`#Skill li > div`).css({ 'opacity': 0, 'transform': 'translateY(100px)' });
 
 $(window).scroll(function () {
   let scrollTop = $(this).scrollTop();
@@ -281,7 +278,7 @@ $(window).scroll(function () {
 
   $('.profile-photobox').each(function () {
     let offsetTop = $(this).offset().top;
-    if (scrollTop + $(window).height() > offsetTop + 50) {
+    if (scrollTop + $(window).height() > offsetTop) {
       $(this).css({ 'opacity': 1 });
       $(this).addClass('move');
     } else {

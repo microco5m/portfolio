@@ -896,11 +896,11 @@ main #Portfolio-site .site-box {
     background-color: rgba(0, 0, 0, 0.7);
   }
 }
-main #Portfolio-site .site-box .slider__btn {
+main #Portfolio-site .site-box .slider-btn {
   display: none;
 }
 @media (min-width: 1440px) {
-  main #Portfolio-site .site-box .slider__btn {
+  main #Portfolio-site .site-box .slider-btn {
     display: block;
     position: absolute;
     bottom: 20px;
@@ -911,8 +911,16 @@ main #Portfolio-site .site-box .slider__btn {
     width: 200px;
   }
 }
+main #Portfolio-site .site-box .slider-btn button {
+  z-index: 10;
+  position: relative;
+}
+main #Portfolio-site .site-box .slider-btn button:hover {
+  background-color: #3E81FF;
+  color: white;
+}
 @media (min-width: 1440px) {
-  main #Portfolio-site .site-box .slider__btn button {
+  main #Portfolio-site .site-box .slider-btn button {
     border: none;
     width: 50px;
     padding: 15px;
@@ -921,11 +929,7 @@ main #Portfolio-site .site-box .slider__btn {
     background-color: black;
     cursor: pointer;
   }
-  main #Portfolio-site .site-box .slider__btn button.active {
-    background-color: #3E81FF;
-    color: white;
-  }
-  main #Portfolio-site .site-box .slider__btn button:hover {
+  main #Portfolio-site .site-box .slider-btn button.active {
     background-color: #3E81FF;
     color: white;
   }
@@ -936,7 +940,7 @@ main #Portfolio-site .site-box .slider__btn {
     width: 3540px;
     display: flex;
     height: 650px;
-    transition: left 0.5s ease;
+    transition: transform 0.5s ease;
   }
 }
 main #Portfolio-site .site-box .site-slide .site-sample {
@@ -977,7 +981,7 @@ main #Portfolio-site .site-box .site-slide .site-sample .site-txt h3 {
 }
 @media (min-width: 1440px) {
   main #Portfolio-site .site-box .site-slide .site-sample .site-txt h3 {
-    font-size: 48px;
+    font-size: 40px;
     border-bottom: none;
     padding-left: 0;
   }
