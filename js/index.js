@@ -86,18 +86,18 @@ window.onload = function () {
   // })
 
   // const skills = [
-  //   { id:1, name:'html', images:'i_html5.png',datapercent:"80"},
-  //   { id:2, name:'css', images:'i_CSS.png',datapercent:"80"},
-  //   { id:3, name:'Javascript', images:'.i_js.png',datapercent:"60"},
+  //   { id:1, name:'html', images:'i_html5.png',datapercent:"90"},
+  //   { id:2, name:'css', images:'i_CSS.png',datapercent:"90"},
+  //   { id:3, name:'Javascript', images:'.i_js.png',datapercent:"75"},
   //   { id:4, name:'sass', images:'i_SASS.png',datapercent:"85"},
-  //   { id:5, name:'jQuery', images:'i_jQuery.png',datapercent:"60"},
-  //   { id:6, name:'React', images:'i_React.png',datapercent:"30"},
+  //   { id:5, name:'jQuery', images:'i_jQuery.png',datapercent:"85"},
+  //   { id:6, name:'React', images:'i_React.png',datapercent:"55"},
   //   { id:7, name:'Git', images:'i_Git.png',datapercent:"80"},
-  //   { id:8, name:'Figma', images:'i_Figma.png',datapercent:"50"},
-  //   { id:9, name:'Photoshop', images:'i_photoshop.png',datapercent:"70"},
-  //   { id:10, name:'Illustrator', images:'i_ai.png',datapercent:"60"},
+  //   { id:8, name:'Figma', images:'i_Figma.png',datapercent:"60"},
+  //   { id:9, name:'Photoshop', images:'i_photoshop.png',datapercent:"90"},
+  //   { id:10, name:'Illustrator', images:'i_ai.png',datapercent:"90"},
   //   { id:11, name:'Premiere Pro', images:'i_pr.png',datapercent:"80"},
-  //   { id:12, name:'After Effects', images:'i_hae.png',datapercent:"50"},
+  //   { id:12, name:'After Effects', images:'i_hae.png',datapercent:"70"},
   // ]
 
   // const 
@@ -130,33 +130,33 @@ window.onload = function () {
   window.addEventListener("scroll", () => {
     progressCircles.forEach((circle) => {
       const rect = circle.getBoundingClientRect();
-      if (rect.top >= 0 && rect.bottom <= window.innerHeight && !circle.hasAnimated) {
+      if (rect.top < window.innerHeight && rect.bottom > 0 && !circle.hasAnimated) {
         animateProgress(circle);
         circle.hasAnimated = true; // 각 원형 진행 표시기마다 애니메이션이 진행되었음을 표시
       }
     });
   });
   
-  document.addEventListener("DOMContentLoaded", function () {
-    const skillItems = document.querySelectorAll("li");
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const skillItems = document.querySelectorAll(".skill-items");
 
-    skillItems.forEach((skillItem) => {
-      const circle = skillItem.querySelector(".progress-circle");
-      const skillText = skillItem.querySelector(".skill-txt");
+  //   skillItems.forEach((skillItem) => {
+  //     const circle = skillItem.querySelector(".progress-circle");
+  //     const skillText = skillItem.querySelector(".skill-txt");
 
-      circle.addEventListener("click", function () {
-        // 모든 .skill-txt에서 active 제거
-        document.querySelectorAll(".skill-txt.active").forEach((txt) => {
-          if (txt !== skillText) {
-            txt.classList.remove("active");
-          }
-        });
-
-        // 현재 클릭된 항목 toggle
-        skillText.classList.toggle("active");
-      });
-    });
-  });
+  //     circle.addEventListener("click", function () {
+  //       // 모든 .skill-txt에서 active 제거
+  //       document.querySelectorAll(".skill-txt.active").forEach((txt) => {
+  //         if (txt !== skillText) {
+  //           txt.classList.remove("active");
+  //         }
+  //       });
+    
+  //       // 현재 클릭된 항목 toggle
+  //       skillText.classList.toggle("active"); //★
+  //     });
+  //   });
+  // });
 
 
 
@@ -170,15 +170,12 @@ window.onload = function () {
     button.addEventListener("click", function (event) {
       // 컨테이너를 해당 슬라이드로 이동
       container.style.transform = `translateX(-${index * 1180}px)`; // 슬라이드당 1180px씩 이동
-
+  
       // 클릭한 버튼에 "active" 클래스를 추가하고 다른 버튼들에선 제거
       btns.forEach((btn) => {
-        if (btn === event.target) {
-          btn.classList.add("active"); // 클릭한 버튼에 활성화 클래스 추가
-        } else {
-          btn.classList.remove("active"); // 다른 버튼들에서 활성화 클래스 제거
-        }
+        btn.classList.remove("active"); //★
       });
+      button.classList.add("active"); //★
     });
   });
 

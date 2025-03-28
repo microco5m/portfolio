@@ -3,10 +3,19 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, minimum-scale=1.0, user-scalable=no" >
+  <meta name="Author" content="조아현">
+  <meta name="Description" content="웹퍼블리셔 포트폴리오입니다">
+
+  <meta name="title" property="og:title" content="portfolio_A">
+  <meta name="images" property="og:image" content="./images/portfolio_A_thumnail.png">
+  <meta name="description" property="og:description" content="웹퍼블리셔 포트폴리오입니다">
+  <meta name="type" property="og:type" content="article">
   <!--[if lt IE 9]>
   <script src="html5shiv.js"></script>
 <![endif]-->
+  <link rel="icon" href="./images/favicon/favicon.ico">
   <link rel="stylesheet" href="./css/index.css">
   <script src="./js/jquery-3.6.0.min.js"></script>
   <script src="./js/index.js"></script>
@@ -47,7 +56,6 @@
             <div class="scroll-circle"></div>
           </div>
         </div>
-        <!-- <h2>Web Publisher <br> Portfolio</h2> -->
         <h2>Web Publisher <br> Portfolio</h2>
         <div class="moon">
           <img src="./images/moon.png" alt="">
@@ -120,19 +128,19 @@
         <div class="wrapper">
           <h2>Skil<span class="point-blue">l</span></h2>
           <ul class="skill-list">
-            <li>
-              <div class="progress-circle" id="progress-1" data-percent="80">
+            <li class="skill-items">
+              <div class="progress-circle" id="progress-1" data-percent="90">
                 <div class="progress-num">
                   0%
                 </div>
                 <img src="./images/i_html5.png" alt="skill icon">
-              </div>
-              <div class="skill-txt">
-                <p>웹 접근성과 구조를 고려한 시맨틱 마크업 작성이 가능합니다.</p>
+                <div class="skill-txt">
+                  <p>웹 접근성과 구조를 고려한 시맨틱 마크업 작성이 가능합니다.</p>
+                </div>
               </div>
             </li>
-            <li>
-              <div class="progress-circle" id="progress-2" data-percent="80">
+            <li class="skill-items">
+              <div class="progress-circle" id="progress-2" data-percent="90">
                 <div class="progress-num">
                   0%
                 </div>
@@ -142,8 +150,8 @@
                 <p>반응형 웹 디자인 구현, 애니메이션, 트랜지션 등 시각적 효과를 적용할 수 있습니다.</p>
               </div>
             </li>
-            <li>
-              <div class="progress-circle" id="progress-3" data-percent="60">
+            <li class="skill-items">
+              <div class="progress-circle" id="progress-3" data-percent="75">
                 <div class="progress-num">
                   0%
                 </div>
@@ -153,7 +161,7 @@
                 <p>문법 기반의 동적 웹 기능 구현, 이벤트 처리를 할 수 있습니다. </p>
               </div>
             </li>
-            <li>
+            <li class="skill-items">
               <div class="progress-circle" id="progress-4" data-percent="85">
                 <div class="progress-num">
                   0%
@@ -164,8 +172,8 @@
                 <p>중첩, 변수, 믹스인 등을 활용한 효율적인 스타일링 및 유지 보수가 가능합니다. </p>
               </div>
             </li>
-            <li>
-              <div class="progress-circle" id="progress-5" data-percent="60">
+            <li class="skill-items">
+              <div class="progress-circle" id="progress-5" data-percent="85">
                 <div class="progress-num">
                   0%
                 </div>
@@ -175,8 +183,8 @@
                 <p>DOM 제어, 이벤트 처리가 가능합니다. </p>
               </div>
             </li>
-            <li>
-              <div class="progress-circle" id="progress-6" data-percent="30">
+            <li class="skill-items">
+              <div class="progress-circle" id="progress-6" data-percent="55">
                 <div class="progress-num">
                   0%
                 </div>
@@ -186,7 +194,7 @@
                 <p>컴포넌트 기반 웹 개발을 공부하고있습니다. </p>
               </div>
             </li>
-            <li>
+            <li class="skill-items">
               <div class="progress-circle" id="progress-7" data-percent="80">
                 <div class="progress-num">
                   0%
@@ -197,8 +205,8 @@
                 <p>버전 관리 및 협업을 위한 기본 명령어 활용 가능합니다. </p>
               </div>
             </li>
-            <li>
-              <div class="progress-circle" id="progress-8" data-percent="50">
+            <li class="skill-items">
+              <div class="progress-circle" id="progress-8" data-percent="60">
                 <div class="progress-num">
                   0%
                 </div>
@@ -208,8 +216,8 @@
                 <p>웹·앱 UI/UX 디자인 및 프로토타입 제작이 가능합니다. </p>
               </div>
             </li>
-            <li>
-              <div class="progress-circle" id="progress-9" data-percent="70">
+            <li class="skill-items">
+              <div class="progress-circle" id="progress-9" data-percent="90">
                 <div class="progress-num">
                   0%
                 </div>
@@ -219,8 +227,8 @@
                 <p>이미지 보정, 합성, 배너 등 그래픽 디자인 제작 가능합니다. </p>
               </div>
             </li>
-            <li>
-              <div class="progress-circle" id="progress-10" data-percent="60">
+            <li class="skill-items">
+              <div class="progress-circle" id="progress-10" data-percent="90">
                 <div class="progress-num">
                   0%
                 </div>
@@ -230,7 +238,7 @@
                 <p>로고, 아이콘 등 벡터 기반 디자인 제작 가능하며, 펜툴 및 도형 툴을 사용할 수 있습니다. </p>
               </div>
             </li>
-            <li>
+            <li class="skill-items">
               <div class="progress-circle" id="progress-11" data-percent="80">
                 <div class="progress-num">
                   0%
@@ -242,8 +250,8 @@
               </div>
             </li>
             
-            <li>
-              <div class="progress-circle" id="progress-12" data-percent="50">
+            <li class="skill-items">
+              <div class="progress-circle" id="progress-12" data-percent="70">
                 <div class="progress-num">
                   0%
                 </div>
