@@ -880,7 +880,7 @@ main #Skill .wrapper .skill-list li.skill-items .skill-txt.active strong {
 }
 main #Skill .wrapper .skill-list li.skill-items .skill-txt.active p {
   text-align: center;
-  padding: 0px 5px;
+  padding: 0px 2px;
 }
 @media (min-width: 1440px) {
   main #Skill .wrapper .skill-list li.skill-items .skill-txt.active p {
