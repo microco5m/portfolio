@@ -48,6 +48,40 @@ window.onload = function () {
 
   //skill
 
+    const skills = [
+    { id:1, name:'html', images:'i_html5.png',datapercent:"90", skillTxt: '웹 접근성과 구조를 고려한 시맨틱 마크업 작성이 가능합니다.' },
+    { id:2, name:'css', images:'i_CSS.png',datapercent:"90", skillTxt: '반응형 웹 디자인 구현, 애니메이션, 트랜지션 등 시각적 효과를 적용할 수 있습니다.'},
+    { id:3, name:'Javascript', images:'i_js.png',datapercent:"75", skillTxt: '문법 기반의 동적 웹 기능 구현, 이벤트 처리를 할 수 있습니다.'},
+    { id:4, name:'sass', images:'i_SASS.png',datapercent:"85", skillTxt: '중첩, 변수, 믹스인 등을 활용한 효율적인 스타일링 및 유지 보수가 가능합니다.'},
+    { id:5, name:'jQuery', images:'i_jQuery.png',datapercent:"85", skillTxt: 'DOM 제어, 이벤트 처리가 가능합니다.'},
+    { id:6, name:'React', images:'i_React.png',datapercent:"55", skillTxt: '컴포넌트 기반 웹 개발을 공부하고있습니다.'},
+    { id:7, name:'Git', images:'i_Git.png',datapercent:"80", skillTxt: '버전 관리 및 협업을 위한 기본 명령어 활용 가능합니다.'},
+    { id:8, name:'Figma', images:'i_Figma.png',datapercent:"60", skillTxt: '웹·앱 UI/UX 디자인 및 프로토타입 제작이 가능합니다.'},
+    { id:9, name:'Photoshop', images:'i_photoshop.png',datapercent:"90", skillTxt: '이미지 보정, 합성, 배너 등 그래픽 디자인 제작 가능합니다.'},
+    { id:10, name:'Illustrator', images:'i_ai.png',datapercent:"90", skillTxt: '로고, 아이콘 등 벡터 기반 디자인 제작 가능하며, 펜툴 및 도형 툴을 사용할 수 있습니다.'},
+    { id:11, name:'Premiere Pro', images:'i_pr.png',datapercent:"80", skillTxt: '컷 편집, 자막, 색보정 등 기본 영상 편집 가능합니다.'},
+    { id:12, name:'After Effects', images:'i_ae.png',datapercent:"70", skillTxt: '모션 그래픽 및 자막 애니메이션 제작 가능합니다.'},
+  ]
+
+  const skillHTML = skills.map(
+    (skill) => `<li class="skill-items">
+              <div class="progress-circle" id="progress-${skill.id}" data-percent=${skill.datapercent}>
+                <div class="progress-num">
+                  0%
+                </div>
+                <img src="./images/${skill.images}" alt="skill icon ${skill.name}">
+              </div>
+              <div class="skill-txt">
+                <strong>${skill.name}</strong>
+                <p>${skill.skillTxt}</p>
+              </div>
+            </li>
+    `
+  );
+  const skillList = document.querySelector(".skill-list");
+  skillList.innerHTML = skillHTML.join("");
+
+
   let progressCircles = document.querySelectorAll(".progress-circle");
 
   function animateProgress(circle) {
@@ -81,6 +115,31 @@ window.onload = function () {
       }
     });
   });
+
+
+  let skillItems = document.querySelectorAll(".skill-items");
+
+  skillItems.forEach(item => {
+    item.addEventListener("mouseover", () => {
+      let skillTxt = item.querySelector(".skill-txt");
+
+      skillItems.forEach(item => {
+        let txt = item.querySelector('.skill-txt');
+        txt.classList.remove('active');
+      });
+
+      skillTxt.classList.add('active');
+    });
+
+    item.addEventListener("mouseout", () => {
+      let skillTxt = item.querySelector(".skill-txt");
+
+      skillTxt.classList.remove('active');
+    });
+  });
+  
+
+
 
 
 

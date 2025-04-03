@@ -855,10 +855,12 @@ main #Skill .wrapper .skill-list li.skill-items .progress-circle img {
 }
 main #Skill .wrapper .skill-list li.skill-items .skill-txt {
   display: none;
+  padding: 20px 10px;
 }
 main #Skill .wrapper .skill-list li.skill-items .skill-txt.active {
   display: block;
   position: absolute;
+  z-index: 30;
   top: 0;
   width: 100%;
   height: 100%;
@@ -866,9 +868,24 @@ main #Skill .wrapper .skill-list li.skill-items .skill-txt.active {
   background-color: rgba(240, 255, 255, 0.959);
   color: black;
 }
+main #Skill .wrapper .skill-list li.skill-items .skill-txt.active strong {
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+}
+@media (min-width: 1440px) {
+  main #Skill .wrapper .skill-list li.skill-items .skill-txt.active strong {
+    font-size: 20px;
+  }
+}
 main #Skill .wrapper .skill-list li.skill-items .skill-txt.active p {
   text-align: center;
-  padding: 30px 10px;
+  padding: 0px 5px;
+}
+@media (min-width: 1440px) {
+  main #Skill .wrapper .skill-list li.skill-items .skill-txt.active p {
+    padding: 5px 10px;
+  }
 }
 main #Portfolio-site {
   background: url(../images/earth2.png) no-repeat left;
