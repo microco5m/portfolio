@@ -330,31 +330,54 @@ main #Intro {
   height: 100vh;
 }
 @media (min-width: 1440px) {
+  main #Intro {
+    height: 950px;
+  }
+}
+@media (min-width: 1440px) {
   main #Intro .scroll-track-vertical {
     position: fixed;
     top: 120px;
-    left: 30px;
+    margin-left: 30px;
     width: 3px;
     height: 300px;
     background: #ddd;
   }
-}
-@media (min-width: 1440px) {
-  main #Intro .scroll-indicator {
+  main #Intro .scroll-track-vertical::after {
+    content: "";
     position: absolute;
-    top: -10px;
-    left: -13px;
+    top: -16px;
     width: 30px;
-    height: 45px;
-    background-image: url(./ro.png);
-    background-size: 30px 45px;
-    background-repeat: no-repeat;
-    transition: top 0.1s;
+    height: 30px;
+    left: -14px;
+    background-image: url(../images/bar_mooon.png);
+    background-size: 30px 30px;
+    border-radius: 10px;
+  }
+  main #Intro .scroll-track-vertical::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: -14px;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/bar_earth.png);
+    background-size: 30px 30px;
+    border-radius: 10px;
   }
 }
 @media (min-width: 1440px) {
-  main #Intro {
-    height: 950px;
+  main #Intro .scroll-track-vertical .scroll-indicator {
+    position: absolute;
+    top: -10px;
+    left: -13px;
+    z-index: 300;
+    width: 30px;
+    height: 45px;
+    background-image: url(../images/ro.png);
+    background-size: 30px 45px;
+    background-repeat: no-repeat;
+    transition: top 0.1s;
   }
 }
 main #Intro h2 {

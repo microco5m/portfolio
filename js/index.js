@@ -39,7 +39,18 @@ window.onload = function () {
 
 
   //Intro
-
+  window.addEventListener("scroll", () => {
+    const indicator = document.querySelector(".scroll-indicator");
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = scrollTop / docHeight;
+  
+    const trackHeight = 300; // 고정값
+    const maxPos = trackHeight - 20; // indicator 높이 고려
+  
+    const pos = percent * maxPos;
+    indicator.style.top = `${pos}px`;
+  });
 
 
 

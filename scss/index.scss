@@ -307,35 +307,58 @@ main {
     overflow: hidden;
     height: 100vh;
 
+    @include responsive(large-screens) {
+      height: 950px;
+    }
     .scroll-track-vertical {
       @include responsive(large-screens) {
         position: fixed;
         top: 120px;
-        left: 30px;
       
+        margin-left: 30px;
         width: 3px;
         height: 300px;
         background: #ddd;
-      }
-    }
-    
-    .scroll-indicator {
 
-      @include responsive(large-screens) {
-        position: absolute;
-        top: -10px;
-        left: -13px;
-        width: 30px;
-        height: 45px;
-        background-image: url(./ro.png);
-        background-size: 30px 45px;
-        background-repeat: no-repeat;
-        transition: top 0.1s;
+        &::after {
+          content: "";
+          position: absolute;
+          top: -16px;
+          width: 30px;
+          height: 30px;
+          left: -14px;
+          // background-color: white;
+          background-image: url(../images/bar_mooon.png);
+          background-size: 30px 30px;
+          border-radius: 10px;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          left: -14px;
+          width: 30px;
+          height: 30px;
+          // background-color: white;
+          background-image: url(../images/bar_earth.png);
+          background-size: 30px 30px;
+          border-radius: 10px;
+        }
       }
-    }
-
-    @include responsive(large-screens) {
-      height: 950px;
+      .scroll-indicator {
+        @include responsive(large-screens) {
+          position: absolute;
+          top: -10px;
+          left: -13px;
+          z-index: 300;
+          width: 30px;
+          height: 45px;
+          background-image: url(../images/ro.png);
+          background-size: 30px 45px;
+          background-repeat: no-repeat;
+          transition: top 0.1s;
+        }
+      }
     }
 
     h2 {
