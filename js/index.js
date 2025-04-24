@@ -206,9 +206,6 @@ window.onload = function () {
       footer.classList.remove('show');
     }
   });
-
-
-
 }
 
 // 

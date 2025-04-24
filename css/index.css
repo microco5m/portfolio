@@ -329,37 +329,27 @@ main #Intro {
   overflow: hidden;
   height: 100vh;
 }
-main #Intro .scroll-right {
-  position: relative;
-}
 @media (min-width: 1440px) {
-  main #Intro .scroll-right .scroll-bar {
+  main #Intro .scroll-track-vertical {
     position: fixed;
     top: 120px;
-    margin-left: 30px;
-    height: 300px;
+    left: 30px;
     width: 3px;
-    background-color: white;
+    height: 300px;
+    background: #ddd;
   }
 }
 @media (min-width: 1440px) {
-  main #Intro .scroll-right .scroll-bar .scroll-circle {
+  main #Intro .scroll-indicator {
     position: absolute;
-    top: 0;
-    width: 15px;
-    height: 15px;
-    left: -6px;
-    background-color: white;
-    border-radius: 10px;
-  }
-  main #Intro .scroll-right .scroll-bar .scroll-circle::before {
-    content: "";
-    position: absolute;
-    top: 285px;
-    width: 15px;
-    height: 15px;
-    background-color: white;
-    border-radius: 10px;
+    top: -10px;
+    left: -13px;
+    width: 30px;
+    height: 45px;
+    background-image: url(./ro.png);
+    background-size: 30px 45px;
+    background-repeat: no-repeat;
+    transition: top 0.1s;
   }
 }
 @media (min-width: 1440px) {

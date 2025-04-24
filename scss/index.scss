@@ -307,42 +307,30 @@ main {
     overflow: hidden;
     height: 100vh;
 
-    .scroll-right {
-      position: relative;
+    .scroll-track-vertical {
+      @include responsive(large-screens) {
+        position: fixed;
+        top: 120px;
+        left: 30px;
+      
+        width: 3px;
+        height: 300px;
+        background: #ddd;
+      }
+    }
+    
+    .scroll-indicator {
 
-      .scroll-bar {
-        @include responsive(large-screens) {
-          position: fixed;
-          top: 120px;
-
-          margin-left: 30px;
-          height: 300px;
-          width: 3px;
-
-          background-color: white;
-        }
-
-        .scroll-circle {
-          @include responsive(large-screens) {
-            position: absolute;
-            top: 0;
-            width: 15px;
-            height: 15px;
-            left: -6px;
-            background-color: white;
-            border-radius: 10px;
-
-            &::before {
-              content: "";
-              position: absolute;
-              top: 285px;
-              width: 15px;
-              height: 15px;
-              background-color: white;
-              border-radius: 10px;
-            }
-          }
-        }
+      @include responsive(large-screens) {
+        position: absolute;
+        top: -10px;
+        left: -13px;
+        width: 30px;
+        height: 45px;
+        background-image: url(./ro.png);
+        background-size: 30px 45px;
+        background-repeat: no-repeat;
+        transition: top 0.1s;
       }
     }
 
